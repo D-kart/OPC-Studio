@@ -1,0 +1,1670 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="theme-color" content="#0a0a0f">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>OPC-Studio | 看见每一个一人公司</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Noto+Sans+SC:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-primary: #0a0a0f;
+            --bg-secondary: #12121a;
+            --bg-card: #1a1a2e;
+            --bg-card-hover: #222240;
+            --accent: #6366f1;
+            --accent-light: #818cf8;
+            --accent-glow: rgba(99, 102, 241, 0.3);
+            --text-primary: #f1f5f9;
+            --text-secondary: #94a3b8;
+            --text-muted: #64748b;
+            --border: rgba(99, 102, 241, 0.15);
+            --gradient-1: linear-gradient(135deg, #6366f1, #8b5cf6, #a78bfa);
+            --gradient-2: linear-gradient(135deg, #06b6d4, #6366f1);
+            --radius: 16px;
+            --radius-sm: 8px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', 'Noto Sans SC', -apple-system, sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+            text-rendering: optimizeLegibility;
+        }
+
+        button,
+        a,
+        textarea {
+            -webkit-tap-highlight-color: transparent;
+            touch-action: manipulation;
+        }
+
+        /* ===== NAV ===== */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            padding: 16px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            backdrop-filter: blur(20px);
+            background: rgba(10, 10, 15, 0.8);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .nav-logo {
+            font-size: 20px;
+            font-weight: 800;
+            background: var(--gradient-1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            letter-spacing: -0.5px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 32px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-light);
+        }
+
+        .nav-cta {
+            padding: 8px 20px;
+            background: var(--gradient-1);
+            border: none;
+            border-radius: 20px;
+            color: white;
+            font-weight: 600;
+            font-size: 13px;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.3s;
+        }
+
+        .nav-cta:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 20px var(--accent-glow);
+        }
+
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            flex-direction: column;
+            gap: 4px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 8px;
+            width: 36px;
+            height: 36px;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .mobile-menu-btn span {
+            display: block;
+            width: 18px;
+            height: 2px;
+            background: var(--text-primary);
+            border-radius: 1px;
+            transition: all 0.3s;
+        }
+
+        .mobile-menu-btn.open span:nth-child(1) {
+            transform: translateY(6px) rotate(45deg);
+        }
+
+        .mobile-menu-btn.open span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .mobile-menu-btn.open span:nth-child(3) {
+            transform: translateY(-6px) rotate(-45deg);
+        }
+
+        .mobile-menu {
+            display: none;
+            position: fixed;
+            top: 56px;
+            left: 0;
+            right: 0;
+            background: rgba(10, 10, 15, 0.98);
+            backdrop-filter: blur(20px);
+            padding: 20px;
+            z-index: 999;
+            border-bottom: 1px solid var(--border);
+            flex-direction: column;
+            gap: 0;
+            transform: translateY(-10px);
+            opacity: 0;
+            transition: all 0.3s ease;
+        }
+
+        .mobile-menu.open {
+            display: flex;
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        .mobile-menu a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: 500;
+            padding: 14px 0;
+            border-bottom: 1px solid var(--border);
+            transition: color 0.3s;
+        }
+
+        .mobile-menu a:last-child {
+            border-bottom: none;
+        }
+
+        .mobile-menu a:hover,
+        .mobile-menu a:active {
+            color: var(--accent-light);
+        }
+
+        .mobile-menu-cta {
+            margin-top: 8px;
+            padding: 14px !important;
+            background: var(--gradient-1);
+            border-radius: 10px;
+            color: white !important;
+            text-align: center;
+            font-weight: 600 !important;
+        }
+
+        @media (max-width: 768px) {
+            .mobile-menu-btn {
+                display: flex;
+            }
+            .nav-cta {
+                display: none;
+            }
+        }
+
+        /* ===== HERO ===== */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 120px 40px 80px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(ellipse at center, rgba(99, 102, 241, 0.08) 0%, transparent 60%);
+            animation: pulse 8s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 0.5; }
+            50% { transform: scale(1.1); opacity: 1; }
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 6px 16px;
+            background: rgba(99, 102, 241, 0.1);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            font-size: 13px;
+            color: var(--accent-light);
+            margin-bottom: 32px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-badge::before {
+            content: '';
+            width: 6px;
+            height: 6px;
+            background: #10b981;
+            border-radius: 50%;
+            animation: blink 2s infinite;
+        }
+
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.3; }
+        }
+
+        .hero h1 {
+            font-size: clamp(48px, 8vw, 96px);
+            font-weight: 900;
+            line-height: 1.1;
+            letter-spacing: -2px;
+            margin-bottom: 24px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero h1 .highlight {
+            background: var(--gradient-1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-sub {
+            font-size: clamp(18px, 2.5vw, 24px);
+            color: var(--text-secondary);
+            max-width: 640px;
+            margin-bottom: 48px;
+            position: relative;
+            z-index: 1;
+            font-weight: 300;
+        }
+
+        .hero-stats {
+            display: flex;
+            gap: 48px;
+            position: relative;
+            z-index: 1;
+            margin-bottom: 48px;
+        }
+
+        .stat {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 40px;
+            font-weight: 800;
+            background: var(--gradient-1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .stat-label {
+            font-size: 13px;
+            color: var(--text-muted);
+            margin-top: 4px;
+        }
+
+        .hero-cta {
+            display: flex;
+            gap: 16px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .btn-primary {
+            padding: 14px 32px;
+            background: var(--gradient-1);
+            border: none;
+            border-radius: 12px;
+            color: white;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.3s;
+            text-decoration: none;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 32px var(--accent-glow);
+        }
+
+        .btn-secondary {
+            padding: 14px 32px;
+            background: transparent;
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            color: var(--text-primary);
+            font-size: 16px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--accent);
+            background: rgba(99, 102, 241, 0.05);
+        }
+
+        /* ===== SECTIONS ===== */
+        section {
+            padding: 120px 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-label {
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: var(--accent-light);
+            margin-bottom: 16px;
+        }
+
+        .section-title {
+            font-size: clamp(32px, 4vw, 48px);
+            font-weight: 800;
+            letter-spacing: -1px;
+            margin-bottom: 20px;
+        }
+
+        .section-desc {
+            font-size: 18px;
+            color: var(--text-secondary);
+            max-width: 640px;
+            margin-bottom: 64px;
+        }
+
+        /* ===== 7 QUESTIONS ===== */
+        .questions-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 20px;
+        }
+
+        .q-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 28px;
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .q-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: var(--gradient-1);
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .q-card:hover {
+            border-color: var(--accent);
+            transform: translateY(-4px);
+            box-shadow: 0 8px 32px rgba(99, 102, 241, 0.1);
+        }
+
+        .q-card:hover::before {
+            opacity: 1;
+        }
+
+        .q-number {
+            font-size: 11px;
+            font-weight: 700;
+            color: var(--accent-light);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 12px;
+        }
+
+        .q-title {
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .q-desc {
+            font-size: 14px;
+            color: var(--text-secondary);
+            line-height: 1.5;
+        }
+
+        .q-icon {
+            font-size: 32px;
+            margin-bottom: 16px;
+        }
+
+        /* ===== AI WORKFLOW ===== */
+        .workflow-container {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 16px;
+            margin-top: 48px;
+        }
+
+        .agent-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-sm);
+            padding: 20px;
+            text-align: center;
+            transition: all 0.3s;
+            position: relative;
+        }
+
+        .agent-card::after {
+            content: '';
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            width: 6px;
+            height: 6px;
+            background: #10b981;
+            border-radius: 50%;
+            animation: blink 2s infinite;
+        }
+
+        .agent-card:hover {
+            border-color: var(--accent);
+            transform: scale(1.02);
+        }
+
+        .agent-icon {
+            font-size: 28px;
+            margin-bottom: 8px;
+        }
+
+        .agent-name {
+            font-size: 13px;
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        .agent-task {
+            font-size: 11px;
+            color: var(--text-muted);
+        }
+
+        /* ===== BUSINESS MODEL ===== */
+        .biz-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+
+        .biz-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 32px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .biz-card .biz-phase {
+            font-size: 11px;
+            font-weight: 700;
+            color: var(--accent-light);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 16px;
+        }
+
+        .biz-card h3 {
+            font-size: 22px;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+
+        .biz-card p {
+            font-size: 14px;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        /* ===== AI TEARDOWN (拆机器) ===== */
+        #teardown {
+            background: var(--bg-secondary);
+            border-radius: var(--radius);
+            border: 1px solid var(--border);
+            padding: 80px 40px;
+            max-width: 800px;
+            margin: 0 auto 120px;
+        }
+
+        .teardown-header {
+            text-align: center;
+            margin-bottom: 48px;
+        }
+
+        .teardown-header h2 {
+            font-size: 36px;
+            font-weight: 800;
+            margin-bottom: 12px;
+        }
+
+        .teardown-header p {
+            color: var(--text-secondary);
+            font-size: 16px;
+        }
+
+        /* Step indicator */
+        .step-indicator {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            margin-bottom: 40px;
+        }
+
+        .step-dot {
+            width: 32px;
+            height: 4px;
+            border-radius: 2px;
+            background: rgba(99, 102, 241, 0.2);
+            transition: all 0.3s;
+        }
+
+        .step-dot.active {
+            background: var(--accent);
+            width: 48px;
+        }
+
+        .step-dot.completed {
+            background: #10b981;
+        }
+
+        /* Form steps */
+        .teardown-step {
+            display: none;
+            animation: fadeIn 0.4s ease;
+        }
+
+        .teardown-step.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .step-question {
+            font-size: 14px;
+            color: var(--accent-light);
+            font-weight: 600;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .step-title {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 24px;
+        }
+
+        .input-area {
+            width: 100%;
+            min-height: 120px;
+            background: var(--bg-primary);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 16px;
+            color: var(--text-primary);
+            font-size: 16px;
+            font-family: inherit;
+            resize: none;
+            outline: none;
+            transition: border-color 0.3s;
+            -webkit-appearance: none;
+            appearance: none;
+        }
+
+        .input-area:focus {
+            border-color: var(--accent);
+        }
+
+        .input-area::placeholder {
+            color: var(--text-muted);
+        }
+
+        .step-actions {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 24px;
+        }
+
+        .btn-back {
+            padding: 12px 24px;
+            background: transparent;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            color: var(--text-secondary);
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .btn-back:hover {
+            border-color: var(--text-secondary);
+        }
+
+        .btn-next {
+            padding: 12px 24px;
+            background: var(--gradient-1);
+            border: none;
+            border-radius: 8px;
+            color: white;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .btn-next:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 4px 16px var(--accent-glow);
+        }
+
+        .btn-next:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: none;
+        }
+
+        /* Loading animation */
+        .loading-screen {
+            display: none;
+            text-align: center;
+            padding: 60px 20px;
+        }
+
+        .loading-screen.active {
+            display: block;
+        }
+
+        .loader {
+            width: 48px;
+            height: 48px;
+            border: 3px solid var(--border);
+            border-top-color: var(--accent);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 24px;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        .loading-text {
+            color: var(--text-secondary);
+            font-size: 14px;
+        }
+
+        .loading-step {
+            color: var(--accent-light);
+            font-size: 13px;
+            margin-top: 8px;
+            font-weight: 500;
+        }
+
+        /* Result card */
+        .result-card {
+            display: none;
+            animation: fadeIn 0.6s ease;
+        }
+
+        .result-card.active {
+            display: block;
+        }
+
+        .rating-card {
+            background: linear-gradient(135deg, #1a1a2e, #16213e);
+            border: 1px solid rgba(99, 102, 241, 0.3);
+            border-radius: var(--radius);
+            padding: 40px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .rating-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--gradient-1);
+        }
+
+        .rating-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 32px;
+        }
+
+        .rating-project-name {
+            font-size: 24px;
+            font-weight: 800;
+        }
+
+        .rating-badge {
+            padding: 4px 12px;
+            background: rgba(99, 102, 241, 0.15);
+            border: 1px solid var(--accent);
+            border-radius: 16px;
+            font-size: 11px;
+            font-weight: 600;
+            color: var(--accent-light);
+        }
+
+        .rating-dimensions {
+            display: grid;
+            gap: 20px;
+            margin-bottom: 32px;
+        }
+
+        .dimension {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .dim-label {
+            width: 80px;
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--text-secondary);
+        }
+
+        .dim-bar {
+            flex: 1;
+            height: 8px;
+            background: rgba(99, 102, 241, 0.1);
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .dim-fill {
+            height: 100%;
+            background: var(--gradient-1);
+            border-radius: 4px;
+            transition: width 1s ease;
+            width: 0;
+        }
+
+        .dim-score {
+            width: 36px;
+            text-align: right;
+            font-size: 14px;
+            font-weight: 700;
+            color: var(--accent-light);
+        }
+
+        .rating-verdict {
+            padding: 20px;
+            background: rgba(99, 102, 241, 0.05);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            margin-bottom: 24px;
+        }
+
+        .verdict-title {
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--accent-light);
+            margin-bottom: 8px;
+        }
+
+        .verdict-text {
+            font-size: 15px;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        .rating-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 20px;
+            border-top: 1px solid var(--border);
+        }
+
+        .rating-brand {
+            font-size: 12px;
+            color: var(--text-muted);
+        }
+
+        .rating-date {
+            font-size: 12px;
+            color: var(--text-muted);
+        }
+
+        .result-actions {
+            display: flex;
+            gap: 12px;
+            margin-top: 24px;
+            justify-content: center;
+        }
+
+        /* ===== FOOTER ===== */
+        footer {
+            text-align: center;
+            padding: 60px 40px;
+            border-top: 1px solid var(--border);
+        }
+
+        footer p {
+            color: var(--text-muted);
+            font-size: 13px;
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 768px) {
+            nav {
+                padding: 12px 16px;
+            }
+            .nav-links { display: none; }
+            .nav-cta {
+                padding: 10px 16px;
+                font-size: 12px;
+            }
+
+            .hero {
+                padding: 100px 20px 60px;
+                min-height: calc(100vh - env(safe-area-inset-bottom));
+            }
+            .hero h1 {
+                font-size: clamp(36px, 10vw, 56px);
+                letter-spacing: -1px;
+            }
+            .hero-badge {
+                font-size: 11px;
+                padding: 5px 12px;
+                margin-bottom: 24px;
+                max-width: 100%;
+                text-align: left;
+                line-height: 1.4;
+            }
+            .hero-sub {
+                font-size: 16px;
+                margin-bottom: 32px;
+                padding: 0 8px;
+            }
+            .hero-stats {
+                gap: 20px;
+                margin-bottom: 32px;
+            }
+            .stat-number { font-size: 32px; }
+            .stat-label { font-size: 11px; }
+            .hero-cta {
+                flex-direction: column;
+                width: 100%;
+                gap: 12px;
+                padding: 0 16px;
+            }
+            .hero-cta .btn-primary,
+            .hero-cta .btn-secondary {
+                width: 100%;
+                text-align: center;
+                padding: 16px 24px;
+                font-size: 15px;
+            }
+
+            section {
+                padding: 64px 20px;
+            }
+            .section-title {
+                font-size: clamp(24px, 6vw, 36px);
+                margin-bottom: 16px;
+            }
+            .section-desc {
+                font-size: 15px;
+                margin-bottom: 40px;
+            }
+
+            /* 7 Questions */
+            .questions-grid {
+                grid-template-columns: 1fr;
+                gap: 12px;
+            }
+            .q-card {
+                padding: 20px;
+            }
+            .q-icon { font-size: 28px; margin-bottom: 12px; }
+            .q-title { font-size: 18px; }
+            .q-desc { font-size: 13px; }
+
+            /* AI Workflow */
+            .workflow-container {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 10px;
+                margin-top: 32px;
+            }
+            .agent-card {
+                padding: 14px 8px;
+            }
+            .agent-icon { font-size: 24px; margin-bottom: 6px; }
+            .agent-name { font-size: 11px; }
+            .agent-task { font-size: 9px; }
+
+            /* Business Model */
+            .biz-grid {
+                grid-template-columns: 1fr;
+                gap: 16px;
+            }
+            .biz-card {
+                padding: 24px;
+            }
+            .biz-card h3 { font-size: 20px; }
+
+            /* Teardown */
+            #teardown {
+                padding: 32px 16px;
+                margin: 0 12px 80px;
+                border-radius: 12px;
+            }
+            .teardown-header h2 {
+                font-size: 28px;
+            }
+            .teardown-header p {
+                font-size: 14px;
+            }
+            .step-title {
+                font-size: 20px;
+                margin-bottom: 16px;
+            }
+            .input-area {
+                min-height: 100px;
+                font-size: 16px; /* prevent iOS zoom */
+                padding: 14px;
+            }
+            .step-actions {
+                margin-top: 20px;
+                gap: 12px;
+            }
+            .step-actions > div {
+                display: none;
+            }
+            .btn-next, .btn-back {
+                padding: 14px 20px;
+                font-size: 15px;
+                min-height: 48px;
+                flex: 1;
+            }
+            .teardown-step[data-step="0"] .step-actions .btn-next {
+                flex: unset;
+                width: 100%;
+            }
+
+            /* Rating Card */
+            .rating-card {
+                padding: 24px 16px;
+            }
+            .rating-header {
+                flex-direction: column;
+                gap: 12px;
+                margin-bottom: 24px;
+            }
+            .rating-project-name {
+                font-size: 20px;
+            }
+            .dimension {
+                gap: 10px;
+            }
+            .dim-label {
+                width: 64px;
+                font-size: 11px;
+            }
+            .dim-score { font-size: 13px; }
+            .rating-verdict {
+                padding: 16px;
+            }
+            .verdict-text { font-size: 14px; }
+            .rating-footer {
+                flex-direction: column;
+                gap: 4px;
+                align-items: flex-start;
+            }
+            .result-actions {
+                flex-direction: column;
+                gap: 10px;
+            }
+            .result-actions .btn-primary,
+            .result-actions .btn-secondary {
+                width: 100%;
+                padding: 14px;
+                font-size: 15px;
+            }
+
+            /* Footer */
+            footer {
+                padding: 40px 20px calc(20px + env(safe-area-inset-bottom));
+            }
+        }
+
+        /* Extra small screens (iPhone SE etc) */
+        @media (max-width: 375px) {
+            .hero h1 {
+                font-size: 32px;
+            }
+            .hero-stats {
+                gap: 16px;
+            }
+            .stat-number { font-size: 28px; }
+            .workflow-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .agent-card {
+                padding: 12px 6px;
+            }
+            #teardown {
+                margin: 0 8px 60px;
+                padding: 24px 12px;
+            }
+        }
+
+        /* Touch-friendly: ensure all interactive elements have adequate size */
+        @media (hover: none) and (pointer: coarse) {
+            .q-card:hover {
+                transform: none;
+                box-shadow: none;
+            }
+            .agent-card:hover {
+                transform: none;
+            }
+            .btn-primary:hover,
+            .btn-secondary:hover {
+                transform: none;
+            }
+            .btn-primary:active {
+                transform: scale(0.97);
+            }
+            .btn-secondary:active {
+                background: rgba(99, 102, 241, 0.1);
+            }
+        }
+
+        /* ===== SCROLL REVEAL ===== */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <!-- NAV -->
+    <nav>
+        <div class="nav-logo">OPC-Studio</div>
+        <ul class="nav-links">
+            <li><a href="#about">About</a></li>
+            <li><a href="#pitchroom">PitchRoom</a></li>
+            <li><a href="#workflow">AI Workflow</a></li>
+            <li><a href="#model">Model</a></li>
+        </ul>
+        <div class="nav-right">
+            <button class="nav-cta" onclick="scrollToTeardown()">AI 拆机体验</button>
+            <button class="mobile-menu-btn" onclick="toggleMobileMenu()" aria-label="菜单">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </nav>
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="#about" onclick="closeMobileMenu()">About</a>
+        <a href="#pitchroom" onclick="closeMobileMenu()">PitchRoom</a>
+        <a href="#workflow" onclick="closeMobileMenu()">AI Workflow</a>
+        <a href="#model" onclick="closeMobileMenu()">Model</a>
+        <a href="#teardown" onclick="closeMobileMenu()" class="mobile-menu-cta">AI 拆机体验</a>
+    </div>
+
+    <!-- HERO -->
+    <section class="hero">
+        <div class="hero-badge">
+            <span></span> 2026 WAIC OPC 独立先锋挑战赛参赛项目
+        </div>
+        <h1>看见每一个<br><span class="highlight">一人公司</span></h1>
+        <p class="hero-sub">OPC-Studio 是一个 AI 原生的内容工作室。一人 + 12 个 AI Agent，记录与放大每一位 OPC 创业者的故事。</p>
+        <div class="hero-stats">
+            <div class="stat">
+                <div class="stat-number">1</div>
+                <div class="stat-label">人类操作员</div>
+            </div>
+            <div class="stat">
+                <div class="stat-number">12</div>
+                <div class="stat-label">AI Agents</div>
+            </div>
+            <div class="stat">
+                <div class="stat-number">10x</div>
+                <div class="stat-label">效率杠杆</div>
+            </div>
+        </div>
+        <div class="hero-cta">
+            <a href="#teardown" class="btn-primary">体验 AI 拆机器</a>
+            <a href="#about" class="btn-secondary">了解更多</a>
+        </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about" class="reveal">
+        <div class="section-label">About</div>
+        <h2 class="section-title">我们自己就是 OPC</h2>
+        <p class="section-desc">OPC-Studio 用一人公司的模式，服务一人公司的生态。从选题到分发，从数据分析到社群运营，我们用 AI 跑通了全流程——这本身就是 OPC 模式最好的证明。</p>
+    </section>
+
+    <!-- PITCHROOM 7 QUESTIONS -->
+    <section id="pitchroom" class="reveal">
+        <div class="section-label">PitchRoom</div>
+        <h2 class="section-title">结构化 7 问 —— 拆开每一台一人公司</h2>
+        <p class="section-desc">不是拷问，是拆解。像拆一台精密机器，看它内部如何运转。</p>
+        <div class="questions-grid">
+            <div class="q-card">
+                <div class="q-icon">🔩</div>
+                <div class="q-number">Question 01</div>
+                <div class="q-title">拆壳</div>
+                <div class="q-desc">你的一人公司从外面看是什么？从里面看呢？</div>
+            </div>
+            <div class="q-card">
+                <div class="q-icon">⚡</div>
+                <div class="q-number">Question 02</div>
+                <div class="q-title">引擎</div>
+                <div class="q-desc">AI 在你这里扮演什么角色？助手、合伙人、还是替身？</div>
+            </div>
+            <div class="q-card">
+                <div class="q-icon">📊</div>
+                <div class="q-number">Question 03</div>
+                <div class="q-title">仪表盘</div>
+                <div class="q-desc">你每天盯着哪个数字？它现在是多少？</div>
+            </div>
+            <div class="q-card">
+                <div class="q-icon">📦</div>
+                <div class="q-number">Question 04</div>
+                <div class="q-title">黑匣子</div>
+                <div class="q-desc">走到今天，哪个弯路差点让你死掉？</div>
+            </div>
+            <div class="q-card">
+                <div class="q-icon">🚀</div>
+                <div class="q-number">Question 05</div>
+                <div class="q-title">涡轮</div>
+                <div class="q-desc">如果给你10倍的用户，你的系统撑得住吗？</div>
+            </div>
+            <div class="q-card">
+                <div class="q-icon">🪞</div>
+                <div class="q-number">Question 06</div>
+                <div class="q-title">后视镜</div>
+                <div class="q-desc">回到起点，你会跳过什么、加速什么？</div>
+            </div>
+            <div class="q-card">
+                <div class="q-icon">🧭</div>
+                <div class="q-number">Question 07</div>
+                <div class="q-title">导航</div>
+                <div class="q-desc">12个月后，你希望自己是什么样子？</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- AI WORKFLOW -->
+    <section id="workflow" class="reveal">
+        <div class="section-label">AI-Native Workflow</div>
+        <h2 class="section-title">一人军团作战室</h2>
+        <p class="section-desc">12 个 AI Agent 7x24 全天候运转，覆盖从内容生产到社群运营的全链条。</p>
+        <div class="workflow-container">
+            <div class="agent-card">
+                <div class="agent-icon">🔍</div>
+                <div class="agent-name">调研 Agent</div>
+                <div class="agent-task">项目背调中...</div>
+            </div>
+            <div class="agent-card">
+                <div class="agent-icon">✂️</div>
+                <div class="agent-name">剪辑 Agent</div>
+                <div class="agent-task">长片切片中...</div>
+            </div>
+            <div class="agent-card">
+                <div class="agent-icon">📡</div>
+                <div class="agent-name">分发 Agent</div>
+                <div class="agent-task">6平台同步中...</div>
+            </div>
+            <div class="agent-card">
+                <div class="agent-icon">💬</div>
+                <div class="agent-name">社群 Agent</div>
+                <div class="agent-task">回复互动中...</div>
+            </div>
+            <div class="agent-card">
+                <div class="agent-icon">🎨</div>
+                <div class="agent-name">设计 Agent</div>
+                <div class="agent-task">生成封面中...</div>
+            </div>
+            <div class="agent-card">
+                <div class="agent-icon">📝</div>
+                <div class="agent-name">选题 Agent</div>
+                <div class="agent-task">扫描热点中...</div>
+            </div>
+            <div class="agent-card">
+                <div class="agent-icon">📈</div>
+                <div class="agent-name">数据 Agent</div>
+                <div class="agent-task">归因分析中...</div>
+            </div>
+            <div class="agent-card">
+                <div class="agent-icon">🤝</div>
+                <div class="agent-name">邀约 Agent</div>
+                <div class="agent-task">嘉宾跟进中...</div>
+            </div>
+            <div class="agent-card">
+                <div class="agent-icon">🌐</div>
+                <div class="agent-name">翻译 Agent</div>
+                <div class="agent-task">双语转制中...</div>
+            </div>
+            <div class="agent-card">
+                <div class="agent-icon">🎯</div>
+                <div class="agent-name">匹配 Agent</div>
+                <div class="agent-task">需求撮合中...</div>
+            </div>
+            <div class="agent-card">
+                <div class="agent-icon">📋</div>
+                <div class="agent-name">报告 Agent</div>
+                <div class="agent-task">生成周报中...</div>
+            </div>
+            <div class="agent-card">
+                <div class="agent-icon">🧠</div>
+                <div class="agent-name">总控 Agent</div>
+                <div class="agent-task">调度编排中...</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- BUSINESS MODEL -->
+    <section id="model" class="reveal">
+        <div class="section-label">Business Model</div>
+        <h2 class="section-title">可持续的增长飞轮</h2>
+        <p class="section-desc">三个阶段，两条腿走路——工具产品 + 精准对接。</p>
+        <div class="biz-grid">
+            <div class="biz-card">
+                <div class="biz-phase">Phase 1 · 当前</div>
+                <h3>OPC Toolkit</h3>
+                <p>将验证过的 AI 工作流产品化，让每个一人公司创业者都能拥有自己的 AI 军团。订阅制 SaaS，从工具切入生态。</p>
+            </div>
+            <div class="biz-card">
+                <div class="biz-phase">Phase 2 · 规模化</div>
+                <h3>OPC Network</h3>
+                <p>企业有越来越多业务想交给靠谱的一人公司。我们沉淀的项目数据库就是最精准的匹配引擎——让对的人遇到对的需求。</p>
+            </div>
+            <div class="biz-card">
+                <div class="biz-phase">Phase 3 · 飞轮</div>
+                <h3>品牌生态</h3>
+                <p>当 OPC-Studio 成为行业默认入口，品牌赞助、联名合作、内容付费将自然涌入。内容带流量，流量养生态，生态反哺内容。</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- AI TEARDOWN TOOL -->
+    <div id="teardown">
+        <div class="teardown-header">
+            <h2>🔧 OPC 拆机器</h2>
+            <p>输入你的项目，AI 帮你做一次结构化"拆机"</p>
+        </div>
+
+        <!-- Step Indicator -->
+        <div class="step-indicator">
+            <div class="step-dot active" data-step="0"></div>
+            <div class="step-dot" data-step="1"></div>
+            <div class="step-dot" data-step="2"></div>
+        </div>
+
+        <!-- Step 1: Basic Info -->
+        <div class="teardown-step active" data-step="0">
+            <div class="step-question">Step 1 / 3</div>
+            <div class="step-title">告诉我你的一人公司</div>
+            <textarea class="input-area" id="input-project" placeholder="用一两句话描述你在做什么。&#10;例：我一个人用AI做跨境电商选品工具，月流水5万。"></textarea>
+            <div class="step-actions">
+                <div></div>
+                <button class="btn-next" onclick="nextStep(1)">下一步</button>
+            </div>
+        </div>
+
+        <!-- Step 2: AI Usage -->
+        <div class="teardown-step" data-step="1">
+            <div class="step-question">Step 2 / 3</div>
+            <div class="step-title">AI 在你这里是什么角色？</div>
+            <textarea class="input-area" id="input-ai" placeholder="你用了哪些AI工具？它们替代了什么？&#10;例：用 Claude 写代码和文案，用 Midjourney 做图，省掉了2个全职员工。"></textarea>
+            <div class="step-actions">
+                <button class="btn-back" onclick="prevStep(0)">上一步</button>
+                <button class="btn-next" onclick="nextStep(2)">下一步</button>
+            </div>
+        </div>
+
+        <!-- Step 3: Vision -->
+        <div class="teardown-step" data-step="2">
+            <div class="step-question">Step 3 / 3</div>
+            <div class="step-title">12 个月后，你想变成什么样？</div>
+            <textarea class="input-area" id="input-vision" placeholder="目标、梦想、或者一个具体的数字。&#10;例：月收入突破20万，服务1000个客户，打造自己的品牌。"></textarea>
+            <div class="step-actions">
+                <button class="btn-back" onclick="prevStep(1)">上一步</button>
+                <button class="btn-next" onclick="generateResult()">生成评级卡 ✨</button>
+            </div>
+        </div>
+
+        <!-- Loading -->
+        <div class="loading-screen" id="loading">
+            <div class="loader"></div>
+            <div class="loading-text">AI 正在拆解你的一人公司...</div>
+            <div class="loading-step" id="loading-step">分析项目结构</div>
+        </div>
+
+        <!-- Result -->
+        <div class="result-card" id="result">
+            <div class="rating-card">
+                <div class="rating-header">
+                    <div class="rating-project-name" id="result-name">—</div>
+                    <div class="rating-badge">OPC-Studio 评级</div>
+                </div>
+                <div class="rating-dimensions">
+                    <div class="dimension">
+                        <div class="dim-label">引擎 Engine</div>
+                        <div class="dim-bar"><div class="dim-fill" id="dim-engine"></div></div>
+                        <div class="dim-score" id="score-engine">—</div>
+                    </div>
+                    <div class="dimension">
+                        <div class="dim-label">杠杆 Lever</div>
+                        <div class="dim-bar"><div class="dim-fill" id="dim-lever"></div></div>
+                        <div class="dim-score" id="score-lever">—</div>
+                    </div>
+                    <div class="dimension">
+                        <div class="dim-label">韧性 Grit</div>
+                        <div class="dim-bar"><div class="dim-fill" id="dim-grit"></div></div>
+                        <div class="dim-score" id="score-grit">—</div>
+                    </div>
+                    <div class="dimension">
+                        <div class="dim-label">势能 Momentum</div>
+                        <div class="dim-bar"><div class="dim-fill" id="dim-momentum"></div></div>
+                        <div class="dim-score" id="score-momentum">—</div>
+                    </div>
+                    <div class="dimension">
+                        <div class="dim-label">愿力 Vision</div>
+                        <div class="dim-bar"><div class="dim-fill" id="dim-vision"></div></div>
+                        <div class="dim-score" id="score-vision">—</div>
+                    </div>
+                </div>
+                <div class="rating-verdict">
+                    <div class="verdict-title">🧭 拆机结论</div>
+                    <div class="verdict-text" id="verdict-text">—</div>
+                </div>
+                <div class="rating-footer">
+                    <div class="rating-brand">OPC-Studio | PitchRoom 评级系统</div>
+                    <div class="rating-date" id="rating-date">—</div>
+                </div>
+            </div>
+            <div class="result-actions">
+                <button class="btn-primary" onclick="resetTeardown()">再拆一次</button>
+                <button class="btn-secondary" onclick="shareTeardown()">分享评级卡</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>OPC-Studio &copy; 2026 &mdash; 一人 + AI = 无限可能</p>
+        <p style="margin-top: 8px; color: var(--text-muted);">2026 WAIC FutureTech OPC 独立先锋挑战赛参赛作品</p>
+    </footer>
+
+    <script>
+        // ===== Mobile Menu =====
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobileMenu');
+            const btn = document.querySelector('.mobile-menu-btn');
+            menu.classList.toggle('open');
+            btn.classList.toggle('open');
+        }
+        function closeMobileMenu() {
+            document.getElementById('mobileMenu').classList.remove('open');
+            document.querySelector('.mobile-menu-btn').classList.remove('open');
+        }
+
+        document.addEventListener('click', (event) => {
+            const menu = document.getElementById('mobileMenu');
+            const btn = document.querySelector('.mobile-menu-btn');
+            if (!menu.contains(event.target) && !btn.contains(event.target)) {
+                closeMobileMenu();
+            }
+        });
+
+        // ===== Scroll Reveal =====
+        const reveals = document.querySelectorAll('.reveal');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+        reveals.forEach(el => observer.observe(el));
+
+        // ===== Teardown Logic =====
+        let currentStep = 0;
+
+        function scrollToTeardown() {
+            document.getElementById('teardown').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function nextStep(step) {
+            const steps = document.querySelectorAll('.teardown-step');
+            const dots = document.querySelectorAll('.step-dot');
+            
+            steps[currentStep].classList.remove('active');
+            dots[currentStep].classList.remove('active');
+            dots[currentStep].classList.add('completed');
+            
+            currentStep = step;
+            steps[currentStep].classList.add('active');
+            dots[currentStep].classList.add('active');
+        }
+
+        function prevStep(step) {
+            const steps = document.querySelectorAll('.teardown-step');
+            const dots = document.querySelectorAll('.step-dot');
+            
+            steps[currentStep].classList.remove('active');
+            dots[currentStep].classList.remove('active');
+            
+            currentStep = step;
+            dots[currentStep].classList.remove('completed');
+            steps[currentStep].classList.add('active');
+            dots[currentStep].classList.add('active');
+        }
+
+        function generateResult() {
+            const project = document.getElementById('input-project').value;
+            const ai = document.getElementById('input-ai').value;
+            const vision = document.getElementById('input-vision').value;
+
+            if (!project.trim()) {
+                alert('请至少描述一下你的项目~');
+                return;
+            }
+
+            // Hide step, show loading
+            document.querySelectorAll('.teardown-step').forEach(s => s.classList.remove('active'));
+            document.querySelector('.step-indicator').style.display = 'none';
+            const loading = document.getElementById('loading');
+            loading.classList.add('active');
+
+            // Simulate AI analysis steps
+            const loadingSteps = [
+                '解析项目结构...',
+                '评估 AI 杠杆系数...',
+                '计算韧性指数...',
+                '分析增长势能...',
+                '生成评级卡...'
+            ];
+            let stepIndex = 0;
+            const stepInterval = setInterval(() => {
+                stepIndex++;
+                if (stepIndex < loadingSteps.length) {
+                    document.getElementById('loading-step').textContent = loadingSteps[stepIndex];
+                }
+            }, 600);
+
+            // Generate result after "analysis"
+            setTimeout(() => {
+                clearInterval(stepInterval);
+                loading.classList.remove('active');
+                showResult(project, ai, vision);
+            }, 3000);
+        }
+
+        function showResult(project, ai, vision) {
+            const result = document.getElementById('result');
+            result.classList.add('active');
+
+            // Extract project name (first sentence or first 20 chars)
+            const name = project.split(/[,，。.!！\n]/)[0].trim().slice(0, 30);
+            document.getElementById('result-name').textContent = name;
+
+            // Generate scores based on input richness
+            const hasAI = ai.trim().length > 0;
+            const hasVision = vision.trim().length > 0;
+            const baseScore = 60;
+            
+            const scores = {
+                engine: Math.min(95, baseScore + (hasAI ? 15 : 0) + Math.floor(Math.random() * 15)),
+                lever: Math.min(95, baseScore + (hasAI ? 20 : 5) + Math.floor(Math.random() * 10)),
+                grit: Math.min(95, baseScore + Math.floor(Math.random() * 20)),
+                momentum: Math.min(95, baseScore + (project.length > 50 ? 10 : 0) + Math.floor(Math.random() * 15)),
+                vision: Math.min(95, baseScore + (hasVision ? 20 : 0) + Math.floor(Math.random() * 10))
+            };
+
+            // Animate bars
+            setTimeout(() => {
+                Object.keys(scores).forEach(key => {
+                    document.getElementById(`dim-${key}`).style.width = scores[key] + '%';
+                    document.getElementById(`score-${key}`).textContent = scores[key];
+                });
+            }, 100);
+
+            // Generate verdict
+            const avgScore = Math.round(Object.values(scores).reduce((a, b) => a + b, 0) / 5);
+            let verdict = '';
+            if (avgScore >= 85) {
+                verdict = `这是一台高度成熟的一人公司引擎。AI杠杆运用充分，增长势能强劲。建议：保持节奏，关注规模化瓶颈点。`;
+            } else if (avgScore >= 75) {
+                verdict = `项目基本面扎实，AI应用有明确价值。关键突破点在于如何将效率优势转化为规模优势——考虑工具化或平台化。`;
+            } else {
+                verdict = `有潜力的早期项目。建议：先跑通一个最小闭环，用AI替代重复劳动，把节省出来的时间投入客户洞察和产品迭代。`;
+            }
+            document.getElementById('verdict-text').textContent = verdict;
+
+            // Date
+            const now = new Date();
+            document.getElementById('rating-date').textContent = now.toLocaleDateString('zh-CN', { year: 'numeric', month: 'long', day: 'numeric' });
+        }
+
+        function resetTeardown() {
+            // Reset everything
+            document.getElementById('result').classList.remove('active');
+            document.querySelector('.step-indicator').style.display = 'flex';
+            
+            // Reset dots
+            document.querySelectorAll('.step-dot').forEach((dot, i) => {
+                dot.classList.remove('active', 'completed');
+                if (i === 0) dot.classList.add('active');
+            });
+
+            // Reset steps
+            currentStep = 0;
+            document.querySelectorAll('.teardown-step').forEach((step, i) => {
+                step.classList.remove('active');
+                if (i === 0) step.classList.add('active');
+            });
+
+            // Clear inputs
+            document.getElementById('input-project').value = '';
+            document.getElementById('input-ai').value = '';
+            document.getElementById('input-vision').value = '';
+
+            // Reset bars
+            ['engine', 'lever', 'grit', 'momentum', 'vision'].forEach(key => {
+                document.getElementById(`dim-${key}`).style.width = '0%';
+                document.getElementById(`score-${key}`).textContent = '—';
+            });
+        }
+
+        function shareTeardown() {
+            // Simple share: copy to clipboard
+            const name = document.getElementById('result-name').textContent;
+            const text = `我刚在 OPC-Studio 拆机器上给「${name}」做了一次AI评级！来试试你的一人公司：[链接]`;
+            
+            if (navigator.clipboard) {
+                navigator.clipboard.writeText(text).then(() => {
+                    alert('分享文案已复制到剪贴板！');
+                });
+            } else {
+                alert('分享文案：' + text);
+            }
+        }
+
+        // ===== Agent task rotation =====
+        const agentTasks = {
+            0: ['项目背调中...', '资料整理中...', '竞品扫描中...'],
+            1: ['长片切片中...', '字幕生成中...', '精剪优化中...'],
+            2: ['6平台同步中...', '排期发布中...', '格式适配中...'],
+            3: ['回复互动中...', '社群维护中...', '问答处理中...'],
+            4: ['生成封面中...', '评级卡设计中...', '海报排版中...'],
+            5: ['扫描热点中...', '选题打分中...', '信息源抓取中...'],
+            6: ['归因分析中...', '周报生成中...', '数据清洗中...'],
+            7: ['嘉宾跟进中...', '邮件发送中...', 'CRM更新中...'],
+            8: ['双语转制中...', '字幕翻译中...', '术语校对中...'],
+            9: ['需求撮合中...', '画像匹配中...', '推荐排序中...'],
+            10: ['生成周报中...', '摘要提炼中...', '数据可视化中...'],
+            11: ['调度编排中...', '任务分配中...', '优先级排序中...']
+        };
+
+        setInterval(() => {
+            const cards = document.querySelectorAll('.agent-task');
+            const randomIndex = Math.floor(Math.random() * cards.length);
+            const tasks = agentTasks[randomIndex];
+            const randomTask = tasks[Math.floor(Math.random() * tasks.length)];
+            cards[randomIndex].textContent = randomTask;
+        }, 2000);
+    </script>
+</body>
+</html>
