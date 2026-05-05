@@ -170,6 +170,48 @@ opc-studio-demo/
 
 ---
 
+## 🧰 OPC-Studio · AI Skill 工坊
+
+> 作为 OPC Toolkit 的基础构件，OPC-Studio 同步维护一系列**专业领域 AI Skill 包**，帮助一人公司创业者把高价值行业工作流直接装进自己的 AI Agent。
+
+每个 Skill 独立成仓，遵循 [agentskills.io](https://agentskills.io) 开放规范，兼容 Claude Skills / WorkBuddy / OpenClaw / Hermes / SkillHub 五大平台，开箱即用。
+
+![made by](https://img.shields.io/badge/made%20by-OPC--Studio-1a1a4e) ![license](https://img.shields.io/badge/license-MIT-green) ![compat](https://img.shields.io/badge/compat-Claude%20%7C%20WorkBuddy%20%7C%20OpenClaw%20%7C%20Hermes%20%7C%20SkillHub-orange)
+
+### Skill 矩阵
+
+| Skill | 中文名 | 主题 | 状态 | 仓库 |
+|---|---|---|---|---|
+| 🧭 **investor-skill** | 投资人.skill | 一级市场职业投资人工作流（行研 / 尽调 / BP 速析 / 竞争格局 / 技术产品 / 投资备忘录）| ✅ v1.0.2 已发布 | **[D-kart/investor-skill](https://github.com/D-kart/investor-skill)** |
+| 🎤 presenter-skill | 路演者.skill | 创始人融资路演工作流（BP 打磨 / Q&A 异议处理 / 估值辩护） | 🔜 即将发布 | — |
+| 💡 yi-er-skill | 一二.skill | 敬请期待 | 🚧 研发中 | — |
+| 🧸 bubu-skill | 布布.skill | 敬请期待 | 🚧 研发中 | — |
+
+### 设计哲学
+
+- **一个 skill 一个仓**：独立 star / release / issue，互不干扰
+- **三层架构**：META（元信息）· ASSETS（资产真源）· REFERENCES（具体规范）
+- **专业输出**：投资 / 融资类 skill 直出"券商研报范" HTML
+- **按需加载**：SKILL.md 只做路由，能力 SOP 拆到 references/ 省 token
+- **跨平台兼容**：一次开发，五平台通用
+
+### 立即使用
+
+```bash
+# Claude Skills / WorkBuddy
+git clone https://github.com/D-kart/investor-skill.git ~/.claude/skills/investor-skill
+
+# OpenClaw / Hermes
+git clone https://github.com/D-kart/investor-skill.git ~/path/to/skills/
+
+# SkillHub
+zip -r investor-skill.zip investor-skill/  # 然后登录 SkillHub 上传
+```
+
+> 💡 Skill 库是 OPC-Studio 从"记录一人公司"到"武装一人公司"的关键一步——让每个独立创业者都能把顶级专业工作流以近乎零成本接入自己的 AI Agent。
+
+---
+
 ## 关于 OPC-Studio 主理人
 
 OPC-Studio 由一位独立创业者发起。
