@@ -183,7 +183,7 @@ opc-studio-demo/
 | Skill | 中文名 | 主题 | 状态 | 仓库 |
 |---|---|---|---|---|
 | 🧭 **investor-skill** | 投资人.skill | 一级市场职业投资人工作流（行研 / 尽调 / BP 速析 / 竞争格局 / 技术产品 / 投资备忘录）| ✅ v1.0.2 已发布 | **[D-kart/investor-skill](https://github.com/D-kart/investor-skill)** |
-| 🎤 presenter-skill | 路演者.skill | 创始人融资路演工作流（BP 打磨 / Q&A 异议处理 / 估值辩护） | 🔜 即将发布 | — |
+| 🎤 **presenter-skill** | 路演者.skill | 创始人融资路演工作流（叙事打磨 / 市场机会结构化 / 产品数据通俗化 / 护城河论证 / Q&A 异议 / 估值退出） | ✅ v1.0.1 已发布 | **[D-kart/presenter-skill](https://github.com/D-kart/presenter-skill)** |
 | 💡 yi-er-skill | 一二.skill | 敬请期待 | 🚧 研发中 | — |
 | 🧸 bubu-skill | 布布.skill | 敬请期待 | 🚧 研发中 | — |
 
@@ -199,14 +199,19 @@ opc-studio-demo/
 
 ```bash
 # Claude Skills / WorkBuddy
-git clone https://github.com/D-kart/investor-skill.git ~/.claude/skills/investor-skill
+git clone git@github.com:D-kart/investor-skill.git ~/.claude/skills/investor-skill
+git clone git@github.com:D-kart/presenter-skill.git ~/.claude/skills/presenter-skill
 
 # OpenClaw / Hermes
-git clone https://github.com/D-kart/investor-skill.git ~/path/to/skills/
+git clone git@github.com:D-kart/investor-skill.git ~/path/to/skills/
+git clone git@github.com:D-kart/presenter-skill.git ~/path/to/skills/
 
 # SkillHub
-zip -r investor-skill.zip investor-skill/  # 然后登录 SkillHub 上传
+zip -r investor-skill.zip investor-skill/   # 然后登录 SkillHub 上传
+zip -r presenter-skill.zip presenter-skill/
 ```
+
+> 💡 **A 组（投融资双轨）设计亮点**：investor-skill（审判者视角）与 presenter-skill（被审判者视角）互为镜像、互为对手方 —— 写完 BP 用 investor-skill 自检打分，路演前用 presenter-skill 补齐融资逻辑，鼓励一起安装。
 
 > 💡 Skill 库是 OPC-Studio 从"记录一人公司"到"武装一人公司"的关键一步——让每个独立创业者都能把顶级专业工作流以近乎零成本接入自己的 AI Agent。
 
