@@ -520,7 +520,7 @@
         /* ===== BUSINESS MODEL ===== */
         .biz-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
             gap: 24px;
         }
 
@@ -1138,10 +1138,10 @@
     <nav>
         <div class="nav-logo">OPC-Studio</div>
         <ul class="nav-links">
-            <li><a href="#about">About</a></li>
+            <li><a href="#about">平台定位</a></li>
             <li><a href="#pitchroom">PitchRoom</a></li>
-            <li><a href="#workflow">AI Workflow</a></li>
-            <li><a href="#model">Model</a></li>
+            <li><a href="#workflow">AI Skill 工坊</a></li>
+            <li><a href="#model">生态飞轮</a></li>
         </ul>
         <div class="nav-right">
             <button class="nav-cta" onclick="scrollToTeardown()">AI 拆机体验</button>
@@ -1152,52 +1152,74 @@
     </nav>
     <!-- Mobile Menu -->
     <div class="mobile-menu" id="mobileMenu">
-        <a href="#about" onclick="closeMobileMenu()">About</a>
+        <a href="#about" onclick="closeMobileMenu()">平台定位</a>
         <a href="#pitchroom" onclick="closeMobileMenu()">PitchRoom</a>
-        <a href="#workflow" onclick="closeMobileMenu()">AI Workflow</a>
-        <a href="#model" onclick="closeMobileMenu()">Model</a>
+        <a href="#workflow" onclick="closeMobileMenu()">AI Skill 工坊</a>
+        <a href="#model" onclick="closeMobileMenu()">生态飞轮</a>
         <a href="#teardown" onclick="closeMobileMenu()" class="mobile-menu-cta">AI 拆机体验</a>
     </div>
 
     <!-- HERO -->
     <section class="hero">
         <div class="hero-badge">
-            <span></span> 2026 WAIC OPC 独立先锋挑战赛参赛项目
+            <span></span> AI-native OPC Ecosystem Platform
         </div>
         <h1>看见每一个<br><span class="highlight">一人公司</span></h1>
-        <p class="hero-sub">OPC-Studio 是一个 AI 原生的内容工作室。一人 + 12 个 AI Agent，记录与放大每一位 OPC 创业者的故事。</p>
+        <p class="hero-sub">OPC-Studio 是服务一人公司生态的 AI 原生展示与连接平台，帮助 OPC 企业展示产品风采，也帮助客户、投资人和生态服务商发现可信赖的新型服务商。</p>
         <div class="hero-stats">
             <div class="stat">
-                <div class="stat-number">1</div>
-                <div class="stat-label">人类操作员</div>
+                <div class="stat-number">DB</div>
+                <div class="stat-label">OPC 企业库</div>
             </div>
             <div class="stat">
-                <div class="stat-number">12</div>
-                <div class="stat-label">AI Agents</div>
+                <div class="stat-number">AI</div>
+                <div class="stat-label">Agent 工作流</div>
             </div>
             <div class="stat">
-                <div class="stat-number">10x</div>
-                <div class="stat-label">效率杠杆</div>
+                <div class="stat-number">4</div>
+                <div class="stat-label">生态角色</div>
             </div>
         </div>
         <div class="hero-cta">
-            <a href="#teardown" class="btn-primary">体验 AI 拆机器</a>
-            <a href="#about" class="btn-secondary">了解更多</a>
+            <a href="#about" class="btn-primary">发布你的 OPC 项目</a>
+            <a href="#teardown" class="btn-secondary">体验 AI 拆机器</a>
         </div>
     </section>
 
-    <!-- ABOUT -->
+    <!-- PLATFORM POSITIONING -->
     <section id="about" class="reveal">
-        <div class="section-label">About</div>
-        <h2 class="section-title">我们自己就是 OPC</h2>
-        <p class="section-desc">OPC-Studio 用一人公司的模式，服务一人公司的生态。从选题到分发，从数据分析到社群运营，我们用 AI 跑通了全流程——这本身就是 OPC 模式最好的证明。</p>
+        <div class="section-label">Platform</div>
+        <h2 class="section-title">服务 OPC 生态的展示与连接平台</h2>
+        <p class="section-desc">OPC-Studio 面向四类核心参与者：让 OPC 企业被看见，让企业客户找到可信服务商，让投资人观察 AI 原生企业样本，也让媒体、渠道、云服务商等生态伙伴更高效地触达优质创业者。</p>
+        <div class="biz-grid">
+            <div class="biz-card">
+                <div class="biz-phase">For OPC</div>
+                <h3>OPC 企业</h3>
+                <p>获得专业展示、品牌背书、客户机会与可复用的 AI Agent 工作流。</p>
+            </div>
+            <div class="biz-card">
+                <div class="biz-phase">For Clients</div>
+                <h3>企业客户</h3>
+                <p>更快理解服务商能力、案例和交付方式，降低寻找新型服务商的试错成本。</p>
+            </div>
+            <div class="biz-card">
+                <div class="biz-phase">For Investors</div>
+                <h3>投资人 / 观察者</h3>
+                <p>持续观察 AI 原生小微企业样本，发现高潜力 OPC 项目与新型组织效率。</p>
+            </div>
+            <div class="biz-card">
+                <div class="biz-phase">For Ecosystem</div>
+                <h3>生态服务商</h3>
+                <p>媒体、渠道、云服务商与工具厂商可以精准触达高质量 AI 创业者群体。</p>
+            </div>
+        </div>
     </section>
 
     <!-- PITCHROOM 7 QUESTIONS -->
     <section id="pitchroom" class="reveal">
         <div class="section-label">PitchRoom</div>
-        <h2 class="section-title">结构化 7 问 —— 拆开每一台一人公司</h2>
-        <p class="section-desc">不是拷问，是拆解。像拆一台精密机器，看它内部如何运转。</p>
+        <h2 class="section-title">结构化 7 问 —— 内容入口，也是数据库协议</h2>
+        <p class="section-desc">PitchRoom 不是传统访谈，也不是融资路演，而是一次对 OPC 企业的结构化拆解。对外是深度内容，对内是展示页、项目标签、客户匹配和数据库沉淀的基础协议。</p>
         <div class="questions-grid">
             <div class="q-card">
                 <div class="q-icon">🔩</div>
@@ -1246,93 +1268,98 @@
 
     <!-- AI WORKFLOW -->
     <section id="workflow" class="reveal">
-        <div class="section-label">AI-Native Workflow</div>
-        <h2 class="section-title">一人军团作战室</h2>
-        <p class="section-desc">12 个 AI Agent 7x24 全天候运转，覆盖从内容生产到社群运营的全链条。</p>
+        <div class="section-label">AI Workflow & Skill Lab</div>
+        <h2 class="section-title">一位主理人，协同一组 Agent 与 Skill</h2>
+        <p class="section-desc">OPC-Studio 自己也以 OPC 的方式运行：用 Agent 完成项目发现、内容生产、传播分发、数据复盘和客户匹配；用专业 Skill 工坊把高价值行业工作流装进一人公司的 AI Agent。</p>
         <div class="workflow-container">
             <div class="agent-card">
                 <div class="agent-icon">🔍</div>
                 <div class="agent-name">调研 Agent</div>
-                <div class="agent-task">项目背调中...</div>
+                <div class="agent-task">项目资料整理...</div>
             </div>
             <div class="agent-card">
-                <div class="agent-icon">✂️</div>
-                <div class="agent-name">剪辑 Agent</div>
-                <div class="agent-task">长片切片中...</div>
+                <div class="agent-icon">🎙️</div>
+                <div class="agent-name">访谈 Agent</div>
+                <div class="agent-task">生成7问提纲...</div>
+            </div>
+            <div class="agent-card">
+                <div class="agent-icon">📝</div>
+                <div class="agent-name">内容 Agent</div>
+                <div class="agent-task">拆解长文短视频...</div>
+            </div>
+            <div class="agent-card">
+                <div class="agent-icon">🎬</div>
+                <div class="agent-name">分镜 Agent</div>
+                <div class="agent-task">生成九宫格分镜...</div>
+            </div>
+            <div class="agent-card">
+                <div class="agent-icon">🎨</div>
+                <div class="agent-name">封面 Agent</div>
+                <div class="agent-task">生成标题封面...</div>
             </div>
             <div class="agent-card">
                 <div class="agent-icon">📡</div>
                 <div class="agent-name">分发 Agent</div>
-                <div class="agent-task">6平台同步中...</div>
-            </div>
-            <div class="agent-card">
-                <div class="agent-icon">💬</div>
-                <div class="agent-name">社群 Agent</div>
-                <div class="agent-task">回复互动中...</div>
-            </div>
-            <div class="agent-card">
-                <div class="agent-icon">🎨</div>
-                <div class="agent-name">设计 Agent</div>
-                <div class="agent-task">生成封面中...</div>
-            </div>
-            <div class="agent-card">
-                <div class="agent-icon">📝</div>
-                <div class="agent-name">选题 Agent</div>
-                <div class="agent-task">扫描热点中...</div>
+                <div class="agent-task">适配平台文案...</div>
             </div>
             <div class="agent-card">
                 <div class="agent-icon">📈</div>
                 <div class="agent-name">数据 Agent</div>
-                <div class="agent-task">归因分析中...</div>
-            </div>
-            <div class="agent-card">
-                <div class="agent-icon">🤝</div>
-                <div class="agent-name">邀约 Agent</div>
-                <div class="agent-task">嘉宾跟进中...</div>
-            </div>
-            <div class="agent-card">
-                <div class="agent-icon">🌐</div>
-                <div class="agent-name">翻译 Agent</div>
-                <div class="agent-task">双语转制中...</div>
+                <div class="agent-task">追踪内容表现...</div>
             </div>
             <div class="agent-card">
                 <div class="agent-icon">🎯</div>
                 <div class="agent-name">匹配 Agent</div>
-                <div class="agent-task">需求撮合中...</div>
+                <div class="agent-task">匹配客户需求...</div>
             </div>
             <div class="agent-card">
-                <div class="agent-icon">📋</div>
-                <div class="agent-name">报告 Agent</div>
-                <div class="agent-task">生成周报中...</div>
+                <div class="agent-icon">🧭</div>
+                <div class="agent-name">复盘 Agent</div>
+                <div class="agent-task">沉淀SOP...</div>
             </div>
             <div class="agent-card">
-                <div class="agent-icon">🧠</div>
-                <div class="agent-name">总控 Agent</div>
-                <div class="agent-task">调度编排中...</div>
+                <div class="agent-icon">🧭</div>
+                <div class="agent-name">investor-skill</div>
+                <div class="agent-task">投资分析工作流</div>
+            </div>
+            <div class="agent-card">
+                <div class="agent-icon">🎤</div>
+                <div class="agent-name">presenter-skill</div>
+                <div class="agent-task">路演叙事工作流</div>
+            </div>
+            <div class="agent-card">
+                <div class="agent-icon">🧸</div>
+                <div class="agent-name">bubu-skill</div>
+                <div class="agent-task">垂直场景助手</div>
             </div>
         </div>
     </section>
 
     <!-- BUSINESS MODEL -->
     <section id="model" class="reveal">
-        <div class="section-label">Business Model</div>
-        <h2 class="section-title">可持续的增长飞轮</h2>
-        <p class="section-desc">三个阶段，两条腿走路——工具产品 + 精准对接。</p>
+        <div class="section-label">Ecosystem Flywheel</div>
+        <h2 class="section-title">从展示，到连接，再到工具赋能</h2>
+        <p class="section-desc">OPC-Studio 的价值不是简单堆项目数量，而是持续提升项目质量、展示质量、匹配效率和服务口碑，让平台形成可信赖的网络效应。</p>
         <div class="biz-grid">
             <div class="biz-card">
-                <div class="biz-phase">Phase 1 · 当前</div>
-                <h3>OPC Toolkit</h3>
-                <p>将验证过的 AI 工作流产品化，让每个一人公司创业者都能拥有自己的 AI 军团。订阅制 SaaS，从工具切入生态。</p>
+                <div class="biz-phase">Phase 1</div>
+                <h3>展示与内容层</h3>
+                <p>通过 OPC 企业展示页、PitchRoom 深度内容、AI 拆机器和项目卡，让优秀一人公司被看见。</p>
             </div>
             <div class="biz-card">
-                <div class="biz-phase">Phase 2 · 规模化</div>
-                <h3>OPC Network</h3>
-                <p>企业有越来越多业务想交给靠谱的一人公司。我们沉淀的项目数据库就是最精准的匹配引擎——让对的人遇到对的需求。</p>
+                <div class="biz-phase">Phase 2</div>
+                <h3>数据库与发现层</h3>
+                <p>沉淀大湾区 OPC 企业数据库，建立赛道分类、能力标签、产品案例和 AI 工具栈记录。</p>
             </div>
             <div class="biz-card">
-                <div class="biz-phase">Phase 3 · 飞轮</div>
-                <h3>品牌生态</h3>
-                <p>当 OPC-Studio 成为行业默认入口，品牌赞助、联名合作、内容付费将自然涌入。内容带流量，流量养生态，生态反哺内容。</p>
+                <div class="biz-phase">Phase 3</div>
+                <h3>匹配与服务层</h3>
+                <p>帮助企业客户、投资人和生态服务商更高效地发现、筛选、连接可信赖的 OPC 服务商。</p>
+            </div>
+            <div class="biz-card">
+                <div class="biz-phase">Phase 4</div>
+                <h3>SOP 与工具层</h3>
+                <p>将内容生产、项目展示、客户获取和交付复盘流程沉淀为 OPC Agent Toolkit 与 Skill 工坊。</p>
             </div>
         </div>
     </section>
@@ -1341,7 +1368,7 @@
     <div id="teardown">
         <div class="teardown-header">
             <h2>🔧 OPC 拆机器</h2>
-            <p>输入你的项目，AI 帮你做一次结构化"拆机"</p>
+            <p>让你的 OPC 项目被结构化理解，生成一张未来项目卡的雏形</p>
         </div>
 
         <!-- Step Indicator -->
@@ -1354,8 +1381,8 @@
         <!-- Step 1: Basic Info -->
         <div class="teardown-step active" data-step="0">
             <div class="step-question">Step 1 / 3</div>
-            <div class="step-title">告诉我你的一人公司</div>
-            <textarea class="input-area" id="input-project" placeholder="用一两句话描述你在做什么。&#10;例：我一个人用AI做跨境电商选品工具，月流水5万。"></textarea>
+            <div class="step-title">告诉我你的 OPC 项目</div>
+            <textarea class="input-area" id="input-project" placeholder="用一两句话描述你的产品、服务或一人公司。&#10;例：我一个人用AI做跨境电商选品工具，帮助小团队提升选品效率。"></textarea>
             <div class="step-actions">
                 <div></div>
                 <button class="btn-next" onclick="nextStep(1)">下一步</button>
@@ -1396,7 +1423,7 @@
             <div class="rating-card">
                 <div class="rating-header">
                     <div class="rating-project-name" id="result-name">—</div>
-                    <div class="rating-badge">OPC-Studio 评级</div>
+                    <div class="rating-badge">OPC 项目卡雏形</div>
                 </div>
                 <div class="rating-dimensions">
                     <div class="dimension">
@@ -1443,8 +1470,8 @@
 
     <!-- FOOTER -->
     <footer>
-        <p>OPC-Studio &copy; 2026 &mdash; 一人 + AI = 无限可能</p>
-        <p style="margin-top: 8px; color: var(--text-muted);">2026 WAIC FutureTech OPC 独立先锋挑战赛参赛作品</p>
+        <p>OPC-Studio &copy; 2026 &mdash; 看见、理解、连接每一个一人公司</p>
+        <p style="margin-top: 8px; color: var(--text-muted);">AI-native showcase, workflow, and opportunity network for OPCs</p>
     </footer>
 
     <script>
@@ -1585,11 +1612,11 @@
             const avgScore = Math.round(Object.values(scores).reduce((a, b) => a + b, 0) / 5);
             let verdict = '';
             if (avgScore >= 85) {
-                verdict = `这是一台高度成熟的一人公司引擎。AI杠杆运用充分，增长势能强劲。建议：保持节奏，关注规模化瓶颈点。`;
+                verdict = `这是一台高度成熟的 OPC 引擎。AI 杠杆运用充分，增长势能强劲。建议：优先补齐项目展示、客户案例和规模化交付机制。`;
             } else if (avgScore >= 75) {
-                verdict = `项目基本面扎实，AI应用有明确价值。关键突破点在于如何将效率优势转化为规模优势——考虑工具化或平台化。`;
+                verdict = `项目基本面扎实，AI 应用有明确价值。关键突破点在于如何将效率优势转化为可被客户理解的产品能力和服务承诺。`;
             } else {
-                verdict = `有潜力的早期项目。建议：先跑通一个最小闭环，用AI替代重复劳动，把节省出来的时间投入客户洞察和产品迭代。`;
+                verdict = `有潜力的早期 OPC 项目。建议：先跑通一个最小客户闭环，用 AI 替代重复劳动，把节省出来的时间投入客户洞察和产品迭代。`;
             }
             document.getElementById('verdict-text').textContent = verdict;
 
@@ -1631,7 +1658,7 @@
         function shareTeardown() {
             // Simple share: copy to clipboard
             const name = document.getElementById('result-name').textContent;
-            const text = `我刚在 OPC-Studio 拆机器上给「${name}」做了一次AI评级！来试试你的一人公司：[链接]`;
+            const text = `我刚在 OPC-Studio 拆机器上给「${name}」生成了一张 OPC 项目卡雏形。来试试你的项目能如何被结构化理解：[链接]`;
             
             if (navigator.clipboard) {
                 navigator.clipboard.writeText(text).then(() => {
@@ -1644,18 +1671,18 @@
 
         // ===== Agent task rotation =====
         const agentTasks = {
-            0: ['项目背调中...', '资料整理中...', '竞品扫描中...'],
-            1: ['长片切片中...', '字幕生成中...', '精剪优化中...'],
-            2: ['6平台同步中...', '排期发布中...', '格式适配中...'],
-            3: ['回复互动中...', '社群维护中...', '问答处理中...'],
-            4: ['生成封面中...', '评级卡设计中...', '海报排版中...'],
-            5: ['扫描热点中...', '选题打分中...', '信息源抓取中...'],
-            6: ['归因分析中...', '周报生成中...', '数据清洗中...'],
-            7: ['嘉宾跟进中...', '邮件发送中...', 'CRM更新中...'],
-            8: ['双语转制中...', '字幕翻译中...', '术语校对中...'],
-            9: ['需求撮合中...', '画像匹配中...', '推荐排序中...'],
-            10: ['生成周报中...', '摘要提炼中...', '数据可视化中...'],
-            11: ['调度编排中...', '任务分配中...', '优先级排序中...']
+            0: ['项目资料整理...', '赛道背景扫描...', '公开信息核验...'],
+            1: ['生成7问提纲...', '提炼访谈钩子...', '标记敏感信息...'],
+            2: ['拆解长文短视频...', '提取金句切点...', '生成社媒文案...'],
+            3: ['生成九宫格分镜...', '规划剪辑节奏...', '补充B-roll建议...'],
+            4: ['生成标题封面...', '优化CTR表达...', '统一视觉风格...'],
+            5: ['适配平台文案...', '规划发布节奏...', '生成评论引导...'],
+            6: ['追踪内容表现...', '分析线索转化...', '生成复盘报告...'],
+            7: ['匹配客户需求...', '推荐OPC服务商...', '更新需求标签...'],
+            8: ['沉淀SOP...', '优化流程模板...', '更新项目卡结构...'],
+            9: ['分析BP与赛道...', '生成投资备忘录...', '评估项目结构...'],
+            10: ['打磨路演叙事...', '优化产品表达...', '补齐Q&A逻辑...'],
+            11: ['垂直场景助理...', '沉淀陪伴流程...', '验证Skill边界...']
         };
 
         setInterval(() => {
