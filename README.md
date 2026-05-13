@@ -1,62 +1,153 @@
 # OPC-Studio
 
 > 看见每一个一人公司。  
-> **One Person Company Studio powered by AI Agents.**
+> **The AI-native showcase, workflow, and opportunity network for One Person Companies.**
 
-OPC-Studio 是一个面向 **OPC（One Person Company，一人公司）创业者** 的 AI 原生内容与服务平台。我们用「一个人 + 一组 AI Agent」的方式，记录、拆解、放大一人公司的真实创业过程，并逐步沉淀为服务 OPC 生态的工具与网络。
+OPC-Studio 是一个服务 **OPC（One Person Company，一人公司）生态** 的 AI 原生平台。
 
-本项目为 **2026 WAIC FutureTech OPC 独立先锋挑战赛** 参赛 Demo。
+它不只是一个参赛 Demo，而是一个长期建设中的 **OPC 企业展示平台、深度内容媒体、企业级服务商发现入口与大湾区 OPC 数据库**。
 
----
-
-## 项目愿景
-
-AI 正在让个体创业者第一次拥有接近小团队甚至中型团队的生产力。
-
-过去，一个创业者需要同时承担产品、内容、运营、销售、数据分析、客户沟通等大量工作；今天，AI Agent 可以成为独立创业者背后的「第二团队」。
-
-OPC-Studio 想做的事情很简单：
-
-> **让更多一人公司被看见、被理解、被连接。**
-
-我们自己也以 OPC 的方式运行：一位主理人，协同 12 个 AI Agent，完成从内容生产、项目拆解、传播分发到需求匹配的全流程。
+我们希望让优秀的一人公司被更多人看见，也让企业客户、投资人、生态服务商更高效地理解和连接这些新型 AI 原生企业。
 
 ---
 
-## Demo 亮点
+## 一句话定位
 
-当前 Demo 是一个轻量级单页应用，包含两个核心部分：
+**OPC-Studio：服务 OPC 生态的 AI 原生展示与连接平台。**
 
-### 1. OPC-Studio Landing Page
+我们通过结构化内容、项目数据库和 Agent 工作流，让 OPC 企业展示产品风采、获得客户与生态机会，也让企业客户、投资人、媒体、渠道与云服务商更高效地发现可信赖的 OPC 服务商。
 
-用于展示项目定位、核心理念和商业模式：
+---
 
-- 「一人 + AI」的新型创业组织形态
-- PitchRoom 结构化 7 问
-- 12 个 AI Agent 的「一人军团作战室」
-- OPC Toolkit + OPC Network 的增长飞轮
+## 为什么现在需要 OPC-Studio
+
+AI 应用正在快速爆发，越来越多创业者开始用 AI Agent、自动化工具和高度模块化的外部资源，完成过去需要一个小团队才能完成的工作。
+
+这意味着一种新型企业形态正在出现：
+
+```text
+一个高密度个体 + 一组 AI Agent + 一个清晰垂直场景 = 一家一人公司
+```
+
+但 OPC 生态仍然存在几个问题：
+
+1. **优秀 OPC 企业分散**：客户、投资人和生态服务商很难系统性发现它们。
+2. **展示方式不直观**：很多 OPC 企业产品不错，但缺少可信、结构化、可传播的展示方式。
+3. **匹配效率低**：潜在客户不知道谁靠谱，OPC 企业也不知道如何连接优质客户。
+4. **行业认知不足**：OPC 不应只是“个人副业”，而是一种 AI 时代的新型企业组织方式。
+5. **服务标准未形成**：从内容生产、客户获取到交付复盘，都需要可复制的 Agent 工作流和 SOP。
+
+OPC-Studio 要解决的正是这些问题。
+
+---
+
+## 我们服务谁
+
+OPC-Studio 面向四类核心参与者：
+
+### 1. OPC 企业与独立创业者
+
+他们需要：
+
+- 更专业的产品展示
+- 更可信的品牌背书
+- 更高质量的客户机会
+- 更系统的 AI Agent 工作流
+- 被行业、客户、投资人和生态伙伴看见
+
+### 2. 企业客户
+
+他们需要：
+
+- 找到高效、专业、灵活的 OPC 服务商
+- 快速理解对方产品能力、案例和交付方式
+- 降低试错成本与沟通成本
+- 获得比传统供应商更敏捷的解决方案
+
+### 3. 投资人 / 产业观察者
+
+他们需要：
+
+- 持续观察 AI 原生小微企业的真实样本
+- 发现早期高潜力 OPC 企业
+- 理解新型 AI 组织方式如何改变商业效率
+- 获取结构化、可比较、可追踪的项目数据
+
+### 4. 生态服务商
+
+包括媒体、渠道方、云服务商、AI 工具厂商、产业园区和服务机构。
+
+他们需要：
+
+- 找到精准的 OPC 企业群体
+- 触达高质量 AI 原生创业者
+- 建立生态合作、工具联名、品牌赞助或资源支持
+
+---
+
+## 核心飞轮
+
+OPC-Studio 的长期价值来自一个正向飞轮：
+
+```text
+优秀 OPC 企业入驻 / 被记录
+        ↓
+深度内容与产品展示提升曝光
+        ↓
+吸引客户、投资人、生态服务商关注
+        ↓
+带来更多合作机会与优质流量
+        ↓
+吸引更多 OPC 企业加入
+        ↓
+沉淀更强 OPC 企业数据库与行业影响力
+        ↓
+进一步提升平台品牌与匹配效率
+```
+
+这个飞轮的关键不是简单堆数量，而是持续保持：
+
+- 项目质量
+- 展示质量
+- 匹配效率
+- 服务口碑
+- Agent 工作流效率
+
+---
+
+## 当前产品形态
+
+当前版本是 OPC-Studio 的 MVP 演示入口，包含两个核心模块：
+
+### 1. OPC-Studio 展示页
+
+用于说明平台定位、服务对象、Agent 工作流和商业飞轮。
+
+它展示了 OPC-Studio 如何以“一位主理人 + 多个 AI Agent”的方式完成内容、项目拆解、传播和连接工作。
 
 ### 2. AI 拆机器
 
-一个面向 OPC 创业者的互动体验：
+一个面向 OPC 企业的轻量交互工具。
 
-用户输入自己的项目、AI 使用方式和未来目标后，系统会模拟完成一次「一人公司拆机」，并生成一张结构化评级卡。
+用户输入自己的项目、AI 使用方式和未来目标后，系统会模拟完成一次“一人公司拆机”，并生成结构化评级卡。
 
 评级维度包括：
 
 - **引擎 Engine**：AI 是否真正进入核心流程
 - **杠杆 Lever**：一个人是否能放大成多人的产能
-- **韧性 Grit**：项目是否具备长期迭代能力
+- **韧性 Grit**：项目是否具备持续迭代能力
 - **势能 Momentum**：当前增长信号是否清晰
-- **愿力 Vision**：未来 12 个月目标是否明确
+- **愿力 Vision**：未来目标是否明确
+
+> 当前 Demo 中的 AI 分析为前端模拟逻辑，用于展示交互原型。后续版本将接入真实 LLM API，实现更准确的项目拆解、展示优化和机会匹配。
 
 ---
 
-## PitchRoom：结构化 7 问
+## PitchRoom：深度内容入口
 
-PitchRoom 不是传统访谈，也不是路演秀，而是一次对一人公司的结构化拆解。
+PitchRoom 是 OPC-Studio 的核心内容产品。
 
-我们把每个 OPC 看作一台正在运转的机器，通过 7 个问题理解它的内部结构：
+它不是传统访谈，也不是融资路演，而是一次对 OPC 企业的结构化拆解。我们把每个 OPC 企业看作一台正在运转的机器，通过 7 个问题理解它的内部结构。
 
 | 问题 | 核心提问 |
 |---|---|
@@ -68,36 +159,160 @@ PitchRoom 不是传统访谈，也不是路演秀，而是一次对一人公司�
 | 后视镜 | 回到起点，你会跳过什么、加速什么？ |
 | 导航 | 12 个月后，你希望自己是什么样子？ |
 
-这套 7 问既是内容框架，也是未来 OPC 项目分析、工具推荐和需求匹配的基础协议。
+这套 7 问既是内容框架，也是 OPC 企业展示、项目分析、客户匹配和数据库沉淀的基础协议。
 
 ---
 
-## 产品形态
+## Agent 工作流
 
-OPC-Studio 将分为三个层次逐步发展：
+OPC-Studio 本身也以 OPC 的方式运行。
 
-### Phase 1：OPC Toolkit
+一位主理人协同多个 AI Agent，完成从项目发现到内容生产、从传播分发到客户连接的业务闭环。
 
-将 OPC-Studio 自己验证过的 AI 工作流产品化，帮助更多一人公司创业者搭建自己的 AI 工作系统。
+当前规划中的 Agent 包括：
 
-典型能力包括：
+| Agent | 职责 |
+|---|---|
+| 调研 Agent | 收集 OPC 企业公开信息、赛道背景和产品资料 |
+| 访谈 Agent | 基于 PitchRoom 7 问生成访谈提纲 |
+| 内容 Agent | 将访谈内容拆解为文章、短视频脚本和社媒文案 |
+| 分镜 Agent | 将短视频脚本转化为镜头结构与剪辑建议 |
+| 封面 Agent | 生成标题、封面和视觉构图建议 |
+| 分发 Agent | 为不同平台适配发布文案和节奏 |
+| 数据 Agent | 追踪内容表现、线索转化和项目关注度 |
+| 匹配 Agent | 根据客户需求与 OPC 企业能力进行初步匹配 |
+| 复盘 Agent | 沉淀 SOP、优化内容结构和匹配策略 |
 
-- 项目拆解
-- 内容生成
-- 选题规划
-- 多平台分发
-- 客户沟通
-- 数据复盘
+我们会持续优化这些 Agent 工作流，形成可复制的 OPC-Studio SOP。
 
-### Phase 2：OPC Network
+内部已保留并持续迭代：
 
-当足够多的一人公司被结构化记录后，OPC-Studio 将成为一个高质量 OPC 项目网络。
+```text
+PitchRoom 内容出片 SOP
+```
 
-一边是希望找到靠谱独立服务者的企业与机构，另一边是需要优质客户和合作机会的一人公司创业者。OPC-Studio 负责做可信匹配。
+目标是录完一期 PitchRoom 后，在 30-60 分钟内拿到完整发布素材包。
 
-### Phase 3：品牌生态
+---
 
-当 OPC-Studio 成为 OPC 生态的内容入口后，将叠加品牌赞助、工具联名、生态合作等收入模式，形成内容、工具、网络之间的增长飞轮。
+## OPC-Studio · AI Skill 工坊
+
+> 作为 OPC Toolkit 的基础构件，OPC-Studio 同步维护一系列**专业领域 AI Skill 包**，帮助一人公司创业者把高价值行业工作流直接装进自己的 AI Agent。
+
+每个 Skill 独立成仓，遵循 [agentskills.io](https://agentskills.io) 开放规范，兼容 Claude Skills / WorkBuddy / OpenClaw / Hermes / SkillHub 五大平台，开箱即用。
+
+![made by](https://img.shields.io/badge/made%20by-OPC--Studio-1a1a4e) ![license](https://img.shields.io/badge/license-MIT-green) ![compat](https://img.shields.io/badge/compat-Claude%20%7C%20WorkBuddy%20%7C%20OpenClaw%20%7C%20Hermes%20%7C%20SkillHub-orange)
+
+### Skill 矩阵
+
+| Skill | 中文名 | 主题 | 状态 | 仓库 |
+|---|---|---|---|---|
+| 🧭 **investor-skill** | 投资人.skill | 一级市场职业投资人工作流（行研 / 尽调 / BP 速析 / 竞争格局 / 技术产品 / 投资备忘录） | ✅ v1.0.2 已发布 | **[D-kart/investor-skill](https://github.com/D-kart/investor-skill)** |
+| 🎤 **presenter-skill** | 路演者.skill | 创始人融资路演工作流（叙事打磨 / 市场机会结构化 / 产品数据通俗化 / 护城河论证 / Q&A 异议 / 估值退出） | ✅ v1.0.1 已发布 | **[D-kart/presenter-skill](https://github.com/D-kart/presenter-skill)** |
+| 💡 **yi-er-skill** | 一二.skill | AI companion / 关系陪伴 / 个体状态理解工作流 | 🚧 研发中 | — |
+| 🧸 **bubu-skill** | 布布.skill | 准爸爸孕期全周期行动助手 | 🚧 研发中 | — |
+
+### 设计哲学
+
+- **一个 skill 一个仓**：独立 star / release / issue，互不干扰
+- **三层架构**：META（元信息）· ASSETS（资产真源）· REFERENCES（具体规范）
+- **专业输出**：投资 / 融资类 skill 直出“券商研报范” HTML
+- **按需加载**：SKILL.md 只做路由，能力 SOP 拆到 references/ 省 token
+- **跨平台兼容**：一次开发，五平台通用
+
+### 立即使用
+
+```bash
+# Claude Skills / WorkBuddy
+git clone git@github.com:D-kart/investor-skill.git ~/.claude/skills/investor-skill
+git clone git@github.com:D-kart/presenter-skill.git ~/.claude/skills/presenter-skill
+
+# OpenClaw / Hermes
+git clone git@github.com:D-kart/investor-skill.git ~/path/to/skills/
+git clone git@github.com:D-kart/presenter-skill.git ~/path/to/skills/
+
+# SkillHub
+zip -r investor-skill.zip investor-skill/   # 然后登录 SkillHub 上传
+zip -r presenter-skill.zip presenter-skill/
+```
+
+### 备注
+
+> 💡 **A 组（投融资双轨）设计亮点**：investor-skill（审判者视角）与 presenter-skill（被审判者视角）互为镜像、互为对手方 —— 写完 BP 用 investor-skill 自检打分，路演前用 presenter-skill 补齐融资逻辑，鼓励一起安装。
+
+> 💡 Skill 库是 OPC-Studio 从“记录一人公司”到“武装一人公司”的关键一步——让每个独立创业者都能把顶级专业工作流以近乎零成本接入自己的 AI Agent。
+
+---
+
+## 长期产品蓝图
+
+OPC-Studio 将分阶段建设：
+
+### Phase 1：展示与内容层
+
+目标：让优秀 OPC 企业被看见。
+
+- OPC 企业展示页
+- PitchRoom 深度访谈
+- AI 拆机器体验
+- 短视频 / 图文 / 长文内容矩阵
+- 嘉宾项目卡与基础标签体系
+
+### Phase 2：数据库与发现层
+
+目标：形成大湾区 OPC 企业数据库。
+
+- OPC 企业档案库
+- 赛道分类与能力标签
+- 产品展示与案例索引
+- AI 工具栈记录
+- 项目动态追踪
+- 内容与项目数据联动
+
+### Phase 3：匹配与服务层
+
+目标：提升客户、投资人和生态服务商的连接效率。
+
+- 企业客户需求提交
+- OPC 服务商推荐
+- 生态合作线索分发
+- 投资人 / 媒体 / 渠道关注入口
+- 可信评价与口碑机制
+- 匹配效率和服务质量追踪
+
+### Phase 4：SOP 与工具层
+
+目标：将 OPC-Studio 自身验证过的 Agent 工作流产品化。
+
+- 内容生产 SOP
+- 项目展示 SOP
+- 客户获取 SOP
+- 交付复盘 SOP
+- OPC Agent Toolkit
+- 面向 OPC 企业的工作流模板
+- 专业领域 AI Skill 工坊
+
+---
+
+## 商业模式
+
+OPC-Studio 的商业化会围绕“展示、连接、工具、生态”逐步展开。
+
+### 1. OPC 企业展示与增值服务
+
+为 OPC 企业提供更好的产品展示、内容包装、项目卡、案例页和传播素材。
+
+### 2. 企业客户与 OPC 服务商匹配
+
+帮助企业客户更高效地找到合适的 OPC 服务商，围绕需求匹配、项目推荐和合作撮合形成服务收入。
+
+### 3. 生态合作与品牌赞助
+
+面向 AI 工具厂商、云服务商、媒体、渠道方和产业园区，提供精准的 OPC 创业者触达和生态共建机会。
+
+### 4. Agent 工作流与工具产品
+
+将 OPC-Studio 内部验证过的内容生产、项目展示、客户连接和复盘流程，逐步沉淀为可复用的 Agent Toolkit 与专业 Skill 矩阵。
 
 ---
 
@@ -109,9 +324,34 @@ OPC-Studio 将分为三个层次逐步发展：
 - CSS
 - Vanilla JavaScript
 - 响应式移动端适配
-- 无后端依赖，可直接部署到 GitHub Pages / Vercel / Netlify
+- GitHub Pages 静态部署
 
-> 注：当前版本中的 AI 分析为前端模拟逻辑，用于展示产品交互原型。后续版本将接入真实 LLM API，实现更准确的项目拆解与个性化建议。
+后续可能扩展：
+
+- LLM API 接入
+- 企业档案数据库
+- 项目标签系统
+- 表单与线索收集
+- 账户系统
+- Agent 工作流编排
+- 内容资产管理
+- Skill 工坊索引与分发
+
+---
+
+## 在线体验
+
+Demo 地址：
+
+```text
+https://d-kart.github.io/OPC-Studio/
+```
+
+GitHub 仓库：
+
+```text
+https://github.com/D-kart/OPC-Studio
+```
 
 ---
 
@@ -140,80 +380,45 @@ http://localhost:8080
 ## 项目结构
 
 ```text
-opc-studio-demo/
-├── index.html   # Demo 单页应用
+OPC-Studio/
+├── index.html   # 当前 Demo 单页应用
 └── README.md    # 项目说明文档
 ```
 
 ---
 
-## 路线图
+## 当前路线图
 
-- [x] 完成 Landing Page 原型
+- [x] 完成 OPC-Studio MVP 展示页
 - [x] 完成 AI 拆机器交互 Demo
 - [x] 完成移动端适配
+- [x] 完成 PitchRoom 内容出片 SOP v0.1
+- [x] 将 README 从参赛 Demo 口径升级为长期平台口径
+- [x] 保留并整合 AI Skill 工坊板块
+- [ ] 增加 OPC 企业投递入口
 - [ ] 接入真实 LLM API
-- [ ] 生成可下载/分享的评级卡图片
-- [ ] 增加 OPC 项目投递入口
-- [ ] 搭建 OPC Toolkit 的 Agent 模板库
-- [ ] 建立 OPC Network 的项目/需求匹配机制
+- [ ] 建立 OPC 企业档案数据结构
+- [ ] 生成可分享的 OPC 项目卡
+- [ ] 建立客户需求提交入口
+- [ ] 打通内容生产与项目数据库
+- [ ] 形成第一版 OPC Agent Toolkit
+- [ ] 建立 Skill 工坊页面与下载索引
 
 ---
 
-## 参赛信息
+## 品牌原则
 
-- **赛事**：2026 WAIC FutureTech OPC 独立先锋挑战赛
-- **赛道**：创业赛道
-- **项目名称**：OPC-Studio
-- **项目口号**：看见每一个一人公司
-- **项目形态**：AI 原生内容平台 + OPC 工具服务 + 项目网络
+OPC-Studio 不是创业导师，不是融资路演秀，也不是流量型财经娱乐号。
 
----
+我们希望保持：
 
-## 🧰 OPC-Studio · AI Skill 工坊
-
-> 作为 OPC Toolkit 的基础构件，OPC-Studio 同步维护一系列**专业领域 AI Skill 包**，帮助一人公司创业者把高价值行业工作流直接装进自己的 AI Agent。
-
-每个 Skill 独立成仓，遵循 [agentskills.io](https://agentskills.io) 开放规范，兼容 Claude Skills / WorkBuddy / OpenClaw / Hermes / SkillHub 五大平台，开箱即用。
-
-![made by](https://img.shields.io/badge/made%20by-OPC--Studio-1a1a4e) ![license](https://img.shields.io/badge/license-MIT-green) ![compat](https://img.shields.io/badge/compat-Claude%20%7C%20WorkBuddy%20%7C%20OpenClaw%20%7C%20Hermes%20%7C%20SkillHub-orange)
-
-### Skill 矩阵
-
-| Skill | 中文名 | 主题 | 状态 | 仓库 |
-|---|---|---|---|---|
-| 🧭 **investor-skill** | 投资人.skill | 一级市场职业投资人工作流（行研 / 尽调 / BP 速析 / 竞争格局 / 技术产品 / 投资备忘录）| ✅ v1.0.2 已发布 | **[D-kart/investor-skill](https://github.com/D-kart/investor-skill)** |
-| 🎤 **presenter-skill** | 路演者.skill | 创始人融资路演工作流（叙事打磨 / 市场机会结构化 / 产品数据通俗化 / 护城河论证 / Q&A 异议 / 估值退出） | ✅ v1.0.1 已发布 | **[D-kart/presenter-skill](https://github.com/D-kart/presenter-skill)** |
-| 💡 yi-er-skill | 一二.skill | 敬请期待 | 🚧 研发中 | — |
-| 🧸 bubu-skill | 布布.skill | 敬请期待 | 🚧 研发中 | — |
-
-### 设计哲学
-
-- **一个 skill 一个仓**：独立 star / release / issue，互不干扰
-- **三层架构**：META（元信息）· ASSETS（资产真源）· REFERENCES（具体规范）
-- **专业输出**：投资 / 融资类 skill 直出"券商研报范" HTML
-- **按需加载**：SKILL.md 只做路由，能力 SOP 拆到 references/ 省 token
-- **跨平台兼容**：一次开发，五平台通用
-
-### 立即使用
-
-```bash
-# Claude Skills / WorkBuddy
-git clone git@github.com:D-kart/investor-skill.git ~/.claude/skills/investor-skill
-git clone git@github.com:D-kart/presenter-skill.git ~/.claude/skills/presenter-skill
-
-# OpenClaw / Hermes
-git clone git@github.com:D-kart/investor-skill.git ~/path/to/skills/
-git clone git@github.com:D-kart/presenter-skill.git ~/path/to/skills/
-
-# SkillHub
-zip -r investor-skill.zip investor-skill/   # 然后登录 SkillHub 上传
-zip -r presenter-skill.zip presenter-skill/
+```text
+专业、克制、真实、有审美、有判断
 ```
 
-> 💡 **A 组（投融资双轨）设计亮点**：investor-skill（审判者视角）与 presenter-skill（被审判者视角）互为镜像、互为对手方 —— 写完 BP 用 investor-skill 自检打分，路演前用 presenter-skill 补齐融资逻辑，鼓励一起安装。
+对外讲故事，对内沉淀结构。
 
-> 💡 Skill 库是 OPC-Studio 从"记录一人公司"到"武装一人公司"的关键一步——让每个独立创业者都能把顶级专业工作流以近乎零成本接入自己的 AI Agent。
+公开内容强调产品、能力、真实经验与生态连接；内部流程持续优化项目分析、客户匹配和 Agent 工作流。
 
 ---
 
@@ -221,13 +426,13 @@ zip -r presenter-skill.zip presenter-skill/
 
 OPC-Studio 由一位独立创业者发起。
 
-我们相信，未来会出现越来越多由 AI Agent 放大的「一人公司」。这些公司也许规模不大，但足够灵活、专业、真实，并且能够在垂直场景中创造高密度价值。
+我们相信，未来会出现越来越多由 AI Agent 放大的“一人公司”。它们也许团队很小，但可以在垂直场景中创造高密度价值。
 
-OPC-Studio 希望成为这个新生态最早的记录者、连接者和基础设施建设者。
+OPC-Studio 希望成为这个新生态的记录者、展示者、连接者和基础设施建设者。
 
 ---
 
 ## License
 
-This project is currently for competition demo and concept validation.  
+This project is currently for concept validation and ecosystem building.  
 All rights reserved.
