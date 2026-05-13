@@ -5,7 +5,7 @@
 
 OPC-Studio 是一个服务 **OPC（One Person Company，一人公司）生态** 的 AI 原生平台。
 
-它不只是一个参赛 Demo，而是一个长期建设中的 **OPC 企业展示平台、深度内容媒体、企业级服务商发现入口与大湾区 OPC 数据库**。
+它是一个长期建设中的 **OPC 企业展示平台、深度内容媒体、企业级服务商发现入口与大湾区 OPC 数据库**。
 
 我们希望让优秀的一人公司被更多人看见，也让企业客户、投资人、生态服务商更高效地理解和连接这些新型 AI 原生企业。
 
@@ -318,16 +318,13 @@ OPC-Studio 的商业化会围绕“展示、连接、工具、生态”逐步展
 
 ## 技术栈
 
-当前 Demo 为纯前端实现：
+
 
 - HTML
 - CSS
 - Vanilla JavaScript
 - 响应式移动端适配
 - GitHub Pages 静态部署
-
-后续可能扩展：
-
 - LLM API 接入
 - 企业档案数据库
 - 项目标签系统
@@ -353,27 +350,6 @@ GitHub 仓库：
 https://github.com/D-kart/OPC-Studio
 ```
 
----
-
-## 本地运行
-
-直接打开 `index.html` 即可预览：
-
-```bash
-open index.html
-```
-
-或使用任意静态服务器：
-
-```bash
-python3 -m http.server 8080
-```
-
-然后访问：
-
-```text
-http://localhost:8080
-```
 
 ---
 
@@ -424,7 +400,7 @@ OPC-Studio 不是创业导师，不是融资路演秀，也不是流量型财经
 
 ## 关于 OPC-Studio 主理人
 
-OPC-Studio 由一位独立创业者发起。
+OPC-Studio 由一位前职业投资人发起，现在是一个AI原生的一人公司。
 
 我们相信，未来会出现越来越多由 AI Agent 放大的“一人公司”。它们也许团队很小，但可以在垂直场景中创造高密度价值。
 
