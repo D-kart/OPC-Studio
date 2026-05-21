@@ -1,0 +1,1182 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>OPC-Studio × AI-Marketing | 投资人交付展示</title>
+    <style>
+      :root {
+        --ink: #0a0f10;
+        --paper: #f7faf8;
+        --soft: #edf5f1;
+        --line: #dce8e2;
+        --muted: #65726e;
+        --green: #22d4a3;
+        --blue: #78a2ff;
+        --dark: #0d1111;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        margin: 0;
+        color: var(--ink);
+        background: var(--paper);
+        font-family:
+          Inter, "Noto Sans SC", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
+          "Segoe UI", sans-serif;
+      }
+
+      a {
+        color: inherit;
+      }
+
+      .topbar {
+        position: sticky;
+        top: 0;
+        z-index: 5;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 24px;
+        padding: 18px clamp(20px, 4vw, 56px);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+        color: white;
+        background: rgba(13, 17, 17, 0.88);
+        backdrop-filter: blur(18px);
+      }
+
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        font-weight: 900;
+        text-decoration: none;
+      }
+
+      .brand span:first-child {
+        display: grid;
+        width: 36px;
+        height: 36px;
+        place-items: center;
+        border-radius: 8px;
+        color: var(--ink);
+        background: var(--green);
+        font-size: 12px;
+      }
+
+      .topbar nav {
+        display: flex;
+        gap: 24px;
+      }
+
+      .topbar nav a {
+        color: #cbd7d3;
+        font-size: 14px;
+        font-weight: 800;
+        text-decoration: none;
+      }
+
+      .hero {
+        display: grid;
+        grid-template-columns: minmax(420px, 0.9fr) minmax(420px, 1.1fr);
+        gap: clamp(34px, 5vw, 84px);
+        align-items: center;
+        min-height: calc(100svh - 73px);
+        padding: clamp(56px, 7vw, 94px) clamp(20px, 5vw, 72px);
+        color: white;
+        background:
+          radial-gradient(circle at 78% 35%, rgba(120, 162, 255, 0.18), transparent 28%),
+          linear-gradient(135deg, #070909, #101919 64%, #0b1114);
+      }
+
+      .kicker {
+        margin: 0 0 28px;
+        color: var(--green);
+        font-size: 13px;
+        font-weight: 900;
+        letter-spacing: 0;
+      }
+
+      h1,
+      h2,
+      h3,
+      p {
+        margin: 0;
+      }
+
+      h1 {
+        max-width: 780px;
+        font-size: clamp(46px, 5.4vw, 82px);
+        line-height: 1.02;
+        letter-spacing: 0;
+      }
+
+      .hero-copy > p {
+        max-width: 720px;
+        margin-top: 30px;
+        color: #c5d2ce;
+        font-size: clamp(20px, 2vw, 29px);
+        line-height: 1.5;
+        font-weight: 700;
+      }
+
+      .hero-actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 14px;
+        margin-top: 36px;
+      }
+
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 48px;
+        border-radius: 8px;
+        padding: 0 18px;
+        font-weight: 900;
+        text-decoration: none;
+        transition:
+          transform 180ms ease,
+          border-color 180ms ease,
+          background 180ms ease;
+      }
+
+      .btn:hover,
+      .material-tab:hover,
+      .doc-card:hover {
+        transform: translateY(-1px);
+      }
+
+      .btn.primary {
+        color: var(--ink);
+        background: var(--green);
+      }
+
+      .btn.secondary {
+        color: white;
+        border: 1px solid rgba(255, 255, 255, 0.22);
+        background: rgba(255, 255, 255, 0.06);
+      }
+
+      .hero img {
+        width: 100%;
+        border: 1px solid rgba(255, 255, 255, 0.16);
+        border-radius: 14px;
+        box-shadow: 0 42px 120px rgba(0, 0, 0, 0.42);
+      }
+
+      .section {
+        padding: clamp(68px, 9vw, 124px) clamp(20px, 5vw, 72px);
+      }
+
+      .section-head {
+        display: grid;
+        grid-template-columns: minmax(0, 0.95fr) minmax(260px, 0.62fr);
+        gap: 34px;
+        align-items: end;
+        margin-bottom: 40px;
+      }
+
+      h2 {
+        font-size: clamp(38px, 5.4vw, 76px);
+        line-height: 1;
+        letter-spacing: 0;
+      }
+
+      .section-head p,
+      .lead {
+        color: var(--muted);
+        font-size: 18px;
+        line-height: 1.7;
+        font-weight: 700;
+      }
+
+      .studio-window {
+        display: grid;
+        grid-template-columns: minmax(320px, 0.78fr) minmax(0, 1.22fr);
+        gap: 16px;
+        padding: 16px;
+        border: 1px solid var(--line);
+        border-radius: 16px;
+        background: #101716;
+        box-shadow: 0 28px 90px rgba(10, 15, 16, 0.18);
+      }
+
+      .window-panel {
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        border-radius: 12px;
+        background: #151c1b;
+        overflow: hidden;
+      }
+
+      .window-title {
+        display: flex;
+        justify-content: space-between;
+        gap: 16px;
+        padding: 15px 16px;
+        color: #cbd7d3;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        font-size: 13px;
+        font-weight: 900;
+      }
+
+      .window-title span:last-child {
+        color: var(--green);
+      }
+
+      .input-stack,
+      .output-stack {
+        display: grid;
+        gap: 10px;
+        padding: 16px;
+      }
+
+      .input-field {
+        display: grid;
+        gap: 8px;
+        padding: 14px;
+        border-radius: 10px;
+        color: #dce8e2;
+        background: rgba(255, 255, 255, 0.055);
+      }
+
+      .input-field small,
+      .output-card small {
+        color: #8ea09b;
+        font-weight: 900;
+      }
+
+      .input-field strong {
+        font-size: 15px;
+        line-height: 1.45;
+      }
+
+      .output-card {
+        display: grid;
+        grid-template-columns: auto 1fr auto;
+        gap: 14px;
+        align-items: start;
+        padding: 15px;
+        border-radius: 10px;
+        background: #f7faf8;
+      }
+
+      .output-card b {
+        color: var(--ink);
+      }
+
+      .output-card p {
+        margin-top: 6px;
+        color: var(--muted);
+        font-size: 14px;
+        line-height: 1.55;
+        font-weight: 700;
+      }
+
+      .output-card em {
+        color: #0d9271;
+        font-style: normal;
+        font-size: 12px;
+        font-weight: 950;
+      }
+
+      .proof-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 1px;
+        overflow: hidden;
+        border: 1px solid var(--line);
+        border-radius: 10px;
+        background: var(--line);
+      }
+
+      .proof-grid article {
+        min-height: 220px;
+        padding: 26px;
+        background: white;
+      }
+
+      .proof-grid span,
+      .asset-card span,
+      .sequence span {
+        color: #0d9271;
+        font-size: 13px;
+        font-weight: 950;
+      }
+
+      .proof-grid h3,
+      .asset-card h3,
+      .sequence h3 {
+        margin-top: 48px;
+        font-size: 25px;
+        line-height: 1.08;
+      }
+
+      .proof-grid p,
+      .asset-card p,
+      .sequence p {
+        margin-top: 14px;
+        color: var(--muted);
+        font-size: 15px;
+        line-height: 1.65;
+        font-weight: 700;
+      }
+
+      .value-ledger {
+        display: grid;
+        grid-template-columns: 0.9fr 1.1fr;
+        gap: 16px;
+        align-items: stretch;
+      }
+
+      .value-thesis,
+      .value-card,
+      .process-step {
+        border: 1px solid var(--line);
+        border-radius: 12px;
+        background: white;
+      }
+
+      .value-thesis {
+        display: grid;
+        align-content: space-between;
+        gap: 28px;
+        padding: clamp(28px, 5vw, 52px);
+        color: white;
+        background:
+          linear-gradient(135deg, rgba(34, 212, 163, 0.16), transparent 42%),
+          #101716;
+      }
+
+      .value-thesis span,
+      .value-card span,
+      .process-step span {
+        color: var(--green);
+        font-size: 12px;
+        font-weight: 950;
+      }
+
+      .value-thesis h2 {
+        margin-top: 16px;
+        font-size: clamp(36px, 4.8vw, 68px);
+      }
+
+      .value-thesis p {
+        color: #b9c8c4;
+        font-size: 18px;
+        line-height: 1.7;
+        font-weight: 760;
+      }
+
+      .value-cards {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 12px;
+      }
+
+      .value-card {
+        min-height: 210px;
+        padding: 24px;
+      }
+
+      .value-card strong {
+        display: block;
+        margin-top: 30px;
+        font-size: 26px;
+        line-height: 1.08;
+      }
+
+      .value-card p,
+      .process-step p {
+        margin-top: 12px;
+        color: var(--muted);
+        font-size: 15px;
+        line-height: 1.65;
+        font-weight: 720;
+      }
+
+      .process-rail {
+        display: grid;
+        grid-template-columns: repeat(5, minmax(0, 1fr));
+        gap: 10px;
+        margin-top: 16px;
+      }
+
+      .process-step {
+        min-height: 150px;
+        padding: 18px;
+      }
+
+      .dark-section {
+        color: white;
+        background: var(--dark);
+      }
+
+      .dark-section .section-head p,
+      .dark-section .lead {
+        color: #aebbb7;
+      }
+
+      .positioning {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+        gap: 16px;
+      }
+
+      .statement {
+        color: var(--ink);
+        padding: clamp(28px, 5vw, 52px);
+        border-radius: 12px;
+        background: white;
+        border: 1px solid var(--line);
+      }
+
+      .statement.dark {
+        color: white;
+        background: #101716;
+        border-color: rgba(255, 255, 255, 0.13);
+      }
+
+      .statement small {
+        color: #0d9271;
+        font-weight: 950;
+      }
+
+      .statement h3 {
+        margin-top: 16px;
+        font-size: clamp(32px, 4vw, 58px);
+        line-height: 1.05;
+      }
+
+      .statement p {
+        margin-top: 18px;
+        color: var(--muted);
+        font-size: 17px;
+        line-height: 1.7;
+        font-weight: 700;
+      }
+
+      .statement.dark p {
+        color: #b9c8c4;
+      }
+
+      .assets {
+        display: grid;
+        grid-template-columns: minmax(0, 1.2fr) minmax(300px, 0.8fr);
+        gap: 16px;
+      }
+
+      .asset-card {
+        padding: 18px;
+        border: 1px solid rgba(255, 255, 255, 0.13);
+        border-radius: 12px;
+        background: #151c1b;
+      }
+
+      .asset-card:first-child {
+        grid-row: span 2;
+      }
+
+      .asset-card img {
+        width: 100%;
+        border-radius: 10px;
+        display: block;
+        background: #050707;
+      }
+
+      .asset-card h3 {
+        color: white;
+        margin-top: 20px;
+      }
+
+      .asset-card p {
+        color: #aebbb7;
+      }
+
+      .sequence {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 12px;
+      }
+
+      .sequence article {
+        min-height: 260px;
+        padding: 26px;
+        border: 1px solid var(--line);
+        border-radius: 10px;
+        background: white;
+      }
+
+      .deliverable-list {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 10px;
+      }
+
+      .deliverable-list button {
+        min-height: 88px;
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        padding: 20px;
+        border: 1px solid var(--line);
+        border-radius: 10px;
+        color: var(--ink);
+        background: white;
+        font: inherit;
+        font-weight: 900;
+        text-align: left;
+        cursor: pointer;
+        transition:
+          transform 180ms ease,
+          border-color 180ms ease,
+          background 180ms ease;
+      }
+
+      .deliverable-list button:hover,
+      .deliverable-list button.active {
+        border-color: rgba(34, 212, 163, 0.7);
+        background: #ecfff8;
+      }
+
+      .deliverable-list span,
+      .material-preview span {
+        color: #0d9271;
+      }
+
+      .material-workbench {
+        display: grid;
+        grid-template-columns: minmax(280px, 0.82fr) minmax(0, 1.18fr);
+        gap: 16px;
+        align-items: start;
+      }
+
+      .material-preview {
+        min-height: 440px;
+        padding: 28px;
+        border: 1px solid var(--line);
+        border-radius: 12px;
+        background: white;
+        box-shadow: 0 22px 70px rgba(10, 15, 16, 0.08);
+      }
+
+      .material-preview h3 {
+        margin-top: 12px;
+        font-size: clamp(28px, 4vw, 48px);
+        line-height: 1.08;
+      }
+
+      .material-preview p,
+      .material-preview li {
+        color: var(--muted);
+        font-size: 16px;
+        line-height: 1.7;
+        font-weight: 700;
+      }
+
+      .material-preview p {
+        margin-top: 16px;
+      }
+
+      .material-preview ul {
+        display: grid;
+        gap: 12px;
+        margin: 22px 0 0;
+        padding-left: 20px;
+      }
+
+      .preview-actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-top: 24px;
+      }
+
+      .preview-actions .btn.secondary {
+        color: var(--ink);
+        border-color: var(--line);
+        background: var(--soft);
+      }
+
+      .doc-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 12px;
+        margin-top: 18px;
+      }
+
+      .doc-card {
+        display: flex;
+        min-height: 150px;
+        flex-direction: column;
+        justify-content: space-between;
+        gap: 20px;
+        padding: 22px;
+        border: 1px solid var(--line);
+        border-radius: 10px;
+        color: var(--ink);
+        background: white;
+        font-weight: 900;
+        text-decoration: none;
+        transition:
+          transform 180ms ease,
+          border-color 180ms ease;
+      }
+
+      .doc-card:hover {
+        border-color: rgba(34, 212, 163, 0.8);
+      }
+
+      .doc-card span {
+        color: #0d9271;
+        font-size: 13px;
+      }
+
+      .quote {
+        padding: clamp(34px, 6vw, 72px);
+        border-radius: 14px;
+        color: white;
+        background:
+          linear-gradient(135deg, rgba(34, 212, 163, 0.16), transparent 38%),
+          #101716;
+      }
+
+      .quote h2 {
+        max-width: 1100px;
+      }
+
+      .quote p {
+        max-width: 820px;
+        margin-top: 24px;
+        color: #b9c8c4;
+        font-size: 19px;
+        line-height: 1.7;
+        font-weight: 700;
+      }
+
+      footer {
+        display: flex;
+        justify-content: space-between;
+        gap: 22px;
+        padding: 32px clamp(20px, 5vw, 72px);
+        color: #cbd7d3;
+        background: #070909;
+      }
+
+      footer a {
+        color: white;
+        font-weight: 900;
+      }
+
+      @media (max-width: 1000px) {
+        .topbar nav {
+          display: none;
+        }
+
+        .hero,
+        .section-head,
+        .positioning,
+        .assets,
+        .studio-window,
+        .material-workbench,
+        .value-ledger {
+          grid-template-columns: 1fr;
+        }
+
+        .proof-grid,
+        .sequence,
+        .deliverable-list,
+        .doc-grid,
+        .process-rail {
+          grid-template-columns: repeat(2, 1fr);
+        }
+
+        .asset-card:first-child {
+          grid-row: auto;
+        }
+      }
+
+      @media (max-width: 640px) {
+        .hero {
+          min-height: auto;
+        }
+
+        h1 {
+          font-size: 46px;
+        }
+
+        .proof-grid,
+        .sequence,
+        .deliverable-list,
+        .doc-grid,
+        .process-rail,
+        .value-cards {
+          grid-template-columns: 1fr;
+        }
+
+        .hero-actions,
+        footer {
+          flex-direction: column;
+          align-items: stretch;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="topbar">
+      <a class="brand" href="/">
+        <span>AM</span>
+        <span>AI-Marketing × OPC-Studio</span>
+      </a>
+      <nav>
+        <a href="#thesis">投资判断</a>
+        <a href="#value">专业度</a>
+        <a href="#strategy">定位</a>
+        <a href="#assets">视觉资产</a>
+        <a href="#package">交付包</a>
+        <a href="#next">下一步</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="hero-copy">
+          <p class="kicker">Investor Showcase / Client A: OPC-Studio</p>
+          <h1>OPC-Studio 市场发布资产包</h1>
+          <p>
+            这套交付把 OPC-Studio 从“能说明白”推进到“能被看见、被相信、被转发”。策略、视觉、视频和发布动作已经放在同一条线上。
+          </p>
+          <div class="hero-actions">
+            <a class="btn primary" href="#thesis">查看核心成果</a>
+            <a class="btn secondary" href="delivery-room.html">进入交付室</a>
+          </div>
+        </div>
+        <img src="key-visual.png" alt="OPC-Studio 主视觉海报" />
+      </section>
+
+      <section class="section" id="thesis">
+        <div class="section-head">
+          <h2>核心成果：把早期平台包装成可传播的市场资产。</h2>
+          <p>
+            OPC-Studio 已经具备产品愿景和内容基础。本次交付的重点，是把这些能力转化为外部可理解、可转发、可演示、可获客的市场表达。
+          </p>
+        </div>
+        <div class="proof-grid">
+          <article>
+            <span>01 / 读懂复杂产品</span>
+            <h3>从愿景堆叠到一句话定位</h3>
+            <p>OPC-Studio 原始信息覆盖展示、内容、数据库、Skill、Agent。对外主线被压缩为“一人公司的增长操作系统”。</p>
+          </article>
+          <article>
+            <span>02 / 创意表达</span>
+            <h3>把 OPC 讲成新组织形态</h3>
+            <p>传播主张从“平台上线”升级为“一个人，也能是一家公司”，更容易被转发和讨论。</p>
+          </article>
+          <article>
+            <span>03 / 视觉交付</span>
+            <h3>让产品看起来值得被相信</h3>
+            <p>主视觉、社媒卡和视频分镜建立了统一隐喻：一个创始人 + Agent 编队 + 机会网络。</p>
+          </article>
+          <article>
+            <span>04 / 商业闭环</span>
+            <h3>从曝光走到线索转化</h3>
+            <p>交付不止发布图文，还包含 Demo 讲解、销售私信、FAQ 和 7 天发布节奏。</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section" id="value">
+        <div class="value-ledger">
+          <div class="value-thesis">
+            <div>
+              <span>Perceived Value</span>
+              <h2>客户真正会记住的，是判断和完成度。</h2>
+            </div>
+            <p>
+              AI-Marketing 不是把资料改写成几份文档，而是替客户完成一次市场部应该完成的工作：读懂产品，找到表达角度，做出能发布的资产，再把动作接到线索和复盘。
+            </p>
+          </div>
+          <div>
+            <div class="value-cards">
+              <article class="value-card">
+                <span>01 / Strategy</span>
+                <strong>把复杂能力压成外部能记住的一句话。</strong>
+                <p>OPC-Studio 从“展示与连接平台”升级为“一人公司的增长操作系统”，降低首次理解成本。</p>
+              </article>
+              <article class="value-card">
+                <span>02 / Creative</span>
+                <strong>让早期产品看起来已经具备品牌感。</strong>
+                <p>主视觉、社媒卡和视频分镜共用“控制台、Agent 编队、机会网络”的表达系统。</p>
+              </article>
+              <article class="value-card">
+                <span>03 / Production</span>
+                <strong>交付物覆盖发布、演示、获客和答疑。</strong>
+                <p>9 类宣发物料不是散稿，而是围绕同一主张展开，便于团队直接使用和二次修改。</p>
+              </article>
+              <article class="value-card">
+                <span>04 / Execution</span>
+                <strong>给客户一条可以马上执行的发布节奏。</strong>
+                <p>7 天分发计划把素材接到预热、公开发布、Demo、销售触达、社群扩散和复盘。</p>
+              </article>
+            </div>
+          </div>
+        </div>
+        <div class="process-rail" aria-label="AI-Marketing 服务流程">
+          <article class="process-step">
+            <span>01</span>
+            <p>读官网、仓库、产品说明，先建立真实语境。</p>
+          </article>
+          <article class="process-step">
+            <span>02</span>
+            <p>拆目标受众、场景和传播阻力，找到可卖点。</p>
+          </article>
+          <article class="process-step">
+            <span>03</span>
+            <p>确定定位、口号、叙事和视觉隐喻。</p>
+          </article>
+          <article class="process-step">
+            <span>04</span>
+            <p>生成图片、脚本、文案、销售话术和 FAQ。</p>
+          </article>
+          <article class="process-step">
+            <span>05</span>
+            <p>排发布节奏，让交付能进入增长动作。</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="section-head">
+          <h2>AI-Marketing 工作台：输入客户资料，输出整套市场资产。</h2>
+          <p>
+            这部分展示实际交付逻辑：左侧是 OPC-Studio 的原始输入，右侧是被整理出来的定位、视觉、视频和转化素材。
+          </p>
+        </div>
+        <div class="studio-window">
+          <div class="window-panel">
+            <div class="window-title">
+              <span>Input / Client Material</span>
+              <span>OPC-Studio</span>
+            </div>
+            <div class="input-stack">
+              <div class="input-field">
+                <small>官网与仓库资料</small>
+                <strong>服务 OPC 生态的展示、内容、连接和 Agent 工作流平台</strong>
+              </div>
+              <div class="input-field">
+                <small>核心模块</small>
+                <strong>展示页、PitchRoom、AI 拆机器、AI Skill 工坊、项目数据库</strong>
+              </div>
+              <div class="input-field">
+                <small>传播难点</small>
+                <strong>信息密度高，功能很多，但外部用户需要一个更容易记住的市场主张</strong>
+              </div>
+            </div>
+          </div>
+          <div class="window-panel">
+            <div class="window-title">
+              <span>Output / Launch Pack</span>
+              <span>9 assets ready</span>
+            </div>
+            <div class="output-stack">
+              <div class="output-card">
+                <small>01</small>
+                <div>
+                  <b>定位升级</b>
+                  <p>从“展示与连接平台”升级为“一人公司的增长操作系统”。</p>
+                </div>
+                <em>ready</em>
+              </div>
+              <div class="output-card">
+                <small>02</small>
+                <div>
+                  <b>传播主张</b>
+                  <p>一个人，也能是一家公司。让 OPC 从“个人副业”变成“AI 时代新组织”。</p>
+                </div>
+                <em>ready</em>
+              </div>
+              <div class="output-card">
+                <small>03</small>
+                <div>
+                  <b>视觉系统</b>
+                  <p>控制台、Agent 编队、机会网络，形成可延展的品牌视觉隐喻。</p>
+                </div>
+                <em>ready</em>
+              </div>
+              <div class="output-card">
+                <small>04</small>
+                <div>
+                  <b>转化路径</b>
+                  <p>社媒发布、AI 拆机器体验、项目提交、PitchRoom 深访、生态连接。</p>
+                </div>
+                <em>ready</em>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section dark-section" id="strategy">
+        <div class="section-head">
+          <h2>策略升级：从展示平台到增长操作系统。</h2>
+          <p>
+            官网已经说明了 OPC-Studio 的愿景。发布资产需要进一步建立一个更清晰、更可商业化的外部心智。
+          </p>
+        </div>
+        <div class="positioning">
+          <div class="statement">
+            <small>Before</small>
+            <h3>服务 OPC 生态的展示与连接平台</h3>
+            <p>准确，但偏平台说明。适合 README，不足以在信息流里形成记忆点。</p>
+          </div>
+          <div class="statement dark">
+            <small>After</small>
+            <h3>一人公司的增长操作系统</h3>
+            <p>更像一个可被购买、可被投资、可被持续扩展的产品。它把展示、内容、Agent 工作流和机会网络装进同一个心智。</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="package">
+        <div class="section-head">
+          <h2>9 类宣发物料已完成。</h2>
+          <p>
+            每一项都围绕 OPC-Studio 当前可发布、可演示、可获客的状态生成，可直接进入发布、演示和客户沟通环节。
+          </p>
+        </div>
+        <div class="material-workbench">
+          <div class="deliverable-list" role="tablist" aria-label="OPC-Studio 交付物料预览">
+            <button class="material-tab active" type="button" data-material="positioning"><span>01</span>产品定位</button>
+            <button class="material-tab" type="button" data-material="heroCopy"><span>02</span>官网 Hero 文案</button>
+            <button class="material-tab" type="button" data-material="announcement"><span>03</span>产品发布公告</button>
+            <button class="material-tab" type="button" data-material="video"><span>04</span>宣传视频脚本</button>
+            <button class="material-tab" type="button" data-material="demo"><span>05</span>Demo 讲解稿</button>
+            <button class="material-tab" type="button" data-material="tutorial"><span>06</span>教程视频脚本</button>
+            <button class="material-tab" type="button" data-material="social"><span>07</span>社媒推广文案</button>
+            <button class="material-tab" type="button" data-material="sales"><span>08</span>销售私信 / 邮件</button>
+            <button class="material-tab" type="button" data-material="faq"><span>09</span>FAQ / 帮助中心</button>
+          </div>
+          <article class="material-preview" id="materialPreview" aria-live="polite">
+            <span>01 / 产品定位</span>
+            <h3>一人公司的增长操作系统</h3>
+            <p>OPC-Studio 是服务一人公司生态的 AI 原生增长操作系统，帮助优秀 OPC 被看见、被理解、被连接。</p>
+            <ul>
+              <li>对外传播版：一个人，也能是一家公司。</li>
+              <li>官网版：结构化展示、PitchRoom 深度内容、AI 拆机器和 Agent 工作流。</li>
+              <li>客户版：更快发现可信赖的 AI 原生小微服务商。</li>
+            </ul>
+            <div class="preview-actions">
+              <a class="btn primary" href="delivery-room.html#launch-pack">打开完整 Launch Pack</a>
+              <a class="btn secondary" href="delivery-room.html#strategy">查看策略简报</a>
+            </div>
+          </article>
+        </div>
+        <div class="doc-grid" aria-label="完整交付文档入口">
+          <a class="doc-card" href="delivery-room.html#learning"><span>00</span>学习与方法记录</a>
+          <a class="doc-card" href="delivery-room.html#strategy"><span>01</span>策略简报</a>
+          <a class="doc-card" href="delivery-room.html#launch-pack"><span>02</span>9 类物料 Launch Pack</a>
+          <a class="doc-card" href="delivery-room.html#video"><span>03</span>视频脚本与分镜</a>
+          <a class="doc-card" href="delivery-room.html#distribution"><span>04</span>发布分发计划</a>
+          <a class="doc-card" href="delivery-room.html#visual-system"><span>05</span>视觉表达系统</a>
+        </div>
+      </section>
+
+      <section class="section dark-section" id="assets">
+        <div class="section-head">
+          <h2>视觉资产：建立第一眼的信任感和传播记忆点。</h2>
+          <p>
+            小微团队的产品往往输在表达，不输在能力。主视觉、社媒卡和视频分镜把 OPC-Studio 的平台感、未来感和组织创新表达出来。
+          </p>
+        </div>
+        <div class="assets">
+          <article class="asset-card">
+            <img src="key-visual.png" alt="OPC-Studio 主视觉海报" />
+            <h3>主视觉：一人公司的控制台</h3>
+            <p>适合官网首屏、公众号头图、活动页和发布长文。OPC-Studio 被表达为基础设施，而不是普通项目列表。</p>
+          </article>
+          <article class="asset-card">
+            <img src="social-card.png" alt="OPC-Studio 社媒传播卡" />
+            <h3>社媒卡：一眼可传播的钩子</h3>
+            <p>“一个人，也能是一家公司”是可讨论、可截图、可转发的传播入口。</p>
+          </article>
+          <article class="asset-card">
+            <img src="video-storyboard.png" alt="OPC-Studio 视频分镜板" />
+            <h3>视频分镜：60 秒讲清楚新组织</h3>
+            <p>从“分散无人看见”走到“被系统理解和连接”，避免落入功能罗列。</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="section-head">
+          <h2>建议展示顺序：先建立判断，再展示证据。</h2>
+          <p>这套顺序适合用于路演、合伙人沟通、客户介绍和官网案例页。</p>
+        </div>
+        <div class="sequence">
+          <article>
+            <span>Step 1</span>
+            <h3>先讲市场判断</h3>
+            <p>AI Agent 改变公司最小单位，OPC 是正在出现的新型组织。OPC-Studio 卡在这个趋势上。</p>
+          </article>
+          <article>
+            <span>Step 2</span>
+            <h3>再讲定位升级</h3>
+            <p>从“展示平台”升级为“一人公司的增长操作系统”，让产品更像基础设施。</p>
+          </article>
+          <article>
+            <span>Step 3</span>
+            <h3>展示可发布素材</h3>
+            <p>主视觉、社媒卡、视频分镜、发布公告和 Demo 讲解稿可以直接进入市场发布。</p>
+          </article>
+          <article>
+            <span>Step 4</span>
+            <h3>看传播闭环</h3>
+            <p>D-3 预热、D-Day 发布、D+2 Demo、D+7 复盘，把素材转成获客动作。</p>
+          </article>
+          <article>
+            <span>Step 5</span>
+            <h3>判断产品化价值</h3>
+            <p>这套流程可复制给其他 OPC 和小微团队，形成 AI-Marketing 的服务化 MVP。</p>
+          </article>
+          <article>
+            <span>Step 6</span>
+            <h3>进入下一轮建设</h3>
+            <p>把 OPC-Studio 主站改造、表单接入、案例页上线，开始接真实客户。</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section" id="next">
+        <div class="quote">
+          <h2>结论：这套交付的价值，是提升 OPC-Studio 的市场势能。</h2>
+          <p>
+            品牌心智、发布资产、视频叙事和渠道动作已经打通。OPC-Studio 可以用它启动首轮公开传播；AI-Marketing 也可以把它作为第一份案例，展示“会审美、会叙事、会交付”的 AI 市场部能力。
+          </p>
+          <div class="hero-actions">
+            <a class="btn primary" href="delivery-room.html#launch-pack">查看 9 类物料</a>
+            <a class="btn secondary" href="delivery-room.html#distribution">查看发布计划</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <span>AI-Marketing for OPC-Studio</span>
+      <a href="/">返回 AI-Marketing 首页</a>
+    </footer>
+    <script>
+      const materialMap = {
+        positioning: {
+          label: '01 / 产品定位',
+          title: '一人公司的增长操作系统',
+          body:
+            'OPC-Studio 是服务一人公司生态的 AI 原生增长操作系统，帮助优秀 OPC 被看见、被理解、被连接。',
+          bullets: ['对外传播版：一个人，也能是一家公司。', '官网版：结构化展示、PitchRoom 深度内容、AI 拆机器和 Agent 工作流。', '客户版：更快发现可信赖的 AI 原生小微服务商。'],
+          links: [['打开完整 Launch Pack', 'delivery-room.html#launch-pack'], ['查看策略简报', 'delivery-room.html#strategy']],
+        },
+        heroCopy: {
+          label: '02 / 官网 Hero 文案',
+          title: '看见每一个一人公司',
+          body:
+            'OPC-Studio 是一人公司的 AI 原生增长操作系统。用结构化展示、PitchRoom 深度内容和 Agent 工作流，让优秀 OPC 被看见、被理解、被连接。',
+          bullets: ['CTA：发布你的 OPC 项目。', 'CTA：体验 AI 拆机器。', '备选主张：给一人公司的展示、内容和机会网络。'],
+          links: [['查看 Hero 文案', 'delivery-room.html#launch-pack'], ['查看视觉系统', 'delivery-room.html#visual-system']],
+        },
+        announcement: {
+          label: '03 / 产品发布公告',
+          title: '一个人，也能是一家公司',
+          body:
+            'AI 正在改变公司的最小单位。一个高密度个体，加上一组 AI Agent 和清晰的垂直场景，已经可以完成过去一个小团队才能完成的工作。',
+          bullets: ['解释为什么现在需要 OPC-Studio。', '把 OPC 从个人副业升级成新组织形态。', '引导提交项目和体验 AI 拆机器。'],
+          links: [['阅读发布公告', 'delivery-room.html#launch-pack'], ['查看发布计划', 'delivery-room.html#distribution']],
+        },
+        video: {
+          label: '04 / 宣传视频脚本',
+          title: '60 秒：从分散到被看见',
+          body:
+            '视频从“优秀项目分散、没人看见”开始，进入 OPC-Studio 控制台，再展示 PitchRoom、AI 拆机器和机会网络，最后落到品牌口号。',
+          bullets: ['0-20 秒建立痛点。', '20-40 秒展示系统出现。', '40-60 秒连接客户、投资人和生态伙伴。'],
+          links: [['查看视频脚本', 'delivery-room.html#video'], ['打开分镜图', 'video-storyboard.png']],
+        },
+        demo: {
+          label: '05 / Demo 讲解稿',
+          title: '把 OPC-Studio 讲成一次产品演示',
+          body:
+            'Demo 讲解顺序覆盖展示页、PitchRoom、AI 拆机器、Agent 工作流和 Skill 工坊，让观众理解它如何帮助一人公司建立表达与连接。',
+          bullets: ['先解释一人公司增长操作系统。', '再展示 PitchRoom 七问。', '最后落到 AI 拆机器项目卡。'],
+          links: [['查看 Demo 稿', 'delivery-room.html#launch-pack'], ['查看策略简报', 'delivery-room.html#strategy']],
+        },
+        tutorial: {
+          label: '06 / 教程视频脚本',
+          title: '如何生成你的 OPC 项目卡',
+          body:
+            '教程从输入项目说明、AI 使用方式、未来目标开始，展示系统如何生成引擎、杠杆、韧性、势能、愿力五维项目卡。',
+          bullets: ['适合录制 1-2 分钟屏幕演示。', '适合引导种子用户提交项目。', '可作为 AI 拆机器入口内容。'],
+          links: [['查看教程脚本', 'delivery-room.html#launch-pack'], ['查看发布计划', 'delivery-room.html#distribution']],
+        },
+        social: {
+          label: '07 / 社媒推广文案',
+          title: '信息流里的第一句话',
+          body:
+            '一个人，也能是一家公司。我正在做 OPC-Studio，一个服务一人公司生态的 AI 原生增长操作系统。',
+          bullets: ['朋友圈 / 即刻版：适合创始人发布。', 'LinkedIn 版：面向海外和生态伙伴。', '小红书版：解释“你可能已经是一家一人公司”。'],
+          links: [['查看社媒文案', 'delivery-room.html#launch-pack'], ['打开社媒卡', 'social-card.png']],
+        },
+        sales: {
+          label: '08 / 销售私信 / 邮件',
+          title: '从传播进入真实连接',
+          body:
+            '给 OPC 创始人、企业客户和生态伙伴准备了不同口径的私信与邮件，让发布后的关注能继续转化为项目提交、客户需求和合作线索。',
+          bullets: ['OPC 创始人：邀请做轻量 AI 拆机器。', '企业客户：推荐发现 AI 原生小微服务商。', '生态伙伴：引导工具联名和资源支持。'],
+          links: [['查看销售话术', 'delivery-room.html#launch-pack'], ['查看渠道节奏', 'delivery-room.html#distribution']],
+        },
+        faq: {
+          label: '09 / FAQ / 帮助中心',
+          title: '降低理解成本',
+          body:
+            'FAQ 回答 OPC 是什么、OPC-Studio 做什么、AI 拆机器是什么、PitchRoom 是什么、谁适合加入以及如何商业化。',
+          bullets: ['用于官网帮助区。', '用于客户沟通后的补充材料。', '用于社群和私信中的标准答复。'],
+          links: [['查看 FAQ', 'delivery-room.html#launch-pack'], ['查看完整目录', 'delivery-room.html']],
+        },
+      }
+
+      const preview = document.querySelector('#materialPreview')
+      const tabs = document.querySelectorAll('.material-tab')
+
+      function renderMaterial(key) {
+        const item = materialMap[key]
+        if (!item || !preview) return
+        preview.innerHTML = `
+          <span>${item.label}</span>
+          <h3>${item.title}</h3>
+          <p>${item.body}</p>
+          <ul>${item.bullets.map((bullet) => `<li>${bullet}</li>`).join('')}</ul>
+          <div class="preview-actions">
+            ${item.links
+              .map(
+                ([label, href], index) =>
+                  `<a class="btn ${index === 0 ? 'primary' : 'secondary'}" href="${href}">${label}</a>`,
+              )
+              .join('')}
+          </div>
+        `
+      }
+
+      tabs.forEach((tab) => {
+        tab.addEventListener('click', () => {
+          tabs.forEach((item) => item.classList.remove('active'))
+          tab.classList.add('active')
+          renderMaterial(tab.dataset.material)
+        })
+      })
+    </script>
+  </body>
+</html>

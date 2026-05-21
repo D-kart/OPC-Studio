@@ -1,0 +1,1552 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>OPC-Studio 交付清单 | AI-Marketing Delivery Room</title>
+    <style>
+      :root {
+        --ink: #08100f;
+        --paper: #f6faf8;
+        --soft: #edf6f2;
+        --line: #dce8e2;
+        --muted: #61716c;
+        --green: #24d3a3;
+        --blue: #78a2ff;
+        --gold: #f2b84b;
+        --dark: #0b1010;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        margin: 0;
+        color: var(--ink);
+        background: var(--paper);
+        font-family:
+          Inter, "Noto Sans SC", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
+          "Segoe UI", sans-serif;
+      }
+
+      a {
+        color: inherit;
+      }
+
+      .shell {
+        min-height: 100svh;
+        background:
+          radial-gradient(circle at 84% 8%, rgba(120, 162, 255, 0.18), transparent 28%),
+          linear-gradient(180deg, #0b1010 0, #101818 620px, var(--paper) 620px);
+      }
+
+      .topbar {
+        position: sticky;
+        top: 0;
+        z-index: 10;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 20px;
+        padding: 18px clamp(20px, 5vw, 64px);
+        color: white;
+        background: rgba(9, 14, 14, 0.86);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(16px);
+      }
+
+      .brand,
+      .topbar nav,
+      .btn,
+      .side-nav a,
+      .portal-status,
+      .valuation-row,
+      .source-link {
+        display: inline-flex;
+        align-items: center;
+      }
+
+      .brand {
+        gap: 12px;
+        font-weight: 950;
+        text-decoration: none;
+      }
+
+      .brand span:first-child {
+        display: grid;
+        width: 36px;
+        height: 36px;
+        place-items: center;
+        border-radius: 8px;
+        color: var(--ink);
+        background: var(--green);
+        font-size: 12px;
+      }
+
+      .topbar nav {
+        gap: 18px;
+      }
+
+      .topbar nav a {
+        color: #cbd8d4;
+        font-size: 14px;
+        font-weight: 850;
+        text-decoration: none;
+      }
+
+      .hero {
+        display: grid;
+        grid-template-columns: minmax(0, 0.95fr) minmax(340px, 0.55fr);
+        gap: clamp(28px, 5vw, 72px);
+        align-items: end;
+        padding: clamp(54px, 8vw, 96px) clamp(20px, 5vw, 72px) 44px;
+        color: white;
+      }
+
+      .kicker {
+        margin: 0 0 22px;
+        color: var(--green);
+        font-size: 13px;
+        font-weight: 950;
+      }
+
+      h1,
+      h2,
+      h3,
+      p {
+        margin: 0;
+      }
+
+      h1 {
+        max-width: 900px;
+        font-size: clamp(44px, 6vw, 82px);
+        line-height: 1.02;
+        letter-spacing: 0;
+      }
+
+      .hero p:not(.kicker) {
+        max-width: 780px;
+        margin-top: 26px;
+        color: #c5d2ce;
+        font-size: clamp(18px, 2vw, 25px);
+        line-height: 1.55;
+        font-weight: 750;
+      }
+
+      .hero-card {
+        padding: 22px;
+        border: 1px solid rgba(36, 211, 163, 0.45);
+        border-radius: 14px;
+        color: white;
+        background:
+          linear-gradient(135deg, rgba(8, 16, 15, 0.96), rgba(15, 31, 29, 0.94)),
+          #08100f;
+        box-shadow:
+          0 22px 70px rgba(0, 0, 0, 0.34),
+          inset 0 1px 0 rgba(255, 255, 255, 0.08);
+      }
+
+      .hero-card strong {
+        display: block;
+        font-size: 42px;
+        line-height: 1;
+        color: #ffffff;
+      }
+
+      .hero-card span {
+        display: block;
+        margin-top: 10px;
+        color: #d9ebe6;
+        font-weight: 850;
+      }
+
+      .client-ledger {
+        display: grid;
+        grid-template-columns: minmax(280px, 0.72fr) minmax(0, 1.28fr);
+        gap: 16px;
+        padding: 0 clamp(20px, 5vw, 72px) 28px;
+      }
+
+      .client-ledger-intro,
+      .client-value-card {
+        border: 1px solid rgba(220, 232, 226, 0.94);
+        border-radius: 14px;
+        background: rgba(255, 255, 255, 0.92);
+        box-shadow: 0 20px 60px rgba(8, 16, 15, 0.08);
+      }
+
+      .client-ledger-intro {
+        display: grid;
+        align-content: space-between;
+        gap: 24px;
+        padding: 26px;
+        color: white;
+        background:
+          linear-gradient(135deg, rgba(36, 211, 163, 0.2), transparent 48%),
+          #101716;
+        border-color: rgba(255, 255, 255, 0.12);
+      }
+
+      .client-ledger-intro span,
+      .client-value-card span {
+        color: var(--green);
+        font-size: 12px;
+        font-weight: 950;
+      }
+
+      .client-ledger-intro h2 {
+        margin-top: 12px;
+        color: white;
+        font-size: clamp(28px, 3.4vw, 46px);
+      }
+
+      .client-ledger-intro p {
+        color: #bfd0cc;
+        font-size: 16px;
+        line-height: 1.7;
+        font-weight: 740;
+      }
+
+      .client-value-grid {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 12px;
+      }
+
+      .client-value-card {
+        min-height: 210px;
+        padding: 22px;
+      }
+
+      .client-value-card strong {
+        display: block;
+        margin-top: 28px;
+        font-size: 23px;
+        line-height: 1.12;
+      }
+
+      .client-value-card p {
+        margin-top: 12px;
+        color: var(--muted);
+        font-size: 15px;
+        line-height: 1.62;
+        font-weight: 720;
+      }
+
+      .layout {
+        display: grid;
+        grid-template-columns: 330px minmax(0, 1fr);
+        gap: 22px;
+        padding: 0 clamp(20px, 5vw, 72px) clamp(72px, 8vw, 110px);
+      }
+
+      .portal-sidebar {
+        position: sticky;
+        top: 92px;
+        align-self: start;
+        display: grid;
+        gap: 14px;
+      }
+
+      .portal-card,
+      .side-nav {
+        border: 1px solid var(--line);
+        border-radius: 14px;
+        background: rgba(255, 255, 255, 0.9);
+        box-shadow: 0 16px 50px rgba(8, 16, 15, 0.08);
+        backdrop-filter: blur(14px);
+      }
+
+      .portal-card {
+        padding: 18px;
+      }
+
+      .portal-label,
+      .side-label {
+        color: #139474;
+        font-size: 11px;
+        font-weight: 950;
+      }
+
+      .portal-card h3 {
+        margin: 10px 0 0;
+        font-size: 22px;
+        line-height: 1.12;
+      }
+
+      .portal-card p {
+        margin-top: 8px;
+        color: var(--muted);
+        font-size: 13px;
+        line-height: 1.58;
+        font-weight: 730;
+      }
+
+      .portal-status {
+        justify-content: space-between;
+        gap: 12px;
+        margin-top: 14px;
+        color: var(--muted);
+        font-size: 12px;
+        font-weight: 900;
+      }
+
+      .progress-track {
+        overflow: hidden;
+        height: 7px;
+        margin-top: 8px;
+        border-radius: 999px;
+        background: #dbe7e1;
+      }
+
+      .progress-fill {
+        width: 100%;
+        height: 100%;
+        border-radius: inherit;
+        background: linear-gradient(90deg, var(--green), var(--blue));
+      }
+
+      .service-card {
+        color: white;
+        border-color: rgba(242, 184, 75, 0.38);
+        background:
+          radial-gradient(circle at 84% 0, rgba(242, 184, 75, 0.2), transparent 34%),
+          linear-gradient(145deg, #111817, #080d0c);
+      }
+
+      .service-card .portal-label,
+      .service-card .price {
+        color: var(--gold);
+      }
+
+      .service-card p {
+        color: #bcc9c5;
+      }
+
+      .price-row {
+        display: flex;
+        align-items: baseline;
+        justify-content: space-between;
+        gap: 14px;
+        margin-top: 12px;
+      }
+
+      .price {
+        font-size: 28px;
+        font-weight: 950;
+      }
+
+      .valuation-row {
+        justify-content: space-between;
+        gap: 14px;
+        min-height: 34px;
+        border-bottom: 1px solid var(--line);
+        color: var(--muted);
+        font-size: 13px;
+        font-weight: 800;
+      }
+
+      .valuation-row:last-child {
+        border-bottom: 0;
+      }
+
+      .valuation-row strong {
+        color: var(--ink);
+      }
+
+      .valuation-row.total strong {
+        color: #0c9675;
+        font-size: 16px;
+      }
+
+      .download-all {
+        width: 100%;
+        margin-top: 16px;
+      }
+
+      .side-nav {
+        display: grid;
+        gap: 6px;
+        padding: 14px;
+      }
+
+      .side-nav a {
+        min-height: 42px;
+        border-radius: 8px;
+        padding: 0 12px;
+        color: #20302c;
+        font-size: 14px;
+        font-weight: 900;
+        text-decoration: none;
+      }
+
+      .side-nav a:hover {
+        background: var(--soft);
+      }
+
+      .side-label {
+        margin: 10px 8px 2px;
+      }
+
+      .content {
+        display: grid;
+        gap: 18px;
+      }
+
+      .panel {
+        scroll-margin-top: 96px;
+        overflow: hidden;
+        border: 1px solid var(--line);
+        border-radius: 16px;
+        background: white;
+        box-shadow: 0 24px 70px rgba(8, 16, 15, 0.08);
+      }
+
+      .panel-head {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) auto;
+        gap: 18px;
+        align-items: start;
+        padding: clamp(24px, 4vw, 42px);
+        border-bottom: 1px solid var(--line);
+      }
+
+      .panel-actions {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-end;
+        gap: 10px;
+      }
+
+      .panel-head span,
+      .metric span,
+      .asset-copy span,
+      .script-line span {
+        color: #139474;
+        font-size: 12px;
+        font-weight: 950;
+      }
+
+      h2 {
+        margin-top: 8px;
+        font-size: clamp(28px, 4vw, 52px);
+        line-height: 1.05;
+        letter-spacing: 0;
+      }
+
+      .panel-head p {
+        max-width: 720px;
+        margin-top: 14px;
+        color: var(--muted);
+        font-size: 17px;
+        line-height: 1.7;
+        font-weight: 720;
+      }
+
+      .btn {
+        justify-content: center;
+        min-height: 44px;
+        border: 0;
+        border-radius: 8px;
+        padding: 0 15px;
+        color: var(--ink);
+        background: var(--green);
+        font-weight: 950;
+        font: inherit;
+        text-decoration: none;
+        cursor: pointer;
+      }
+
+      .btn.secondary {
+        color: white;
+        background: var(--dark);
+      }
+
+      .btn.ghost {
+        color: var(--ink);
+        border: 1px solid var(--line);
+        background: white;
+      }
+
+      .summary-grid,
+      .asset-grid,
+      .doc-grid,
+      .launch-grid,
+      .timeline,
+      .visual-grid {
+        display: grid;
+        gap: 14px;
+        padding: clamp(18px, 3vw, 28px);
+      }
+
+      .summary-grid {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+      }
+
+      .metric {
+        min-height: 138px;
+        padding: 18px;
+        border: 1px solid var(--line);
+        border-radius: 12px;
+        background: var(--soft);
+      }
+
+      .metric strong {
+        display: block;
+        margin-top: 18px;
+        font-size: 32px;
+        line-height: 1;
+      }
+
+      .metric p,
+      .doc-card p,
+      .launch-card p,
+      .asset-copy p,
+      .timeline-card p,
+      .visual-card p,
+      .script-line p {
+        margin-top: 10px;
+        color: var(--muted);
+        font-size: 15px;
+        line-height: 1.6;
+        font-weight: 720;
+      }
+
+      .asset-grid {
+        grid-template-columns: minmax(0, 1.35fr) minmax(300px, 0.65fr);
+      }
+
+      .asset-grid img {
+        width: 100%;
+        height: 100%;
+        min-height: 420px;
+        object-fit: cover;
+        border-radius: 12px;
+        border: 1px solid var(--line);
+        background: #050808;
+      }
+
+      .asset-copy {
+        display: grid;
+        align-content: start;
+        gap: 14px;
+        padding: 22px;
+        border-radius: 12px;
+        color: white;
+        background: #101716;
+      }
+
+      .asset-copy h3,
+      .script-line h3 {
+        font-size: clamp(26px, 3vw, 40px);
+        line-height: 1.1;
+      }
+
+      .asset-copy p {
+        color: #b9c7c3;
+      }
+
+      .doc-grid,
+      .launch-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+
+      .doc-card,
+      .launch-card,
+      .timeline-card,
+      .visual-card {
+        min-height: 190px;
+        padding: 20px;
+        border: 1px solid var(--line);
+        border-radius: 12px;
+        background: #fbfdfc;
+      }
+
+      .doc-card {
+        display: grid;
+        align-content: space-between;
+        color: inherit;
+        text-decoration: none;
+        transition:
+          transform 180ms ease,
+          border-color 180ms ease,
+          background 180ms ease;
+      }
+
+      .doc-card:hover {
+        transform: translateY(-2px);
+        border-color: rgba(36, 211, 163, 0.7);
+        background: #f0fbf7;
+      }
+
+      .doc-card b,
+      .launch-card b,
+      .timeline-card b,
+      .visual-card b {
+        display: block;
+        font-size: 20px;
+        line-height: 1.25;
+      }
+
+      .source-link {
+        margin-top: 18px;
+        color: #11886b;
+        font-size: 14px;
+        font-weight: 950;
+        text-decoration: none;
+      }
+
+      .launch-card ul {
+        margin: 16px 0 0;
+        padding-left: 20px;
+        color: #40504b;
+        font-weight: 720;
+        line-height: 1.6;
+      }
+
+      .script-preview {
+        display: grid;
+        grid-template-columns: minmax(300px, 0.85fr) minmax(0, 1.15fr);
+        gap: 14px;
+        padding: clamp(18px, 3vw, 28px);
+      }
+
+      .script-preview img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 12px;
+        border: 1px solid var(--line);
+        background: #050808;
+      }
+
+      .script-lines {
+        display: grid;
+        gap: 12px;
+      }
+
+      .script-line {
+        padding: 18px;
+        border-radius: 12px;
+        color: white;
+        background: #101716;
+      }
+
+      .script-line p {
+        color: #b9c7c3;
+      }
+
+      .timeline {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+      }
+
+      .visual-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .doc-modal {
+        position: fixed;
+        inset: 0;
+        z-index: 30;
+        display: none;
+        align-items: center;
+        justify-content: center;
+        padding: clamp(16px, 4vw, 44px);
+        background: rgba(5, 8, 8, 0.72);
+        backdrop-filter: blur(18px);
+      }
+
+      .doc-modal.open {
+        display: flex;
+      }
+
+      .doc-window {
+        width: min(1120px, 100%);
+        max-height: min(820px, calc(100svh - 32px));
+        overflow: auto;
+        border: 1px solid rgba(255, 255, 255, 0.18);
+        border-radius: 18px;
+        color: white;
+        background:
+          radial-gradient(circle at 82% 8%, rgba(120, 162, 255, 0.18), transparent 32%),
+          linear-gradient(135deg, #0b1010, #101918 58%, #07100f);
+        box-shadow: 0 34px 120px rgba(0, 0, 0, 0.42);
+      }
+
+      .doc-chrome {
+        position: sticky;
+        top: 0;
+        z-index: 2;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 18px;
+        padding: 18px 20px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.11);
+        background: rgba(9, 14, 14, 0.9);
+        backdrop-filter: blur(14px);
+      }
+
+      .doc-dots {
+        display: flex;
+        gap: 7px;
+      }
+
+      .doc-dots span {
+        width: 10px;
+        height: 10px;
+        border-radius: 999px;
+        background: #24d3a3;
+      }
+
+      .doc-dots span:nth-child(2) {
+        background: #78a2ff;
+      }
+
+      .doc-dots span:nth-child(3) {
+        background: #f6c460;
+      }
+
+      .doc-close {
+        width: 38px;
+        height: 38px;
+        border: 1px solid rgba(255, 255, 255, 0.15);
+        border-radius: 8px;
+        color: white;
+        background: rgba(255, 255, 255, 0.08);
+        font-size: 20px;
+        cursor: pointer;
+      }
+
+      .doc-body {
+        display: grid;
+        grid-template-columns: minmax(0, 0.95fr) minmax(320px, 0.55fr);
+        gap: 22px;
+        padding: clamp(24px, 4vw, 44px);
+      }
+
+      .doc-label {
+        color: var(--green);
+        font-size: 13px;
+        font-weight: 950;
+      }
+
+      .doc-body h2 {
+        margin-top: 14px;
+        color: white;
+        font-size: clamp(34px, 5vw, 68px);
+      }
+
+      .doc-summary {
+        margin-top: 18px;
+        color: #c3d1cd;
+        font-size: 18px;
+        line-height: 1.75;
+        font-weight: 750;
+      }
+
+      .doc-preview-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 12px;
+        margin-top: 26px;
+      }
+
+      .doc-preview-card,
+      .doc-side-card {
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        border-radius: 12px;
+        background: rgba(255, 255, 255, 0.065);
+      }
+
+      .doc-preview-card {
+        padding: 18px;
+      }
+
+      .doc-preview-card b {
+        display: block;
+        font-size: 18px;
+      }
+
+      .doc-preview-card p {
+        margin-top: 10px;
+        color: #b9c7c3;
+        font-size: 15px;
+        line-height: 1.6;
+        font-weight: 700;
+      }
+
+      .doc-side {
+        display: grid;
+        align-content: start;
+        gap: 14px;
+      }
+
+      .doc-side-card {
+        padding: 18px;
+      }
+
+      .doc-side-card span {
+        color: var(--green);
+        font-size: 12px;
+        font-weight: 950;
+      }
+
+      .doc-side-card strong {
+        display: block;
+        margin-top: 10px;
+        font-size: 26px;
+        line-height: 1.1;
+      }
+
+      .doc-side-card p {
+        margin-top: 10px;
+        color: #b9c7c3;
+        font-size: 15px;
+        line-height: 1.6;
+        font-weight: 700;
+      }
+
+      .doc-actions {
+        display: grid;
+        gap: 10px;
+      }
+
+      .doc-actions .btn.secondary {
+        color: white;
+        border: 1px solid rgba(255, 255, 255, 0.18);
+        background: rgba(255, 255, 255, 0.08);
+      }
+
+      .copy-toast {
+        position: fixed;
+        right: clamp(18px, 4vw, 42px);
+        bottom: 28px;
+        z-index: 50;
+        transform: translateY(18px);
+        opacity: 0;
+        pointer-events: none;
+        padding: 14px 16px;
+        border: 1px solid rgba(255, 255, 255, 0.16);
+        border-radius: 12px;
+        color: white;
+        background: rgba(10, 15, 16, 0.92);
+        box-shadow: 0 22px 70px rgba(0, 0, 0, 0.34);
+        transition:
+          opacity 180ms ease,
+          transform 180ms ease;
+      }
+
+      .copy-toast.show {
+        transform: translateY(0);
+        opacity: 1;
+      }
+
+      footer {
+        display: flex;
+        justify-content: space-between;
+        gap: 16px;
+        padding: 28px clamp(20px, 5vw, 72px);
+        color: #cbd8d4;
+        background: var(--dark);
+        font-size: 14px;
+        font-weight: 800;
+      }
+
+      footer a {
+        color: white;
+        text-decoration: none;
+      }
+
+      @media (max-width: 980px) {
+        .topbar nav {
+          display: none;
+        }
+
+        .hero,
+        .client-ledger,
+        .layout,
+        .asset-grid,
+        .script-preview {
+          grid-template-columns: 1fr;
+        }
+
+        .portal-sidebar {
+          position: static;
+        }
+
+        .side-nav {
+          position: static;
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+
+        .summary-grid,
+        .client-value-grid,
+        .doc-grid,
+        .launch-grid,
+        .timeline,
+        .visual-grid {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+      }
+
+      @media (max-width: 640px) {
+        .hero {
+          padding-top: 36px;
+        }
+
+        .panel-head {
+          grid-template-columns: 1fr;
+        }
+
+        .panel-actions {
+          justify-content: stretch;
+        }
+
+        .panel-actions .btn {
+          width: 100%;
+        }
+
+        .side-nav,
+        .client-value-grid,
+        .doc-body,
+        .doc-preview-grid,
+        .summary-grid,
+        .doc-grid,
+        .launch-grid,
+        .timeline,
+        .visual-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .asset-grid img,
+        .script-preview img {
+          min-height: 260px;
+        }
+
+        footer {
+          display: grid;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="shell">
+      <header class="topbar">
+        <a class="brand" href="investor-showcase.html">
+          <span>AM</span>
+          <span>OPC-Studio Delivery Room</span>
+        </a>
+        <nav>
+          <a href="#overview">总览</a>
+          <a href="#assets">视觉资产</a>
+          <a href="#launch-pack">9 类物料</a>
+          <a href="#video">视频</a>
+          <a href="#distribution">发布计划</a>
+        </nav>
+      </header>
+
+      <main>
+        <section class="hero">
+          <div>
+            <p class="kicker">OPC-Studio 首轮市场发布包</p>
+            <h1>OPC-Studio 市场发布交付清单</h1>
+            <p>
+              这里放的是 OPC-Studio 第一轮市场发布可以直接验收的内容：定位、主视觉、视频脚本、渠道节奏和客户沟通话术。看完这页，应该能判断它是否已经具备对外发布的质感。
+            </p>
+          </div>
+          <div class="hero-card">
+            <strong>9 + 6 + 3</strong>
+            <span>9 类宣发物料，6 份策略文档，3 张视觉资产</span>
+          </div>
+        </section>
+
+        <section class="client-ledger" aria-label="客户验收视角">
+          <div class="client-ledger-intro">
+            <div>
+              <span>Client Value</span>
+              <h2>验收的不只是文件数量。</h2>
+            </div>
+            <p>
+              一个小团队愿意为市场部服务付费，靠的是交付被打开那一刻的信任感：你读懂了我，做出了东西，而且这些东西今天就能拿去用。
+            </p>
+          </div>
+          <div class="client-value-grid">
+            <article class="client-value-card">
+              <span>01 / Understand</span>
+              <strong>有没有读懂产品</strong>
+              <p>定位、受众、传播难点和机会网络被整理在同一条主线里。</p>
+            </article>
+            <article class="client-value-card">
+              <span>02 / Craft</span>
+              <strong>有没有做出质感</strong>
+              <p>图片、分镜和文案保持同一套视觉语言，不像临时拼装。</p>
+            </article>
+            <article class="client-value-card">
+              <span>03 / Use</span>
+              <strong>能不能马上发布</strong>
+              <p>发布稿、Demo 稿、教程、社媒、销售私信和 FAQ 可以直接进入工作流。</p>
+            </article>
+            <article class="client-value-card">
+              <span>04 / Next</span>
+              <strong>下一步怎么推进</strong>
+              <p>7 天节奏把曝光、体验、社群触达和复盘动作排清楚。</p>
+            </article>
+          </div>
+        </section>
+
+        <div class="layout">
+          <aside class="portal-sidebar" aria-label="客户交付控制台">
+            <section class="portal-card">
+              <span class="portal-label">Current Project</span>
+              <h3>OPC-Studio 市场发布包</h3>
+              <p>客户侧交付控制台：用于验收、预览、复制和下载本轮 AI-Marketing 资产。</p>
+              <div class="portal-status">
+                <span>交付进度</span>
+                <strong>100%</strong>
+              </div>
+              <div class="progress-track" aria-hidden="true"><div class="progress-fill"></div></div>
+            </section>
+
+            <section class="portal-card service-card">
+              <span class="portal-label">Service Pack</span>
+              <div class="price-row">
+                <h3>Growth Launch Pack</h3>
+                <strong class="price">9+6+3</strong>
+              </div>
+              <p>9 类宣发物料、6 份策略文档、3 张视觉资产，覆盖发布、演示、销售触达和复盘。</p>
+            </section>
+
+            <section class="portal-card">
+              <span class="portal-label">Value Ledger</span>
+              <h3>资产替代成本</h3>
+              <p>用于帮助客户理解这套资产包节省的外包沟通与制作成本，不作为单项报价。</p>
+              <div class="valuation-row"><span>策略定位与叙事</span><strong>¥3,000</strong></div>
+              <div class="valuation-row"><span>视觉主图与社媒卡</span><strong>¥2,500</strong></div>
+              <div class="valuation-row"><span>视频脚本与分镜</span><strong>¥1,800</strong></div>
+              <div class="valuation-row"><span>发布文案与私信</span><strong>¥2,600</strong></div>
+              <div class="valuation-row total"><span>参考替代成本</span><strong>¥9,900</strong></div>
+              <a class="btn secondary download-all" href="opc-studio-ai-marketing-assets.zip" download>下载全部资产 .zip</a>
+            </section>
+
+            <nav class="side-nav" aria-label="交付预览导航">
+              <span class="side-label">I. 验收总览</span>
+              <a href="#overview">交付总览</a>
+              <a href="#assets">视觉资产</a>
+              <span class="side-label">II. 策略基石</span>
+              <a href="#learning">学习记录</a>
+              <a href="#strategy">策略简报</a>
+              <span class="side-label">III. 增长物料</span>
+              <a href="#launch-pack">9 类物料</a>
+              <a href="#video">视频脚本</a>
+              <span class="side-label">IV. 发布执行</span>
+              <a href="#distribution">发布计划</a>
+              <a href="#visual-system">视觉系统</a>
+            </nav>
+          </aside>
+
+          <div class="content">
+            <section class="panel" id="overview">
+              <div class="panel-head">
+                <div>
+                  <span>Overview</span>
+                  <h2>完整交付范围</h2>
+                  <p>这一轮交付先解决三件事：讲清楚 OPC-Studio 是什么，做出能被转发的视觉和文案，再把发布动作排成节奏。每份文档都可以先预览，确认有用后再下载原文。</p>
+                </div>
+                <div class="panel-actions">
+                  <button class="btn ghost copy-section" type="button" data-copy="#overview">复制总览</button>
+                  <a class="btn secondary" href="investor-showcase.html">返回展示页</a>
+                </div>
+              </div>
+              <div class="summary-grid">
+                <article class="metric">
+                  <span>Market</span>
+                  <strong>1</strong>
+                  <p>一人公司的增长操作系统</p>
+                </article>
+                <article class="metric">
+                  <span>Copy</span>
+                  <strong>9</strong>
+                  <p>发布、演示、教程、社媒、销售、FAQ 等物料</p>
+                </article>
+                <article class="metric">
+                  <span>Design</span>
+                  <strong>3</strong>
+                  <p>主视觉、社媒卡、视频分镜风格板</p>
+                </article>
+                <article class="metric">
+                  <span>Go-to-market</span>
+                  <strong>7D</strong>
+                  <p>从预热到复盘的发布节奏</p>
+                </article>
+              </div>
+            </section>
+
+            <section class="panel" id="assets">
+              <div class="panel-head">
+                <div>
+                  <span>Visual Assets</span>
+                  <h2>第一眼看到的，不是文档，是发布级资产。</h2>
+                  <p>OPC-Studio 被表达成“一个人 + Agent 编队 + 机会网络”的增长控制台，避免落入普通项目列表。</p>
+                </div>
+                <div class="panel-actions">
+                  <button class="btn ghost copy-section" type="button" data-copy="#assets">复制说明</button>
+                  <a class="btn" href="key-visual.png">查看主视觉</a>
+                </div>
+              </div>
+              <div class="asset-grid">
+                <img src="key-visual.png" alt="OPC-Studio 主视觉海报" />
+                <div class="asset-copy">
+                  <span>Core Visual</span>
+                  <h3>看见每一个一人公司</h3>
+                  <p>适合官网首屏、公众号头图、活动页和发布长文。它把 OPC-Studio 从“展示平台”提升为“增长基础设施”。</p>
+                  <a class="btn" href="social-card.png">打开社媒传播卡</a>
+                  <a class="btn secondary" href="video-storyboard.png">打开视频分镜图</a>
+                </div>
+              </div>
+            </section>
+
+            <section class="panel" id="learning">
+              <div class="panel-head">
+                <div>
+                  <span>00 / Learning Log</span>
+                  <h2>学习与方法记录</h2>
+                  <p>记录从 OPC-Studio 原始资料中提炼传播主线的过程，让客户知道交付不是套模板，而是先理解产品、生态和受众。</p>
+                </div>
+                <div class="panel-actions">
+                  <button class="btn ghost copy-section" type="button" data-copy="#learning">复制内容</button>
+                  <button class="btn secondary doc-preview-trigger" type="button" data-doc="learning">预览交付文档</button>
+                </div>
+              </div>
+              <div class="doc-grid">
+                <article class="doc-card">
+                  <b>产品理解</b>
+                  <p>识别展示页、PitchRoom、AI 拆机器、Skill 工坊、项目数据库之间的共同主线。</p>
+                </article>
+                <article class="doc-card">
+                  <b>受众判断</b>
+                  <p>把沟通对象拆成 OPC 创始人、企业客户、生态伙伴和投资观察者。</p>
+                </article>
+                <article class="doc-card">
+                  <b>方法沉淀</b>
+                  <p>形成可复制到下一个小微团队客户的 AI-Marketing 交付流程。</p>
+                </article>
+              </div>
+            </section>
+
+            <section class="panel" id="strategy">
+              <div class="panel-head">
+                <div>
+                  <span>01 / Strategy Brief</span>
+                  <h2>从展示平台到增长操作系统</h2>
+                  <p>这份策略把 OPC-Studio 从功能集合，转译成一个更容易被购买、投资、转发和记住的市场心智。</p>
+                </div>
+                <div class="panel-actions">
+                  <button class="btn ghost copy-section" type="button" data-copy="#strategy">复制内容</button>
+                  <button class="btn secondary doc-preview-trigger" type="button" data-doc="strategy">预览交付文档</button>
+                </div>
+              </div>
+              <div class="launch-grid">
+                <article class="launch-card">
+                  <b>定位</b>
+                  <p>服务一人公司生态的 AI 原生增长操作系统。</p>
+                </article>
+                <article class="launch-card">
+                  <b>传播主张</b>
+                  <p>一个人，也能是一家公司。</p>
+                </article>
+                <article class="launch-card">
+                  <b>核心隐喻</b>
+                  <p>一个高密度个体，指挥自己的 Agent、内容、产品和机会网络。</p>
+                </article>
+              </div>
+            </section>
+
+            <section class="panel" id="launch-pack">
+              <div class="panel-head">
+                <div>
+                  <span>02 / Launch Pack</span>
+                  <h2>9 类可发布宣发物料</h2>
+                  <p>每一类都面向真实发布场景，不只是标题清单，而是可进入官网、社媒、私信、演示和帮助中心的内容资产。</p>
+                </div>
+                <div class="panel-actions">
+                  <button class="btn ghost copy-section" type="button" data-copy="#launch-pack">复制内容</button>
+                  <button class="btn secondary doc-preview-trigger" type="button" data-doc="launch">预览交付文档</button>
+                </div>
+              </div>
+              <div class="launch-grid">
+                <article class="launch-card">
+                  <b>产品定位</b>
+                  <p>一人公司的增长操作系统。</p>
+                  <ul>
+                    <li>一句话定位</li>
+                    <li>官网版说明</li>
+                    <li>客户版说明</li>
+                  </ul>
+                </article>
+                <article class="launch-card">
+                  <b>官网 Hero 文案</b>
+                  <p>看见每一个一人公司。</p>
+                  <ul>
+                    <li>主标题</li>
+                    <li>副标题</li>
+                    <li>CTA 组合</li>
+                  </ul>
+                </article>
+                <article class="launch-card">
+                  <b>产品发布公告</b>
+                  <p>把 OPC 讲成 AI 时代的新组织形态。</p>
+                  <ul>
+                    <li>趋势开场</li>
+                    <li>产品价值</li>
+                    <li>行动入口</li>
+                  </ul>
+                </article>
+                <article class="launch-card">
+                  <b>宣传视频脚本</b>
+                  <p>60 秒从分散、无人看见，走到被系统理解和连接。</p>
+                </article>
+                <article class="launch-card">
+                  <b>Demo / 教程</b>
+                  <p>解释展示页、PitchRoom、AI 拆机器和 Skill 工坊如何联动。</p>
+                </article>
+                <article class="launch-card">
+                  <b>社媒 / 销售 / FAQ</b>
+                  <p>把关注转化为项目提交、客户需求和生态合作线索。</p>
+                </article>
+              </div>
+            </section>
+
+            <section class="panel" id="video">
+              <div class="panel-head">
+                <div>
+                  <span>03 / Video Script</span>
+                  <h2>60 秒宣传视频脚本与分镜</h2>
+                  <p>视频不是功能罗列，而是先建立“优秀项目分散、没人看见”的痛点，再让 OPC-Studio 作为系统出现。</p>
+                </div>
+                <div class="panel-actions">
+                  <button class="btn ghost copy-section" type="button" data-copy="#video">复制内容</button>
+                  <button class="btn secondary doc-preview-trigger" type="button" data-doc="video">预览交付文档</button>
+                </div>
+              </div>
+              <div class="script-preview">
+                <img src="video-storyboard.png" alt="OPC-Studio 视频分镜风格板" />
+                <div class="script-lines">
+                  <article class="script-line">
+                    <span>0-20s</span>
+                    <h3>分散</h3>
+                    <p>大量优秀的一人公司项目散落在社群、文档和个人主页中，没有统一入口。</p>
+                  </article>
+                  <article class="script-line">
+                    <span>20-40s</span>
+                    <h3>系统出现</h3>
+                    <p>OPC-Studio 把项目、能力、内容、AI 工作流和机会网络组织到一个控制台。</p>
+                  </article>
+                  <article class="script-line">
+                    <span>40-60s</span>
+                    <h3>连接</h3>
+                    <p>客户、投资人和生态伙伴可以更快发现可信赖的 AI 原生小微团队。</p>
+                  </article>
+                </div>
+              </div>
+            </section>
+
+            <section class="panel" id="distribution">
+              <div class="panel-head">
+                <div>
+                  <span>04 / Distribution Plan</span>
+                  <h2>7 天发布与转化节奏</h2>
+                  <p>交付不是停在“写好了”，而是把内容安排成可执行的发布动作和线索转化路径。</p>
+                </div>
+                <div class="panel-actions">
+                  <button class="btn ghost copy-section" type="button" data-copy="#distribution">复制内容</button>
+                  <button class="btn secondary doc-preview-trigger" type="button" data-doc="distribution">预览交付文档</button>
+                </div>
+              </div>
+              <div class="timeline">
+                <article class="timeline-card">
+                  <b>D-3</b>
+                  <p>趋势预热：一个人，也能是一家公司。</p>
+                </article>
+                <article class="timeline-card">
+                  <b>D-Day</b>
+                  <p>发布主视觉、公告和项目提交入口。</p>
+                </article>
+                <article class="timeline-card">
+                  <b>D+2</b>
+                  <p>发布 Demo 和 AI 拆机器演示内容。</p>
+                </article>
+                <article class="timeline-card">
+                  <b>D+7</b>
+                  <p>复盘传播数据，筛选项目和合作线索。</p>
+                </article>
+              </div>
+            </section>
+
+            <section class="panel" id="visual-system">
+              <div class="panel-head">
+                <div>
+                  <span>05 / Visual System</span>
+                  <h2>视觉表达系统</h2>
+                  <p>把“一个人公司的控制台”沉淀成可延展的设计语言，后续官网、案例页、视频、社媒都能保持统一。</p>
+                </div>
+                <div class="panel-actions">
+                  <button class="btn ghost copy-section" type="button" data-copy="#visual-system">复制内容</button>
+                  <button class="btn secondary doc-preview-trigger" type="button" data-doc="visual">预览交付文档</button>
+                </div>
+              </div>
+              <div class="visual-grid">
+                <article class="visual-card">
+                  <b>控制台</b>
+                  <p>表达一人公司对产品、内容、客户和财务的统一掌控。</p>
+                </article>
+                <article class="visual-card">
+                  <b>Agent 编队</b>
+                  <p>表达小微团队通过 AI 智能体扩展组织能力。</p>
+                </article>
+                <article class="visual-card">
+                  <b>机会网络</b>
+                  <p>表达客户、投资人、伙伴和项目之间的连接。</p>
+                </article>
+                <article class="visual-card">
+                  <b>高信任深色界面</b>
+                  <p>让早期产品拥有基础设施感，避免“临时工具”的视觉印象。</p>
+                </article>
+              </div>
+            </section>
+          </div>
+        </div>
+      </main>
+
+      <footer>
+        <span>AI-Marketing × OPC-Studio Delivery Room</span>
+        <a href="investor-showcase.html">返回展示页</a>
+      </footer>
+    </div>
+    <div class="doc-modal" id="docModal" aria-hidden="true" role="dialog" aria-labelledby="docModalTitle">
+      <div class="doc-window">
+        <div class="doc-chrome">
+          <div class="doc-dots" aria-hidden="true"><span></span><span></span><span></span></div>
+          <strong id="docModalChrome">AI-Marketing Delivery Preview</strong>
+          <button class="doc-close" type="button" aria-label="关闭预览">×</button>
+        </div>
+        <div class="doc-body">
+          <div>
+            <span class="doc-label" id="docModalLabel"></span>
+            <h2 id="docModalTitle"></h2>
+            <p class="doc-summary" id="docModalSummary"></p>
+            <div class="doc-preview-grid" id="docModalHighlights"></div>
+          </div>
+          <aside class="doc-side">
+            <div class="doc-side-card">
+              <span>Use Case</span>
+              <strong id="docModalUseCase"></strong>
+              <p id="docModalValue"></p>
+            </div>
+            <div class="doc-side-card">
+              <span>Delivery Signal</span>
+              <strong id="docModalSignal"></strong>
+              <p>先看概要、亮点和使用场景；需要进入团队协作时，再下载 Markdown 原文。</p>
+            </div>
+            <div class="doc-actions">
+              <a class="btn" id="docModalDownload" href="#" download>下载 MD 文档</a>
+              <button class="btn secondary doc-close-secondary" type="button">继续浏览交付室</button>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </div>
+    <div class="copy-toast" id="copyToast" aria-live="polite">已复制到剪贴板，可直接粘贴给团队使用。</div>
+    <script>
+      const docPreviews = {
+        learning: {
+          label: '00 / Learning Log',
+          title: '学习与方法记录',
+          summary:
+            '这份文档呈现 AI-Marketing 如何从 OPC-Studio 的复杂产品资料中提炼传播主线。它证明交付不是套模板，而是先理解产品、生态、用户和商业语境。',
+          useCase: '方法透明',
+          value: '适合给投资人、客户和团队内部看，说明 AI-Marketing 的学习路径、判断过程和可复制工作流。',
+          signal: '从资料到判断',
+          file: '00-learning-log.md',
+          highlights: [
+            ['产品理解', '把展示页、PitchRoom、AI 拆机器、Skill 工坊和项目数据库归到同一条增长主线。'],
+            ['受众拆分', '区分 OPC 创始人、企业客户、生态伙伴和投资观察者，避免一套话术打所有人。'],
+            ['方法沉淀', '把本次交付反推成服务其他小微团队的标准流程。'],
+            ['判断依据', '记录为什么要把平台表达升级成“一人公司的增长操作系统”。'],
+          ],
+        },
+        strategy: {
+          label: '01 / Strategy Brief',
+          title: '策略简报',
+          summary:
+            '这份策略把 OPC-Studio 从功能集合转译成更容易被记住、被购买、被投资和被传播的市场心智，解决早期产品“能力很多但外部不易理解”的问题。',
+          useCase: '定位对齐',
+          value: '适合用于路演、官网改版前对齐、品牌叙事定稿和后续内容生产的上游依据。',
+          signal: '从平台说明到市场心智',
+          file: '01-strategy-brief.md',
+          highlights: [
+            ['一句话定位', '服务一人公司生态的 AI 原生增长操作系统。'],
+            ['传播主张', '一个人，也能是一家公司。'],
+            ['核心受众', 'OPC 创始人、企业客户、生态伙伴、投资观察者四类人分别处理。'],
+            ['信息架构', '把展示、内容、Agent 工作流和机会网络统一到增长系统叙事中。'],
+          ],
+        },
+        launch: {
+          label: '02 / Launch Pack',
+          title: '9 类可发布宣发物料',
+          summary:
+            '这是整套交付的内容主仓，覆盖官网 Hero、发布公告、视频脚本、Demo 讲解、教程、社媒、销售私信、邮件和 FAQ，可直接进入发布与客户沟通。',
+          useCase: '马上发布',
+          value: '适合市场启动周使用，把抽象产品能力变成可复制、可分发、可成交的内容资产。',
+          signal: '9 assets ready',
+          file: '02-launch-pack.md',
+          highlights: [
+            ['官网 Hero', '看见每一个一人公司，配套副标题和 CTA。'],
+            ['发布公告', '从 AI 改变公司最小单位切入，讲清楚 OPC-Studio 为什么现在需要。'],
+            ['社媒文案', '朋友圈、LinkedIn、小红书等不同平台口径。'],
+            ['销售与 FAQ', '把发布后的关注继续转化为项目提交、客户需求和生态合作线索。'],
+          ],
+        },
+        video: {
+          label: '03 / Video Script',
+          title: '60 秒宣传视频脚本与分镜',
+          summary:
+            '视频脚本以“优秀项目分散、没人看见”为开场，再让 OPC-Studio 作为系统出现，最后连接客户、投资人和生态伙伴，避免普通功能罗列。',
+          useCase: '视频生产',
+          value: '适合交给剪辑、动效或 AI 视频工具继续制作，也适合用于 Demo 开场和路演短片。',
+          signal: '从痛点到系统出现',
+          file: '03-video-script-storyboard.md',
+          highlights: [
+            ['0-20 秒', '建立分散、低可见度、难被理解的痛点。'],
+            ['20-40 秒', '展示 OPC-Studio 控制台、PitchRoom 和 AI 拆机器。'],
+            ['40-60 秒', '连接客户、投资人、伙伴，落到品牌口号。'],
+            ['分镜风格', '控制台、Agent 编队、机会网络形成统一视觉语言。'],
+          ],
+        },
+        distribution: {
+          label: '04 / Distribution Plan',
+          title: '发布分发计划',
+          summary:
+            '这份计划把素材安排成可执行的 7 天发布节奏，覆盖预热、正式发布、Demo 展示、社群扩散和线索复盘。',
+          useCase: '获客执行',
+          value: '适合把内容交付转成真实增长动作，避免“写好了但没有发布节奏”。',
+          signal: '7-day launch rhythm',
+          file: '04-distribution-plan.md',
+          highlights: [
+            ['D-3 预热', '用“一个人，也能是一家公司”建立讨论入口。'],
+            ['D-Day 发布', '主视觉、发布公告、项目提交入口同步推出。'],
+            ['D+2 Demo', '用产品演示承接第一波关注。'],
+            ['D+7 复盘', '筛选项目、客户需求和生态合作线索。'],
+          ],
+        },
+        visual: {
+          label: '05 / Visual System',
+          title: '视觉表达系统',
+          summary:
+            '这份文档沉淀 OPC-Studio 的视觉隐喻和资产使用方式，让官网、案例页、社媒、视频和后续客户展示保持同一套高信任表达。',
+          useCase: '设计延展',
+          value: '适合后续做官网首屏、案例页、社媒模板、视频动效和品牌资产规范。',
+          signal: 'from visual to system',
+          file: '05-visual-system.md',
+          highlights: [
+            ['控制台', '表达一人公司对产品、内容、客户和财务的统一掌控。'],
+            ['Agent 编队', '表达小微团队通过 AI 智能体扩展组织能力。'],
+            ['机会网络', '表达客户、投资人、伙伴和项目之间的连接。'],
+            ['高信任深色界面', '让早期产品拥有基础设施感，而不是临时工具感。'],
+          ],
+        },
+      }
+
+      const modal = document.querySelector('#docModal')
+      const modalTitle = document.querySelector('#docModalTitle')
+      const modalLabel = document.querySelector('#docModalLabel')
+      const modalSummary = document.querySelector('#docModalSummary')
+      const modalHighlights = document.querySelector('#docModalHighlights')
+      const modalUseCase = document.querySelector('#docModalUseCase')
+      const modalValue = document.querySelector('#docModalValue')
+      const modalSignal = document.querySelector('#docModalSignal')
+      const modalDownload = document.querySelector('#docModalDownload')
+      const modalChrome = document.querySelector('#docModalChrome')
+      const copyToast = document.querySelector('#copyToast')
+
+      function openDocPreview(key) {
+        const doc = docPreviews[key]
+        if (!doc || !modal) return
+        modalLabel.textContent = doc.label
+        modalTitle.textContent = doc.title
+        modalSummary.textContent = doc.summary
+        modalUseCase.textContent = doc.useCase
+        modalValue.textContent = doc.value
+        modalSignal.textContent = doc.signal
+        modalChrome.textContent = doc.label
+        modalDownload.href = doc.file
+        modalDownload.setAttribute('download', doc.file)
+        modalHighlights.innerHTML = doc.highlights
+          .map(([title, body]) => `<article class="doc-preview-card"><b>${title}</b><p>${body}</p></article>`)
+          .join('')
+        modal.classList.add('open')
+        modal.setAttribute('aria-hidden', 'false')
+        document.body.style.overflow = 'hidden'
+      }
+
+      function closeDocPreview() {
+        if (!modal) return
+        modal.classList.remove('open')
+        modal.setAttribute('aria-hidden', 'true')
+        document.body.style.overflow = ''
+      }
+
+      document.querySelectorAll('.doc-preview-trigger').forEach((trigger) => {
+        trigger.addEventListener('click', () => openDocPreview(trigger.dataset.doc))
+      })
+
+      function showCopyToast(message = '已复制到剪贴板，可直接粘贴给团队使用。') {
+        if (!copyToast) return
+        copyToast.textContent = message
+        copyToast.classList.add('show')
+        window.clearTimeout(showCopyToast.timer)
+        showCopyToast.timer = window.setTimeout(() => {
+          copyToast.classList.remove('show')
+        }, 2200)
+      }
+
+      function getCleanCopyText(selector) {
+        const target = document.querySelector(selector)
+        if (!target) return ''
+        const clone = target.cloneNode(true)
+        clone.querySelectorAll('button, .panel-actions').forEach((node) => node.remove())
+        return clone.innerText.replace(/\n{3,}/g, '\n\n').trim()
+      }
+
+      document.querySelectorAll('.copy-section').forEach((trigger) => {
+        trigger.addEventListener('click', async () => {
+          const text = getCleanCopyText(trigger.dataset.copy)
+          if (!text) return
+          try {
+            await navigator.clipboard.writeText(text)
+            showCopyToast('已复制此模块内容。')
+          } catch (error) {
+            showCopyToast('复制失败，请手动选择内容。')
+          }
+        })
+      })
+
+      document.querySelectorAll('.doc-close, .doc-close-secondary').forEach((trigger) => {
+        trigger.addEventListener('click', closeDocPreview)
+      })
+
+      modal?.addEventListener('click', (event) => {
+        if (event.target === modal) closeDocPreview()
+      })
+
+      window.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape') closeDocPreview()
+      })
+    </script>
+  </body>
+</html>

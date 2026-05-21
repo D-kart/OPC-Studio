@@ -466,6 +466,135 @@
             margin-bottom: 16px;
         }
 
+        /* ===== AI MARKETING ===== */
+        .marketing-panel {
+            display: grid;
+            grid-template-columns: minmax(0, 1.15fr) minmax(320px, 0.85fr);
+            gap: 28px;
+            padding: 32px;
+            background:
+                radial-gradient(circle at 16% 18%, rgba(34, 211, 238, 0.16), transparent 30%),
+                radial-gradient(circle at 82% 10%, rgba(99, 102, 241, 0.18), transparent 34%),
+                linear-gradient(135deg, rgba(15, 23, 42, 0.94), rgba(2, 6, 23, 0.98));
+            border: 1px solid rgba(148, 163, 184, 0.28);
+            border-radius: var(--radius);
+            box-shadow: 0 28px 80px rgba(2, 6, 23, 0.38);
+            overflow: hidden;
+            position: relative;
+        }
+
+        .marketing-panel::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-image:
+                linear-gradient(rgba(148, 163, 184, 0.08) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(148, 163, 184, 0.08) 1px, transparent 1px);
+            background-size: 42px 42px;
+            mask-image: linear-gradient(90deg, rgba(0, 0, 0, 0.72), transparent 78%);
+            pointer-events: none;
+        }
+
+        .marketing-copy,
+        .marketing-console {
+            position: relative;
+            z-index: 1;
+        }
+
+        .marketing-copy h3 {
+            font-size: clamp(26px, 3.2vw, 44px);
+            line-height: 1.12;
+            letter-spacing: -0.6px;
+            max-width: 680px;
+            margin-bottom: 18px;
+        }
+
+        .marketing-copy p {
+            color: rgba(226, 232, 240, 0.78);
+            font-size: 16px;
+            line-height: 1.8;
+            max-width: 660px;
+        }
+
+        .marketing-metrics {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 12px;
+            margin: 26px 0;
+        }
+
+        .marketing-metric {
+            padding: 16px;
+            border: 1px solid rgba(148, 163, 184, 0.22);
+            border-radius: 14px;
+            background: rgba(15, 23, 42, 0.64);
+        }
+
+        .marketing-metric strong {
+            display: block;
+            font-size: 30px;
+            color: #67e8f9;
+            margin-bottom: 4px;
+        }
+
+        .marketing-metric span {
+            color: rgba(226, 232, 240, 0.68);
+            font-size: 12px;
+        }
+
+        .marketing-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .marketing-console {
+            padding: 22px;
+            border-radius: 18px;
+            border: 1px solid rgba(148, 163, 184, 0.22);
+            background: rgba(2, 6, 23, 0.74);
+            box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.06);
+        }
+
+        .console-status {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: #5eead4;
+            font-size: 12px;
+            font-weight: 700;
+            margin-bottom: 18px;
+        }
+
+        .console-status::before {
+            content: '';
+            width: 8px;
+            height: 8px;
+            border-radius: 999px;
+            background: #22c55e;
+            box-shadow: 0 0 0 6px rgba(34, 197, 94, 0.12);
+        }
+
+        .console-row {
+            display: grid;
+            grid-template-columns: 84px minmax(0, 1fr);
+            gap: 16px;
+            padding: 15px 0;
+            border-top: 1px solid rgba(148, 163, 184, 0.14);
+            align-items: start;
+        }
+
+        .console-row span {
+            color: rgba(148, 163, 184, 0.78);
+            font-size: 12px;
+        }
+
+        .console-row strong {
+            color: rgba(248, 250, 252, 0.92);
+            font-size: 14px;
+            line-height: 1.55;
+        }
+
         /* ===== AI WORKFLOW ===== */
         .workflow-container {
             display: grid;
@@ -970,6 +1099,29 @@
             .q-title { font-size: 18px; }
             .q-desc { font-size: 13px; }
 
+            /* AI Marketing */
+            .marketing-panel {
+                grid-template-columns: 1fr;
+                padding: 22px;
+                gap: 22px;
+            }
+            .marketing-copy h3 {
+                font-size: 28px;
+            }
+            .marketing-metrics {
+                grid-template-columns: 1fr;
+            }
+            .marketing-actions .btn-primary,
+            .marketing-actions .btn-secondary {
+                width: 100%;
+                justify-content: center;
+                text-align: center;
+            }
+            .console-row {
+                grid-template-columns: 1fr;
+                gap: 6px;
+            }
+
             /* AI Workflow */
             .workflow-container {
                 grid-template-columns: repeat(3, 1fr);
@@ -1140,6 +1292,7 @@
         <ul class="nav-links">
             <li><a href="#about">平台定位</a></li>
             <li><a href="#pitchroom">PitchRoom</a></li>
+            <li><a href="#ai-marketing">AI Marketing</a></li>
             <li><a href="#workflow">AI Skill 工坊</a></li>
             <li><a href="#model">生态飞轮</a></li>
         </ul>
@@ -1154,6 +1307,7 @@
     <div class="mobile-menu" id="mobileMenu">
         <a href="#about" onclick="closeMobileMenu()">平台定位</a>
         <a href="#pitchroom" onclick="closeMobileMenu()">PitchRoom</a>
+        <a href="#ai-marketing" onclick="closeMobileMenu()">AI Marketing</a>
         <a href="#workflow" onclick="closeMobileMenu()">AI Skill 工坊</a>
         <a href="#model" onclick="closeMobileMenu()">生态飞轮</a>
         <a href="#teardown" onclick="closeMobileMenu()" class="mobile-menu-cta">AI 拆机体验</a>
@@ -1262,6 +1416,60 @@
                 <div class="q-number">Question 07</div>
                 <div class="q-title">导航</div>
                 <div class="q-desc">12个月后，你希望自己是什么样子？</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- AI MARKETING -->
+    <section id="ai-marketing" class="reveal">
+        <div class="section-label">AI Marketing</div>
+        <h2 class="section-title">OPC-Studio · AI Marketing</h2>
+        <p class="section-desc">面向 OPC 和中小微团队的 AI 市场部工作流。输入官网、文档或产品资料，生成可发布的宣传视频脚本、推广文案、Demo 讲解、教程脚本、社媒内容、销售私信和发布计划。</p>
+        <div class="marketing-panel">
+            <div class="marketing-copy">
+                <h3>让一人公司的产品，几分钟拥有一套市场发布资产。</h3>
+                <p>AI Marketing 是 OPC-Studio 的首个可售卖服务模块。它不只生成文案，而是把产品定位、视觉表达、视频叙事、渠道节奏和客户转化动作组合成一个交付包，帮助小团队更快完成产品发布、版本更新、教程传播和获客启动。</p>
+                <div class="marketing-metrics">
+                    <div class="marketing-metric">
+                        <strong>9</strong>
+                        <span>类宣发物料</span>
+                    </div>
+                    <div class="marketing-metric">
+                        <strong>6</strong>
+                        <span>份策略文档</span>
+                    </div>
+                    <div class="marketing-metric">
+                        <strong>3</strong>
+                        <span>张视觉资产</span>
+                    </div>
+                </div>
+                <div class="marketing-actions">
+                    <a href="ai-marketing/investor-showcase.html" class="btn-primary">查看首个案例</a>
+                    <a href="ai-marketing/delivery-room.html" class="btn-secondary">打开交付控制台</a>
+                </div>
+            </div>
+            <div class="marketing-console">
+                <div class="console-status">Client A / OPC-Studio 已完成交付</div>
+                <div class="console-row">
+                    <span>产品定位</span>
+                    <strong>一人公司的增长操作系统</strong>
+                </div>
+                <div class="console-row">
+                    <span>主视觉</span>
+                    <strong>控制台 + Agent 编队 + 机会网络</strong>
+                </div>
+                <div class="console-row">
+                    <span>视频脚本</span>
+                    <strong>60 秒从分散到被看见</strong>
+                </div>
+                <div class="console-row">
+                    <span>发布节奏</span>
+                    <strong>7 天预热、发布、Demo、复盘</strong>
+                </div>
+                <div class="console-row">
+                    <span>交付方式</span>
+                    <strong>客户控制台 + 资产包下载</strong>
+                </div>
             </div>
         </div>
     </section>
