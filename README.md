@@ -227,14 +227,17 @@ PitchRoom 内容出片 SOP
 # Claude Skills / WorkBuddy
 git clone git@github.com:D-kart/investor-skill.git ~/.claude/skills/investor-skill
 git clone git@github.com:D-kart/presenter-skill.git ~/.claude/skills/presenter-skill
+git clone git@github.com:D-kart/summary-skill.git ~/.claude/skills/summary-skill
 
 # OpenClaw / Hermes
 git clone git@github.com:D-kart/investor-skill.git ~/path/to/skills/
 git clone git@github.com:D-kart/presenter-skill.git ~/path/to/skills/
+git clone git@github.com:D-kart/summary-skill.git ~/path/to/skills/
 
 # SkillHub
 zip -r investor-skill.zip investor-skill/   # 然后登录 SkillHub 上传
 zip -r presenter-skill.zip presenter-skill/
+zip -r summary-skill.zip summary-skill/
 ```
 
 ### 备注
