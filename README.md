@@ -209,6 +209,7 @@ PitchRoom 内容出片 SOP
 |---|---|---|---|---|
 | 🧭 **investor-skill** | 投资人.skill | 一级市场职业投资人工作流（行研 / 尽调 / BP 速析 / 竞争格局 / 技术产品 / 投资备忘录） | ✅ v1.0.2 已发布 | **[D-kart/investor-skill](https://github.com/D-kart/investor-skill)** |
 | 🎤 **presenter-skill** | 路演者.skill | 创始人融资路演工作流（叙事打磨 / 市场机会结构化 / 产品数据通俗化 / 护城河论证 / Q&A 异议 / 估值退出） | ✅ v1.0.1 已发布 | **[D-kart/presenter-skill](https://github.com/D-kart/presenter-skill)** |
+| 📝 **summary-skill** | 纪要官.skill | 投资经理访谈纪要官（关键事实抽取 / 主题归并 / 三档时间戳 / 5 大类 20 小项覆盖核查 / 待确认问题清单 / Markdown + docx 双格式） | ✅ v1.0.0 已发布 | **[D-kart/summary-skill](https://github.com/D-kart/summary-skill)** |
 | 💡 **yi-er-skill** | 一二.skill | AI companion / 关系陪伴 / 个体状态理解工作流 | 🚧 研发中 | — |
 | 🧸 **bubu-skill** | 布布.skill | 准爸爸孕期全周期行动助手 | 🚧 研发中 | — |
 
