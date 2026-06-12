@@ -209,7 +209,8 @@ PitchRoom 内容出片 SOP
 |---|---|---|---|---|
 | 🧭 **investor-skill** | 投资人.skill | 一级市场职业投资人工作流（行研 / 尽调 / BP 速析 / 竞争格局 / 技术产品 / 投资备忘录） | ✅ v1.0.2 已发布 | **[D-kart/investor-skill](https://github.com/D-kart/investor-skill)** |
 | 🎤 **presenter-skill** | 路演者.skill | 创始人融资路演工作流（叙事打磨 / 市场机会结构化 / 产品数据通俗化 / 护城河论证 / Q&A 异议 / 估值退出） | ✅ v1.0.1 已发布 | **[D-kart/presenter-skill](https://github.com/D-kart/presenter-skill)** |
-| 📝 **summary-skill** | 纪要官.skill | 投资经理访谈纪要官（关键事实抽取 / 主题归并 / 三档时间戳 / 5 大类 20 小项覆盖核查 / 待确认问题清单 / Markdown + docx 双格式） | ✅ v1.0.0 已发布 | **[D-kart/summary-skill](https://github.com/D-kart/summary-skill)** |
+| 📝 **summary-skill** | 纪要官.skill | 投资经理访谈纪要官（关键事实抽取 / 主题归并 / 三档时间戳 / 5 大类 20 小项覆盖核查 / 待确认问题清单 / Markdown + docx 双格式） | ✅ v2.0.0 已发布 | **[D-kart/summary-skill](https://github.com/D-kart/summary-skill)** |
+| 📊 **ma-pitch-skill** | 并购pitch.skill | M&A 并购标的推介书（年报数据提取 / 多年财务分析 / 买方战略匹配矩阵 / 可比交易分析 / 风险矩阵 / 整合路线图 / 16:9 宽幅 HTML 输出） | ✅ v1.0.0 已发布 | **[D-kart/ma-pitch-skill](https://github.com/D-kart/ma-pitch-skill)** |
 | 💡 **yi-er-skill** | 一二.skill | AI companion / 关系陪伴 / 个体状态理解工作流 | 🚧 研发中 | — |
 | 🧸 **bubu-skill** | 布布.skill | 准爸爸孕期全周期行动助手 | 🚧 研发中 | — |
 
@@ -228,16 +229,19 @@ PitchRoom 内容出片 SOP
 git clone git@github.com:D-kart/investor-skill.git ~/.claude/skills/investor-skill
 git clone git@github.com:D-kart/presenter-skill.git ~/.claude/skills/presenter-skill
 git clone git@github.com:D-kart/summary-skill.git ~/.claude/skills/summary-skill
+git clone git@github.com:D-kart/ma-pitch-skill.git ~/.claude/skills/ma-pitch-skill
 
 # OpenClaw / Hermes
 git clone git@github.com:D-kart/investor-skill.git ~/path/to/skills/
 git clone git@github.com:D-kart/presenter-skill.git ~/path/to/skills/
 git clone git@github.com:D-kart/summary-skill.git ~/path/to/skills/
+git clone git@github.com:D-kart/ma-pitch-skill.git ~/path/to/skills/
 
 # SkillHub
 zip -r investor-skill.zip investor-skill/   # 然后登录 SkillHub 上传
 zip -r presenter-skill.zip presenter-skill/
 zip -r summary-skill.zip summary-skill/
+zip -r ma-pitch-skill.zip ma-pitch-skill/
 ```
 
 ### 备注
