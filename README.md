@@ -213,6 +213,7 @@ PitchRoom 内容出片 SOP
 | 📊 **ma-pitch-skill** | 并购pitch.skill | M&A 并购标的推介书（年报数据提取 / 多年财务分析 / 买方战略匹配矩阵 / 可比交易分析 / 风险矩阵 / 整合路线图 / 16:9 宽幅 HTML 输出） | ✅ v1.0.0 已发布 | **[D-kart/ma-pitch-skill](https://github.com/D-kart/ma-pitch-skill)** |
 | 📰 **gazette-skill** | 公报.skill | 古典公报/金融大报网站设计风格（FT / Economist / Monocle / WSJ 数字版 HTML · 衬线字体 · 黑白单色 · 报头元素 · drop cap · 中英双语重建规则） | ✅ v1.0.0 已发布 | **[D-kart/gazette-skill](https://github.com/D-kart/gazette-skill)** |
 | 🐼 **panda-skill** | 熊猫.skill | 双色 SaaS 落地页风格（白底为主 + 黑色反色锚点 · 阿里普惠体 + Barlow + Dream + 故障黑 · toB 量化 / AI Agent 平台 / Dashboard · 5 步闭环 · 4 档套餐 · Combo + VS 对比 · 11 区块落地页架构） | ✅ v1.0.0 已发布 | **[D-kart/panda-skill](https://github.com/D-kart/panda-skill)** |
+| 🏭 **copyweb-skill** | 扒站.skill | 视觉风格 skill 工厂（元 skill）：输入参考站 URL 输出符合规范的风格 skill 包 · 六阶段（命名去重 / 双通道扒站采集 / 风格分析防翻车 / 提炼 / 三层封装 / 发布）· 固化 gazette+panda 复刻经验与"变量定义≠实际使用"血泪教训 · 产出即可入矩阵） | ✅ v1.0.0 已发布 | **[D-kart/copyweb-skill](https://github.com/D-kart/copyweb-skill)** |
 | 💡 **yi-er-skill** | 一二.skill | AI companion / 关系陪伴 / 个体状态理解工作流 | 🚧 研发中 | — |
 | 🧸 **bubu-skill** | 布布.skill | 准爸爸孕期全周期行动助手 | 🚧 研发中 | — |
 
@@ -234,6 +235,7 @@ git clone git@github.com:D-kart/summary-skill.git ~/.claude/skills/summary-skill
 git clone git@github.com:D-kart/ma-pitch-skill.git ~/.claude/skills/ma-pitch-skill
 git clone git@github.com:D-kart/gazette-skill.git ~/.claude/skills/gazette-skill
 git clone git@github.com:D-kart/panda-skill.git ~/.claude/skills/panda-skill
+git clone git@github.com:D-kart/copyweb-skill.git ~/.claude/skills/copyweb-skill
 
 # OpenClaw / Hermes
 git clone git@github.com:D-kart/investor-skill.git ~/path/to/skills/
@@ -242,6 +244,7 @@ git clone git@github.com:D-kart/summary-skill.git ~/path/to/skills/
 git clone git@github.com:D-kart/ma-pitch-skill.git ~/path/to/skills/
 git clone git@github.com:D-kart/gazette-skill.git ~/path/to/skills/
 git clone git@github.com:D-kart/panda-skill.git ~/path/to/skills/
+git clone git@github.com:D-kart/copyweb-skill.git ~/path/to/skills/
 
 # SkillHub
 zip -r investor-skill.zip investor-skill/   # 然后登录 SkillHub 上传
@@ -250,6 +253,7 @@ zip -r summary-skill.zip summary-skill/
 zip -r ma-pitch-skill.zip ma-pitch-skill/
 zip -r gazette-skill.zip gazette-skill/
 zip -r panda-skill.zip panda-skill/
+zip -r copyweb-skill.zip copyweb-skill/
 ```
 
 ### 备注
