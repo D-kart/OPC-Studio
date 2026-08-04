@@ -1,0 +1,1851 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI 赋能全流程投研实战 · 培训课程表</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Noto+Serif+SC:wght@400;600;700;900&family=Source+Serif+Pro:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+:root {
+  --color-bg: #F8F4ED;
+  --color-bg-card: #FFFFFF;
+  --color-fg: #111111;
+  --color-muted: #6B6B6B;
+  --color-rule: #111111;
+  --color-rule-soft: #D9D5C8;
+  --color-accent: #111111;
+  --color-on-accent: #FFFFFF;
+  --color-up: #B23A3A;
+  --color-down: #2E7D5B;
+  --font-display: 'Playfair Display', 'Noto Serif SC', 'Songti SC', serif;
+  --font-body: 'Source Serif Pro', 'Noto Serif SC', 'Songti SC', serif;
+  --font-ui: -apple-system, 'PingFang SC', 'Source Han Sans SC', 'Inter', sans-serif;
+  --sidebar-w: 220px;
+}
+html.dark {
+  --color-bg: #0F0F0F;
+  --color-bg-card: #171717;
+  --color-fg: #F5F2EB;
+  --color-muted: #9C998F;
+  --color-rule: #F5F2EB;
+  --color-rule-soft: #2E2E2E;
+  --color-accent: #F5F2EB;
+  --color-on-accent: #0F0F0F;
+  --color-up: #E27A7A;
+  --color-down: #6FBF9B;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+[id] { scroll-margin-top: 16px; }
+body {
+  background: var(--color-bg);
+  color: var(--color-fg);
+  font-family: var(--font-body);
+  font-size: 17px;
+  line-height: 1.75;
+  transition: background-color 0.32s ease, color 0.32s ease;
+}
+
+/* ─── 昼夜切换按钮 ─── */
+.theme-toggle-btn {
+  position: fixed; top: 20px; right: 28px; z-index: 9999;
+  display: flex; align-items: center; gap: 8px;
+  padding: 8px 18px; border-radius: 22px;
+  background: var(--color-accent); border: 1px solid var(--color-rule);
+  color: var(--color-on-accent); font-size: 12px; font-weight: 600;
+  cursor: pointer; font-family: var(--font-ui); letter-spacing: 0.5px;
+  transition: background 0.3s, color 0.3s, border-color 0.3s, box-shadow 0.3s;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.2);
+}
+.theme-toggle-btn:hover { opacity: 0.85; }
+.theme-toggle-btn .toggle-icon { font-size: 14px; line-height: 1; transition: transform 0.4s; }
+.theme-toggle-btn:hover .toggle-icon { transform: rotate(20deg); }
+
+/* ─── 主体布局 ─── */
+.layout {
+  display: flex; gap: 32px;
+  max-width: 1320px; margin: 0 auto;
+  padding: 40px 32px 64px 32px;
+  align-items: flex-start;
+}
+
+/* ─── 侧边栏 ─── */
+.sidebar {
+  width: var(--sidebar-w); flex-shrink: 0;
+  position: sticky; top: 24px;
+  align-self: flex-start;
+  max-height: calc(100vh - 48px); overflow-y: auto;
+  font-family: var(--font-ui);
+  padding-right: 6px;
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-rule-soft) transparent;
+}
+.sidebar::-webkit-scrollbar { width: 4px; }
+.sidebar::-webkit-scrollbar-thumb { background: var(--color-rule-soft); }
+.sidebar .brand {
+  font-family: var(--font-display); font-weight: 900; font-size: 22px;
+  letter-spacing: 0.02em; padding-bottom: 4px;
+  border-bottom: 2px solid var(--color-fg);
+}
+.sidebar .brand-sub {
+  font-family: var(--font-ui); font-size: 10.5px; font-weight: 600;
+  letter-spacing: 0.22em; color: var(--color-muted);
+  margin-top: 6px;
+}
+.sidebar .vol {
+  margin-top: 14px; font-family: var(--font-ui); font-size: 10.5px;
+  letter-spacing: 0.18em; color: var(--color-muted);
+  padding-bottom: 12px; border-bottom: 1px solid var(--color-rule-soft);
+}
+.sidebar .group-label {
+  font-family: var(--font-ui); font-size: 10.5px; font-weight: 600;
+  letter-spacing: 0.24em; color: var(--color-muted);
+  margin: 18px 0 8px; text-transform: uppercase;
+}
+.sidebar ul.nav { list-style: none; }
+.sidebar ul.nav li { margin-bottom: 2px; }
+.sidebar ul.nav a {
+  display: flex; align-items: baseline; gap: 8px;
+  padding: 6px 8px; color: var(--color-fg); text-decoration: none;
+  font-size: 12.5px; line-height: 1.5;
+  transition: background 0.2s, color 0.2s;
+  border-left: 2px solid transparent;
+}
+.sidebar ul.nav a:hover {
+  background: var(--color-bg-card);
+  border-left-color: var(--color-fg);
+}
+.sidebar ul.nav a.active {
+  background: var(--color-bg-card);
+  border-left-color: var(--color-fg);
+  font-weight: 600;
+}
+.sidebar ul.nav a .num {
+  font-family: var(--font-display); font-weight: 700; color: var(--color-muted);
+  font-size: 11px; min-width: 22px;
+}
+.sidebar ul.nav a.sub { padding-left: 28px; font-size: 12px; color: var(--color-muted); }
+.sidebar ul.nav a.sub:hover { color: var(--color-fg); }
+.sidebar ul.nav a.sub .num { color: var(--color-muted); font-size: 11px; }
+
+.sidebar .actions {
+  margin-top: 24px; padding-top: 18px;
+  border-top: 1px solid var(--color-rule-soft);
+  display: flex; flex-direction: column; gap: 8px;
+}
+.sidebar .actions .btn {
+  display: block; padding: 9px 14px; text-align: center;
+  font-family: var(--font-ui); font-size: 11px; font-weight: 600;
+  letter-spacing: 0.2em; text-decoration: none;
+  border-radius: 2px; transition: background 0.2s, color 0.2s;
+  cursor: pointer; border: none;
+}
+.sidebar .actions .btn-primary {
+  background: var(--color-accent); color: var(--color-on-accent);
+}
+.sidebar .actions .btn-primary:hover { opacity: 0.85; }
+.sidebar .actions .btn-secondary {
+  background: transparent; color: var(--color-fg); border: 1px solid var(--color-fg);
+}
+.sidebar .actions .btn-secondary:hover { background: var(--color-bg-card); }
+
+/* ─── 弹窗 ─── */
+.modal-overlay {
+  position: fixed; inset: 0; z-index: 10000;
+  background: rgba(0,0,0,0.55);
+  backdrop-filter: blur(4px); -webkit-backdrop-filter: blur(4px);
+  display: none; align-items: center; justify-content: center;
+  padding: 20px;
+}
+.modal-overlay.show {
+  display: flex;
+  animation: overlayIn 0.22s ease;
+}
+@keyframes overlayIn { from { opacity: 0 } to { opacity: 1 } }
+.modal {
+  background: var(--color-bg-card); color: var(--color-fg);
+  border: 2px solid var(--color-fg);
+  width: 100%; max-width: 360px;
+  max-height: calc(100vh - 40px); overflow-y: auto;
+  padding: 32px 28px 22px;
+  position: relative; box-shadow: 0 20px 60px rgba(0,0,0,0.35);
+  animation: modalRise 0.32s cubic-bezier(0.2, 0.85, 0.25, 1);
+}
+@keyframes modalRise {
+  from { transform: translateY(24px) scale(0.97); opacity: 0 }
+  to { transform: translateY(0) scale(1); opacity: 1 }
+}
+.modal .close-btn {
+  position: absolute; top: 10px; right: 14px;
+  width: 32px; height: 32px; line-height: 1;
+  background: transparent; border: none; cursor: pointer;
+  font-family: var(--font-display); font-size: 26px; font-weight: 400;
+  color: var(--color-fg); opacity: 0.5;
+  transition: opacity 0.2s;
+}
+.modal .close-btn:hover { opacity: 1; }
+.modal .modal-brand {
+  text-align: center; margin-bottom: 4px;
+  font-family: var(--font-display); font-weight: 900;
+  font-size: 30px; letter-spacing: 0.04em;
+}
+.modal .modal-sub {
+  text-align: center; margin-bottom: 14px;
+  font-family: var(--font-ui); font-size: 11px; font-weight: 600;
+  letter-spacing: 0.3em; color: var(--color-muted);
+}
+.modal .modal-rule {
+  height: 2px; background: var(--color-fg);
+  margin: 0 auto 22px; width: 56px;
+}
+.modal .qr-wrap {
+  display: flex; align-items: center; justify-content: center;
+  width: fit-content; max-width: 100%;
+  padding: 10px; background: #FFFFFF;
+  border: 1px solid var(--color-rule-soft);
+  margin: 0 auto 18px;
+}
+.modal .qr-wrap img {
+  width: 240px; height: auto; display: block;
+}
+.modal .qr-hint {
+  text-align: center;
+  font-family: var(--font-body);
+  font-size: 15.5px; line-height: 1.7; color: var(--color-muted);
+}
+.modal .qr-hint strong { color: var(--color-fg); font-family: var(--font-display); font-weight: 700; }
+.modal .qr-meta {
+  margin-top: 22px; padding-top: 18px;
+  border-top: 1px solid var(--color-rule-soft);
+  text-align: center;
+  font-family: var(--font-ui); font-size: 10.5px; font-weight: 500;
+  letter-spacing: 0.22em; color: var(--color-muted);
+}
+body.modal-open { overflow: hidden; }
+
+/* ─── 主内容 ─── */
+.page {
+  flex: 1; min-width: 0;
+  max-width: 1020px;
+}
+
+/* ─── 报头 ─── */
+.masthead { text-align: center; padding: 24px 0 0; }
+.eyebrow {
+  font-family: var(--font-ui); font-weight: 500;
+  letter-spacing: 0.28em; font-size: 12px; color: var(--color-muted);
+  margin: 20px 0 12px;
+}
+.eyebrow .en { font-family: var(--font-display); letter-spacing: 0.12em; }
+.masthead h1 {
+  font-family: var(--font-display); font-weight: 900;
+  font-size: clamp(44px, 6vw, 64px); line-height: 1.12;
+  letter-spacing: 0.02em; color: var(--color-fg);
+}
+.masthead .subtitle {
+  margin-top: 18px;
+  font-family: var(--font-body); font-style: normal;
+  color: var(--color-muted); font-size: 16px; letter-spacing: 0.06em;
+}
+.masthead .subtitle .star { color: var(--color-fg); }
+.date-bar {
+  margin-top: 28px;
+  background: var(--color-accent); color: var(--color-on-accent);
+  font-family: var(--font-ui); font-size: 12px; font-weight: 500;
+  letter-spacing: 0.3em; text-align: center;
+  padding: 10px 0; line-height: 1;
+}
+.tag-row {
+  display: flex; justify-content: center; gap: 0;
+  margin-top: 18px;
+  font-family: var(--font-ui); font-size: 11.5px; font-weight: 500;
+  letter-spacing: 0.16em; color: var(--color-fg);
+}
+.tag-row span { padding: 0 18px; }
+.tag-row span + span { border-left: 1px solid var(--color-rule-soft); }
+
+/* ─── 机构署名区 ─── */
+.firm {
+  display: flex; justify-content: space-between; align-items: flex-end;
+  padding: 18px 4px 14px; border-bottom: 1px solid var(--color-rule);
+}
+.firm .firm-name { font-family: var(--font-display); font-weight: 900; font-size: 17px; line-height: 1.5; letter-spacing: 0.04em; }
+.firm .firm-name .en { display: block; font-size: 12.5px; font-weight: 700; letter-spacing: 0.14em; color: var(--color-muted); }
+.firm .doc-meta { text-align: right; font-family: var(--font-ui); font-size: 11.5px; line-height: 1.9; color: var(--color-muted); letter-spacing: 0.06em; }
+
+/* ─── 总览信息 ─── */
+.overview {
+  display: grid; grid-template-columns: repeat(4, 1fr);
+  gap: 16px; margin: 36px 0 8px;
+}
+.ov-card {
+  background: var(--color-bg-card); border: 1px solid var(--color-rule-soft);
+  padding: 18px 20px;
+  transition: background-color 0.32s ease, border-color 0.32s ease;
+}
+.ov-card .ov-label {
+  font-family: var(--font-ui); font-size: 11px; font-weight: 600;
+  letter-spacing: 0.24em; color: var(--color-muted);
+}
+.ov-card .ov-value {
+  margin-top: 10px; font-family: var(--font-display); font-weight: 700;
+  font-size: 21px; line-height: 1.35; letter-spacing: 0.01em;
+}
+.ov-card .ov-sub { margin-top: 6px; font-size: 13.5px; color: var(--color-muted); line-height: 1.6; }
+.ov-wide { grid-column: span 4; }
+
+/* ─── 课程收获 ─── */
+.gain {
+  background: var(--color-bg-card); border: 1px solid var(--color-rule-soft);
+  padding: 22px 26px; margin-top: 16px;
+}
+.gain .gain-title {
+  font-family: var(--font-ui); font-weight: 600; font-size: 12px;
+  letter-spacing: 0.26em; color: var(--color-fg);
+}
+.gain ul { list-style: none; margin-top: 12px; }
+.gain li { padding-left: 22px; position: relative; font-size: 15.5px; line-height: 1.8; }
+.gain li::before { content: "◆"; position: absolute; left: 2px; top: 0; font-size: 11px; color: var(--color-muted); }
+.gain li strong { font-family: var(--font-display); font-weight: 700; }
+
+/* ─── 章节分隔 ─── */
+.section-divider { display: flex; align-items: center; gap: 18px; margin: 56px 0 26px; }
+.section-divider .rule { flex: 1; height: 1px; background: var(--color-rule); }
+.section-divider .label {
+  font-family: var(--font-ui); font-size: 13px; font-weight: 600;
+  letter-spacing: 0.34em; color: var(--color-fg); white-space: nowrap;
+}
+.section-divider .label .en { font-family: var(--font-display); font-weight: 700; letter-spacing: 0.2em; font-size: 11px; color: var(--color-muted); display: block; text-align: center; margin-top: 4px; }
+.section-divider .star { color: var(--color-fg); font-size: 12px; }
+
+/* ─── 课程表 ─── */
+table.curriculum { width: 100%; border-collapse: collapse; }
+table.curriculum th {
+  font-family: var(--font-ui); font-size: 11px; font-weight: 600;
+  letter-spacing: 0.2em; color: var(--color-muted); text-align: left;
+  padding: 10px 14px; border-bottom: 2px solid var(--color-rule);
+  background: transparent;
+}
+table.curriculum td {
+  padding: 18px 14px; border-bottom: 1px solid var(--color-rule-soft);
+  vertical-align: top; font-size: 15px; line-height: 1.72;
+}
+table.curriculum tr:hover td { background: rgba(0,0,0,0.02); }
+html.dark table.curriculum tr:hover td { background: rgba(255,255,255,0.03); }
+table.curriculum tr.target td { background: rgba(0,0,0,0.04); }
+html.dark table.curriculum tr.target td { background: rgba(255,255,255,0.05); }
+td.no {
+  font-family: var(--font-display); font-weight: 900; font-size: 26px;
+  width: 52px; color: var(--color-fg); padding-top: 16px;
+}
+td.cname { width: 150px; }
+td.cname .cn { font-family: var(--font-display); font-weight: 700; font-size: 17px; line-height: 1.4; }
+td.cname .en { font-family: var(--font-ui); font-size: 10.5px; letter-spacing: 0.14em; color: var(--color-muted); margin-top: 6px; line-height: 1.5; display: block; }
+td.cdur {
+  width: 86px; text-align: right; white-space: nowrap;
+  font-family: var(--font-display); font-weight: 700; font-size: 17px;
+}
+td.cdur .unit { font-family: var(--font-ui); font-weight: 400; font-size: 11px; color: var(--color-muted); letter-spacing: 0.1em; }
+td.desc ol { list-style: none; }
+td.desc li { padding-left: 20px; position: relative; margin-bottom: 7px; font-size: 14.5px; }
+td.desc li:last-child { margin-bottom: 0; }
+td.desc li::before { content: ""; position: absolute; left: 2px; top: 0.85em; width: 7px; height: 7px; border: 1px solid var(--color-fg); }
+td.desc li em { font-style: normal; color: var(--color-muted); font-size: 13.5px; }
+td.desc li strong { font-family: var(--font-display); font-weight: 700; }
+td.desc li.idea {
+  margin-top: 10px; padding: 10px 12px 10px 34px;
+  background: var(--color-bg-card); border: 1px solid var(--color-rule-soft);
+  font-size: 13.5px; line-height: 1.7;
+}
+td.desc li.idea::before {
+  content: "★"; position: absolute; left: 10px; top: 10px;
+  width: auto; height: auto; border: none; color: var(--color-fg); font-size: 12px;
+}
+td.desc li.idea .idea-tag {
+  font-family: var(--font-ui); font-weight: 600; font-size: 10.5px;
+  letter-spacing: 0.22em; color: var(--color-muted); display: block; margin-bottom: 3px;
+}
+tr.total-row td {
+  border-bottom: none; padding: 16px 14px 8px;
+  font-family: var(--font-ui); font-weight: 600; font-size: 12px;
+  letter-spacing: 0.22em; color: var(--color-fg);
+}
+tr.total-row td .num { font-family: var(--font-display); font-weight: 900; font-size: 24px; letter-spacing: 0.02em; }
+
+/* ─── 备注 ─── */
+.note {
+  margin-top: 28px; padding: 18px 22px;
+  border-left: 3px solid var(--color-rule);
+  background: var(--color-bg-card);
+  font-size: 14px; line-height: 1.75; color: var(--color-muted);
+}
+.note strong { color: var(--color-fg); font-family: var(--font-display); font-weight: 700; }
+
+/* ─── 页脚 ─── */
+.footer {
+  margin-top: 72px; padding-top: 22px;
+  border-top: 2px solid var(--color-rule);
+  display: flex; justify-content: space-between; gap: 32px; flex-wrap: wrap;
+}
+.footer .sig { font-family: var(--font-ui); font-size: 12.5px; line-height: 2; color: var(--color-fg); letter-spacing: 0.05em; }
+.footer .sig .name { font-family: var(--font-display); font-weight: 900; font-size: 16px; }
+.footer .disc { font-size: 12px; line-height: 1.8; color: var(--color-muted); max-width: 520px; }
+
+@media (max-width: 980px) {
+  .layout { flex-direction: column; padding: 28px 20px 48px; }
+  .sidebar {
+    position: relative; top: 0; width: 100%; max-height: none;
+    margin-bottom: 16px;
+  }
+  .overview { grid-template-columns: repeat(2, 1fr); }
+  .ov-wide { grid-column: span 2; }
+  table.curriculum th, table.curriculum td { padding: 14px 10px; }
+  td.cname { width: 120px; }
+  .firm { flex-direction: column; gap: 12px; }
+  .firm .doc-meta { text-align: left; }
+}
+@media print {
+  .theme-toggle-btn, .sidebar { display: none; }
+  .layout { display: block; }
+  .page { max-width: 100%; }
+}
+
+/* ─── 详情页视图 ─── */
+.detail-view { display: none; }
+.detail-view.show { display: block; animation: detailIn 0.3s ease; }
+main.page.mode-detail > *:not(#detailView) { display: none !important; }
+main.page.mode-detail #detailView { display: block; }
+@keyframes detailIn { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: none; } }
+
+.detail-crumb {
+  font-family: var(--font-ui); font-size: 11.5px; letter-spacing: 0.1em;
+  color: var(--color-muted); margin: 24px 0 8px; display: flex; align-items: center; gap: 10px;
+}
+.detail-crumb a { color: var(--color-muted); text-decoration: none; }
+.detail-crumb a:hover { color: var(--color-fg); text-decoration: underline; text-underline-offset: 3px; }
+.detail-crumb .sep { opacity: 0.5; }
+.detail-crumb .cur { color: var(--color-fg); }
+
+.detail-head { border-bottom: 2px solid var(--color-rule); padding-bottom: 22px; margin-bottom: 8px; }
+.detail-head .no {
+  font-family: var(--font-display); font-weight: 900; font-size: 64px;
+  line-height: 1; color: var(--color-fg); margin-bottom: 6px;
+}
+.detail-head h2 {
+  font-family: var(--font-display); font-weight: 900;
+  font-size: clamp(28px, 3.6vw, 40px); line-height: 1.2;
+  letter-spacing: 0.01em; margin-top: 8px;
+}
+.detail-head .en-row {
+  margin-top: 12px; font-family: var(--font-ui); font-size: 11px; font-weight: 600;
+  letter-spacing: 0.24em; color: var(--color-muted);
+  display: flex; align-items: center; gap: 16px; flex-wrap: wrap;
+}
+.detail-head .en-row .dur { color: var(--color-fg); }
+.detail-head .tags { display: flex; gap: 8px; margin-top: 14px; flex-wrap: wrap; }
+.detail-head .tags span {
+  font-family: var(--font-ui); font-size: 10.5px; font-weight: 500;
+  letter-spacing: 0.12em; color: var(--color-muted);
+  border: 1px solid var(--color-rule-soft); padding: 3px 10px;
+}
+.detail-head .lead {
+  margin-top: 16px; font-size: 16px; line-height: 1.75; color: var(--color-fg);
+  font-family: var(--font-body);
+}
+
+.detail-section { margin-top: 36px; }
+.detail-section .sec-label {
+  font-family: var(--font-ui); font-weight: 600; font-size: 12px;
+  letter-spacing: 0.28em; color: var(--color-muted);
+  display: flex; align-items: center; gap: 12px; margin-bottom: 14px;
+}
+.detail-section .sec-label::before {
+  content: ""; width: 26px; height: 2px; background: var(--color-fg); flex-shrink: 0;
+}
+.detail-section p { font-size: 15.5px; line-height: 1.85; color: var(--color-fg); margin-bottom: 10px; }
+.detail-section p em { font-style: normal; color: var(--color-muted); }
+.detail-section ul.scn { list-style: none; }
+.detail-section ul.scn li {
+  padding-left: 24px; position: relative; font-size: 15px; line-height: 1.8; margin-bottom: 10px;
+}
+.detail-section ul.scn li::before {
+  content: "◆"; position: absolute; left: 2px; top: 0; font-size: 10px; color: var(--color-muted);
+}
+.detail-section ul.scn li strong { font-family: var(--font-display); font-weight: 700; }
+
+.prompt-block {
+  background: #FFFFFF; border: 1px solid var(--color-rule-soft);
+  margin-top: 8px;
+}
+html.dark .prompt-block { background: #141414; }
+.prompt-block .prompt-title {
+  font-family: var(--font-ui); font-weight: 600; font-size: 10.5px;
+  letter-spacing: 0.22em; color: var(--color-muted);
+  padding: 10px 16px; border-bottom: 1px solid var(--color-rule-soft);
+  display: flex; align-items: center; justify-content: space-between; gap: 12px;
+}
+.prompt-block .prompt-title .copy-btn {
+  font-family: var(--font-ui); font-size: 10.5px; font-weight: 600;
+  letter-spacing: 0.12em; color: var(--color-fg);
+  background: transparent; border: 1px solid var(--color-rule-soft);
+  padding: 4px 12px; cursor: pointer; transition: background 0.2s;
+}
+.prompt-block .prompt-title .copy-btn:hover { background: var(--color-bg-card); }
+.prompt-block pre {
+  margin: 0; padding: 18px 20px; overflow-x: auto;
+  font-family: ui-monospace, 'SF Mono', 'Menlo', monospace;
+  font-size: 13px; line-height: 1.75; color: var(--color-fg);
+  white-space: pre-wrap; word-break: break-word;
+}
+.prompt-note { margin-top: 10px; font-size: 13.5px; line-height: 1.75; color: var(--color-muted); }
+.prompt-note strong { color: var(--color-fg); font-family: var(--font-display); font-weight: 700; }
+
+.detail-section ul.tips { list-style: none; }
+.detail-section ul.tips li {
+  padding-left: 26px; position: relative; font-size: 15px; line-height: 1.8; margin-bottom: 12px;
+}
+.detail-section ul.tips li::before {
+  content: "★"; position: absolute; left: 0; top: 0; font-size: 11px; color: var(--color-fg);
+}
+.detail-section ul.tips li strong { font-family: var(--font-display); font-weight: 700; }
+
+.faq-item { border-bottom: 1px solid var(--color-rule-soft); }
+.faq-item:last-child { border-bottom: none; }
+.faq-item .faq-q {
+  font-family: var(--font-body); font-size: 15.5px; font-weight: 600;
+  padding: 16px 34px 16px 0; cursor: pointer; position: relative;
+  display: flex; align-items: baseline; gap: 10px;
+}
+.faq-item .faq-q::before {
+  content: "Q"; font-family: var(--font-display); font-weight: 900;
+  font-size: 15px; color: var(--color-muted);
+}
+.faq-item .faq-q .arrow {
+  position: absolute; right: 6px; top: 50%; transform: translateY(-50%) rotate(0deg);
+  transition: transform 0.25s; font-size: 13px; color: var(--color-muted);
+}
+.faq-item.open .faq-q .arrow { transform: translateY(-50%) rotate(90deg); }
+.faq-item .faq-a {
+  display: none; padding: 0 0 16px 30px; font-size: 14.5px; line-height: 1.8; color: var(--color-muted);
+}
+.faq-item.open .faq-a { display: block; }
+
+.detail-nav {
+  margin-top: 48px; padding-top: 20px;
+  border-top: 1px solid var(--color-rule-soft);
+  display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap;
+}
+.detail-nav a {
+  font-family: var(--font-ui); font-size: 12px; font-weight: 600;
+  letter-spacing: 0.14em; color: var(--color-fg); text-decoration: none;
+  border: 1px solid var(--color-rule); padding: 9px 18px;
+  transition: background 0.2s, color 0.2s;
+}
+.detail-nav a:hover { background: var(--color-accent); color: var(--color-on-accent); }
+.detail-nav a.disabled { opacity: 0.3; pointer-events: none; }
+.detail-nav .back { border: none; padding: 9px 0; }
+.detail-nav .back:hover { background: transparent; color: var(--color-fg); text-decoration: underline; text-underline-offset: 4px; }
+
+/* 列表行可点击 */
+tr.clickable { cursor: pointer; }
+tr.clickable td { transition: background-color 0.2s; }
+tr.clickable:hover td { background: rgba(0,0,0,0.03); }
+html.dark tr.clickable:hover td { background: rgba(255,255,255,0.04); }
+tr.clickable .open-hint {
+  display: block; font-family: var(--font-ui); font-size: 10px;
+  letter-spacing: 0.18em; color: var(--color-muted);
+  margin-top: 6px; opacity: 0.85; transition: opacity 0.2s;
+  border: 1px solid var(--color-rule-soft); padding: 2px 8px;
+  width: fit-content;
+}
+tr.clickable:hover .open-hint { opacity: 1; color: var(--color-fg); border-color: var(--color-rule); background: var(--color-bg-card); }
+tr.clickable .open-hint::after { content: " →"; }
+
+@media (max-width: 980px) {
+  .detail-head .no { font-size: 48px; }
+  .detail-nav a { width: 100%; text-align: center; }
+  .detail-nav .back { order: -1; }
+}
+</style>
+</head>
+<body>
+
+<button class="theme-toggle-btn" id="themeToggle" onclick="toggleTheme()" title="切换明亮 / 深夜模式">
+  <span class="toggle-icon" id="themeIcon">&#9728;</span>
+  <span id="themeLabel">深夜模式</span>
+</button>
+
+<div class="layout">
+
+  <!-- ─── 侧边栏 ─── -->
+  <aside class="sidebar">
+    <div class="brand">MAOSHU</div>
+    <div class="brand-sub">AI NATIVE INVESTMENT</div>
+    <div class="vol">VOL. NO. 01 · EDITION</div>
+
+    <div class="group-label">目录 · INDEX</div>
+    <ul class="nav">
+      <li><a href="#top"><span class="num">▸</span>课程首页</a></li>
+      <li><a href="#gains"><span class="num">▸</span>课程收获</a></li>
+      <li><a href="#deliverables"><span class="num">▸</span>学员交付</a></li>
+    </ul>
+
+    <div class="group-label">模块一 · MINDSET</div>
+    <ul class="nav">
+      <li><a class="sub" href="#c01"><span class="num">01</span>AI 能力边界</a></li>
+      <li><a class="sub" href="#c02"><span class="num">02</span>工具矩阵</a></li>
+      <li><a class="sub" href="#c03"><span class="num">03</span>投资人一天</a></li>
+    </ul>
+
+    <div class="group-label">模块二 · WORKFLOWS</div>
+    <ul class="nav">
+      <li><a class="sub" href="#c04"><span class="num">04</span>行业研究</a></li>
+      <li><a class="sub" href="#c05"><span class="num">05</span>项目筛选</a></li>
+      <li><a class="sub" href="#c06"><span class="num">06</span>BP 拆解</a></li>
+      <li><a class="sub" href="#c07"><span class="num">07</span>尽调工作流</a></li>
+      <li><a class="sub" href="#c08"><span class="num">08</span>财务分析</a></li>
+      <li><a class="sub" href="#c09"><span class="num">09</span>投决输出</a></li>
+    </ul>
+
+    <div class="group-label">模块三 · GOVERNANCE</div>
+    <ul class="nav">
+      <li><a class="sub" href="#c10"><span class="num">10</span>并购推介</a></li>
+      <li><a class="sub" href="#c11"><span class="num">11</span>知识库沉淀</a></li>
+      <li><a class="sub" href="#c12"><span class="num">12</span>幻觉治理</a></li>
+    </ul>
+
+    <div class="group-label">模块四 · EXPLORATION</div>
+    <ul class="nav">
+      <li><a class="sub" href="#c13"><span class="num">13</span>AI 募资</a></li>
+      <li><a class="sub" href="#c14"><span class="num">14</span>投前筛查</a></li>
+      <li><a class="sub" href="#c15"><span class="num">15</span>投中尽调</a></li>
+      <li><a class="sub" href="#c16"><span class="num">16</span>投后管理</a></li>
+      <li><a class="sub" href="#c17"><span class="num">17</span>政府招商</a></li>
+      <li><a class="sub" href="#c18"><span class="num">18</span>基金管理</a></li>
+      <li><a class="sub" href="#c19"><span class="num">19</span>报告工厂</a></li>
+      <li><a class="sub" href="#c20"><span class="num">20</span>Skill 实操</a></li>
+    </ul>
+
+    <div class="actions">
+      <a class="btn btn-primary" href="#top" onclick="event.preventDefault(); window.print();">下载课程表</a>
+      <button class="btn btn-secondary" id="contactBtn" type="button">联系讲师</button>
+    </div>
+  </aside>
+
+  <!-- ─── 联系讲师弹窗 ─── -->
+  <div class="modal-overlay" id="contactModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="modal">
+      <button class="close-btn" id="modalClose" type="button" aria-label="关闭">×</button>
+      <div class="modal-brand" id="modalTitle">MAOSHU</div>
+      <div class="modal-sub">AI NATIVE INVESTMENT</div>
+      <div class="modal-rule"></div>
+      <div class="qr-wrap"><img src="wechat-qr.jpg" alt="MAOSHU 企业微信二维码"></div>
+      <div class="qr-hint">长按识别二维码，添加我的<strong>企业微信</strong></div>
+      <div class="qr-meta">CAT UNCLE · CHANENG TECH · WECHAT WORK</div>
+    </div>
+  </div>
+
+  <!-- ─── 主内容 ─── -->
+  <main class="page" id="top">
+
+    <!-- ─── 报头 ─── -->
+    <div class="masthead">
+      <div class="eyebrow">第 壹 期 · <span class="en">EDITION NO. 01</span> &nbsp;&nbsp;—&nbsp;&nbsp; MAOSHU AI NATIVE INVESTMENT OPC</div>
+      <h1>AI 赋能全流程投研实战</h1>
+      <div class="subtitle"><span class="star">★</span>&nbsp; 面向私募股权投资与并购的 AI 工具配置 · 投研工作流 · 自动化体系培训 &nbsp;<span class="star">★</span></div>
+      <div class="date-bar">二〇二六年八月 · 星期一 · MAOSHU 出品</div>
+      <div class="tag-row">
+        <span>共 20 门课程</span>
+        <span>约 690 分钟（含休息）</span>
+        <span>含现场实操演示</span>
+      </div>
+    </div>
+
+    <!-- ─── 机构署名 ─── -->
+    <div class="firm">
+      <div class="firm-name">MAOSHU · AI NATIVE INVESTMENT<span class="en">AI NATIVE INVESTMENT OPC · CURRICULUM</span></div>
+      <div class="doc-meta">AI NATIVE INVESTMENT OPC / 课程方案<br>二〇二六年八月<br>私募股权投资与并购 · AI 增强投资全流程 · 系列课第一讲</div>
+    </div>
+
+    <!-- ─── 总览 ─── -->
+    <div class="overview">
+      <div class="ov-card">
+        <div class="ov-label">培训对象</div>
+        <div class="ov-value">投资从业者</div>
+        <div class="ov-sub">PE/VC 分析师、投资经理、合伙人；企业战投与产业资本；FA、并购顾问及中介机构从业者；政府引导基金与招商平台</div>
+      </div>
+      <div class="ov-card">
+        <div class="ov-label">整体时长</div>
+        <div class="ov-value">690 <span style="font-size:13px;font-family:var(--font-ui);color:var(--color-muted);font-weight:400;">分钟</span></div>
+        <div class="ov-sub">净课时 650 分钟 + 休息答疑 40 分钟，1.5 天集中授课，可拆为两天各半天</div>
+      </div>
+      <div class="ov-card">
+        <div class="ov-label">培训形式</div>
+        <div class="ov-value">演示 + 实操</div>
+        <div class="ov-sub">讲解演示、场景工作流拆解、真实案例现场调用、技能包实操、随堂答疑</div>
+      </div>
+      <div class="ov-card" id="deliverables">
+        <div class="ov-label">学员带走 / 交付物</div>
+        <div class="ov-value">3 技能包 + 模板</div>
+        <div class="ov-sub">三大开源技能包（投资人、纪要官、并购推介）+ 工作流模板 + 操作讲义 + 课后一次线上答疑</div>
+      </div>
+      <div class="ov-card ov-wide" id="gains">
+        <div class="ov-label">课程收获</div>
+        <div class="gain" style="margin-top:10px;">
+          <ul>
+            <li>建立「AI 在这件事上行不行」的能力边界认知——知道募投管退全流程中哪些环节放心交给 AI、哪些必须人工兜底，从执行者升级为审核者</li>
+            <li>掌握覆盖 <strong>募资 → 投前筛查 → 尽调 → 投决 → 投后 → 并购 → 基金管理 → 招商</strong> 的全流程 AI 增强工作流，核心环节效率提升 2-3 倍</li>
+            <li>探索 AI 在<strong>募资、政府招商、基金管理</strong>等非传统投研场景的前沿应用——这是多数 AI 课程不讲的差异化内容</li>
+            <li>带走 3 个已开源的<strong>技能包</strong>（投资人、纪要官、并购推介）及 4 套自建系统方案，现场 1 小时实操设计你自己的第一个投资类 skill</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- ─── 模块一 ─── -->
+    <div class="section-divider" id="m1">
+      <span class="rule"></span>
+      <span class="label">模块一 · 认知与装备<span class="en">MODULE I · MINDSET &amp; TOOLING — 90 MIN</span></span>
+      <span class="star">★</span>
+      <span class="rule"></span>
+    </div>
+
+    <table class="curriculum">
+      <thead><tr><th style="width:52px;">序号</th><th style="width:150px;">课程名称</th><th>具体内容</th><th style="width:86px;text-align:right;">时长</th></tr></thead>
+      <tbody>
+        <tr id="c01">
+          <td class="no">01</td>
+          <td class="cname"><span class="cn">AI 能力边界与投资场景适配</span><span class="en">CAPABILITY &amp; FIT</span></td>
+          <td class="desc">
+            <ol>
+              <li>场景：投资经理的一天——招股书、BP、访谈纪要、行业报告堆积如山，每个判断都要对 LP 和投委会负责；先认清 AI 能扛什么、扛不了什么</li>
+              <li>七维度能力评分模型：信息检索与摘要 92、结构化写作 78、逻辑推理 65、数据与计算 52、创造性洞察 38、实时决策 27、市场判断 18——同一模型相差五倍以上</li>
+              <li>「AI 到底行不行」是假问题，「AI 在这件事上行不行」才是真问题：投研环节 × 能力维度的适配矩阵</li>
+              <li>可靠价值区（信息检索、结构化写作、流程自动化）与高危区（市场判断、实时决策、创造性洞察）的边界划分</li>
+              <li>能力五层金字塔（L1 单点使用者 → L5 定制化开发者）与学习路径：瓶颈是思维转变与迭代耐心，而非技术门槛</li>
+              <li class="idea"><span class="idea-tag">KEY TAKEAWAY</span>真正的差距不是「用没用 AI」，而是「把 AI 当词典还是当同事」——当工具人人可得，拉开身位的是信号解读水平与体系化程度</li>
+            </ol>
+          </td>
+          <td class="cdur">30<span class="unit">MIN</span></td>
+        </tr>
+        <tr id="c02">
+          <td class="no">02</td>
+          <td class="cname"><span class="cn">工具矩阵与成本结构</span><span class="en">TOOL STACK &amp; COST</span></td>
+          <td class="desc">
+            <ol>
+              <li>场景：一家机构同时跟踪 5 条赛道、200 个标的，每月处理上千份材料——工具选型直接决定人均产出与机构成本</li>
+              <li>五类工具装备拆解：常用辅助六款、国产编程助手三款、个人智能体四款、境外旗舰订阅三款、按量计费接口</li>
+              <li>选型原则：不追求大而全，每类任务选最匹配的一个；国产编程助手只选一家，避免资料散落</li>
+              <li>成本结构设计：批量财报处理与技能包后台调用走低价模型压成本，关键决策文档深度分析才上旗舰模型</li>
+              <li>成本实测口径：技能包读完一份商业计划书并输出分析报告，约 7.2 万 token、折合约 0.45 元</li>
+              <li>提示词基本结构、资料输入方式、输出结果校验与客户资料脱敏注意事项</li>
+              <li class="idea"><span class="idea-tag">KEY TAKEAWAY</span>工具是弹药，不是军火库——按「任务频率 × 价值密度」决定投入：高频低价任务全自动化，低频高价值任务才值得上旗舰模型</li>
+            </ol>
+          </td>
+          <td class="cdur">30<span class="unit">MIN</span></td>
+        </tr>
+        <tr id="c03">
+          <td class="no">03</td>
+          <td class="cname"><span class="cn">AI 时代投资人的一天</span><span class="en">A DAY WITH AI</span></td>
+          <td class="desc">
+            <ol>
+              <li>场景：募投管退四阶段完整跑一遍——从隔夜信息、行业信号、项目筛选，到纪要、尽调、投决、知识沉淀，还原投资人 24 小时工作流</li>
+              <li>各环节 AI 承担的动作与效率数据：晨间简报三分钟读完、项目筛选效率提升 2-3 倍、合格交易流量增加 40-60%、八小时尽调压缩为两小时审核</li>
+              <li>演示真实产出物：带链接与优先级标注的晨间简报、覆盖两条主线八个细分赛道的产业作战地图</li>
+              <li>从点状工具到完整体系的拼装方法论：识别可自动化环节、定义输入输出、设定复核节点</li>
+              <li>投决输出分线纪律：投委会版采用无假设、待补充表述并标注数据来源，内部研讨版才允许情景推演</li>
+              <li class="idea"><span class="idea-tag">KEY TAKEAWAY</span>AI 时代投资人的一天不再是「赶材料」，而是「审材料 + 做判断」——把 80% 的案头时间压缩后还给访谈、思考和决策，这才是时间复利</li>
+            </ol>
+          </td>
+          <td class="cdur">30<span class="unit">MIN</span></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- ─── 模块二 ─── -->
+    <div class="section-divider" id="m2">
+      <span class="rule"></span>
+      <span class="label">模块二 · 投研全流程工作流<span class="en">MODULE II · END-TO-END WORKFLOWS — 230 MIN</span></span>
+      <span class="star">★</span>
+      <span class="rule"></span>
+    </div>
+
+    <table class="curriculum">
+      <thead><tr><th style="width:52px;">序号</th><th style="width:150px;">课程名称</th><th>具体内容</th><th style="width:86px;text-align:right;">时长</th></tr></thead>
+      <tbody>
+        <tr id="c04">
+          <td class="no">04</td>
+          <td class="cname"><span class="cn">行业研究与赛道分析</span><span class="en">SECTOR RESEARCH</span></td>
+          <td class="desc">
+            <ol>
+              <li>场景：研究一个赛道要从政策、技术、产业链、竞争格局、资本动向五个面切入——传统做法是团队分工攒几个月，AI 时代压缩到几天甚至几小时</li>
+              <li>产业作战地图生成：细分赛道、已投项目、在看标的与竞对布局一屏铺开，替代分头记录的表格</li>
+              <li>行业扫描工作流：TAM/SAM/SOM 市场规模测算、竞争格局、产业链拆解、政策信号与融资动态追踪</li>
+              <li>现场演示：无 BP 条件下，仅凭一篇数百字公众号文章，十分钟产出企业定位、制程能力、全球竞争格局与关键风险识别</li>
+              <li>风险识别案例：先进制程设备受制于境外供应——一旦融资扩产将无法采购最先进设备，扩产计划与估值逻辑难以支撑</li>
+              <li>发散联想：AI 还能做什么——用招股书反推产业链成本结构、用专利数据识别技术拐点、用招聘数据判断扩张节奏、用订单新闻验证景气度</li>
+              <li class="idea"><span class="idea-tag">KEY TAKEAWAY</span>行业研究的终点不是「看懂」，而是「在别人还没看懂前建立认知差」——AI 拉平了研究速度，认知差只剩两个来源：问题质量和验证深度</li>
+            </ol>
+          </td>
+          <td class="cdur">45<span class="unit">MIN</span></td>
+        </tr>
+        <tr id="c05">
+          <td class="no">05</td>
+          <td class="cname"><span class="cn">项目筛选与信号打分</span><span class="en">DEAL SCREENING</span></td>
+          <td class="desc">
+            <ol>
+              <li>场景：deal flow 管理——每周 10-20 个 BP 涌入，第一轮预筛要快而准，漏掉好项目与浪费精力同样致命</li>
+              <li>材料核心指标提取、团队背景交叉验证、竞品格局速览的第一轮预筛工作流</li>
+              <li>信号打分机制设计：把投资偏好沉淀为可复用标准而非主观印象——分数必须可解释、可回溯、可迭代</li>
+              <li>效率量化：每分析师每小时发现相关公司数提升 2-3 倍，合格交易流量增加 40-60%</li>
+              <li>发散联想：创始人信号追踪（融资历史、公开表达、股权变动）、竞品融资动态监控、政策窗口预警</li>
+              <li>优势收窄的现实：当人人都会用时，筛选优势要靠标准质量与迭代速度维持</li>
+              <li class="idea"><span class="idea-tag">KEY TAKEAWAY</span>打分卡就是你的投资策略——「你写进筛选标准里的，才是你真正相信的」；AI 只是把策略从人脑搬进代码，让标准不再随情绪漂移</li>
+            </ol>
+          </td>
+          <td class="cdur">30<span class="unit">MIN</span></td>
+        </tr>
+        <tr id="c06">
+          <td class="no">06</td>
+          <td class="cname"><span class="cn">商业计划书拆解与速析</span><span class="en">BP DECONSTRUCTION</span></td>
+          <td class="desc">
+            <ol>
+              <li>场景：BP 是创始人的「广告」而非尽调报告——拆解的本质是穿透叙事看事实，识别包装与美化</li>
+              <li>BP 拆解执行链路：安装技能包 → 解析文档提取全文 → 分析行业与商业模式 → 全网核实创始团队 → 梳理历史融资 → 识别美化手法 → 一页纸亮点与风险总评 → 网页版投研报告 → 交叉比对防幻觉</li>
+              <li>识别常见美化手法：毛利率数据缺失、目标市场规模虚高、一次性硬件及集成收入与持续性收入拆分、估值锚定逻辑、客户集中度</li>
+              <li>投资人技能包设计哲学：不输出聚合分数、拒绝主观星级打分、全部以事实定量论证、风险写在正文前面不予粉饰</li>
+              <li>现场演示：一份 BP 从上传到完整投研报告的全程产出</li>
+              <li>发散联想：BP 与招股书/年报交叉验证、创始团队全网痕迹核实、历史融资与股权结构穿透</li>
+              <li class="idea"><span class="idea-tag">KEY TAKEAWAY</span>最好的 BP 分析不是「看懂它写了什么」，而是「找出它没写什么」——AI 负责穷尽信息，人负责追问缺口；被掩盖的往往比展示的更重要</li>
+            </ol>
+          </td>
+          <td class="cdur">45<span class="unit">MIN</span></td>
+        </tr>
+        <tr id="c07">
+          <td class="no">07</td>
+          <td class="cname"><span class="cn">尽职调查全流程 AI 工作流</span><span class="en">DUE DILIGENCE</span></td>
+          <td class="desc">
+            <ol>
+              <li>场景：尽调是投研中信息密度最高、最耗人的环节——业务、财务、法律、商业四条线并行，访谈十余人、材料几百份，瓶颈从来不是收集而是组织证据</li>
+              <li>尽调清单生成与资料缺口、待补充事项追踪，按交易类型自动适配</li>
+              <li>访谈纪要自动化（纪要官技能包）：录音转录 → 口语化清洗 → 发言人归属 → 五大类二十维度归并 → 后续事项独立成段，产出可直接归档并提交投决的正式纪要</li>
+              <li>招股说明书、公告与访谈记录的结构化解析与报告填充；深度报告 30-45 分钟出初稿</li>
+              <li>尽调底稿目录、文件命名、底稿索引、证据链条与报告段落的对应关系整理</li>
+              <li>发散联想：法律尽调——股权结构穿透、诉讼与质押检索；财务尽调——收入确认政策、关联交易识别、应收账龄异常；商业尽调——客户集中度、复购率、渠道结构</li>
+              <li class="idea"><span class="idea-tag">KEY TAKEAWAY</span>尽调的终极目标不是「做出一份报告」，而是「建立一条可审计的证据链」——AI 的价值在于让证据链完整、可追溯，让每一句结论都能指到出处</li>
+            </ol>
+          </td>
+          <td class="cdur">40<span class="unit">MIN</span></td>
+        </tr>
+        <tr id="c08">
+          <td class="no">08</td>
+          <td class="cname"><span class="cn">财务分析与模型辅助</span><span class="en">FINANCIALS &amp; MODELS</span></td>
+          <td class="desc">
+            <ol>
+              <li>场景：财务分析是投资判断的硬底座——收入质量、盈利模式、现金流健康度、估值锚定，每项都要拆到可验证</li>
+              <li>财报批量处理与结构化提取、财务趋势与可比交易分析</li>
+              <li>财务模型骨架搭建与估值辅助：AI 负责框架与初稿，人负责假设与判断——数据与计算维度的边界认知（AI 为概率预测而非精确运算）</li>
+              <li>上市公司财务数据被错误摘取且错误隐蔽的识别与四步应对：改用更强模型、转智能体沉淀规则、提示词与技能包约束、重要分析保留人工复核</li>
+              <li>估值方法全景：可比公司、可比交易、DCF、情景推演——投委会材料容不得模型套话</li>
+              <li>发散联想：财务造假信号识别（毛利率异常、存货周转、现金流与利润背离）、客户集中度与关联交易筛查</li>
+              <li class="idea"><span class="idea-tag">KEY TAKEAWAY</span>财务模型的价值不在「算得准」，而在「假设说得清」——AI 帮你把假设结构化、把参数显性化，人负责判断每个假设是否成立</li>
+            </ol>
+          </td>
+          <td class="cdur">30<span class="unit">MIN</span></td>
+        </tr>
+        <tr id="c09">
+          <td class="no">09</td>
+          <td class="cname"><span class="cn">投决输出与智能体投委会</span><span class="en">IC OUTPUT &amp; AI IC</span></td>
+          <td class="desc">
+            <ol>
+              <li>场景：投委会是机构的「风险闸门」——每一票都要有据可依、可复盘，投决材料要回答「为什么投、为什么不投、什么情况下止损」</li>
+              <li>投决材料分线生成：投委会版采用无假设、待补充表述并标注数据来源，内部研讨版才允许情景推演</li>
+              <li>智能体投委会架构：行业分析师、财务分析师、蓝军质询官、风控裁决官四角色相互质询，全流程留痕可追溯</li>
+              <li>可验证信任层设计：信任来自可验证而非可解释——业绩记录与复盘机制，让 AI 的每个结论都能溯源</li>
+              <li>风控硬编码原则：仓位上限与集中度限制写入代码而非提示词</li>
+              <li>尽调转投资建议书的工程化流水线：展示可审计执行过程；发散联想：历史投决复盘、预测 vs 实际偏差追踪</li>
+              <li class="idea"><span class="idea-tag">KEY TAKEAWAY</span>智能体投委会不是「让机器投票」，而是「让每个观点都必须被质询」——蓝军质询官是 AI 最被低估的角色：它专挑你的逻辑漏洞，专治团队确认偏误</li>
+            </ol>
+          </td>
+          <td class="cdur">40<span class="unit">MIN</span></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- ─── 模块三 ─── -->
+    <div class="section-divider" id="m3">
+      <span class="rule"></span>
+      <span class="label">模块三 · 沉淀与治理<span class="en">MODULE III · ASSETS &amp; GOVERNANCE — 90 MIN</span></span>
+      <span class="star">★</span>
+      <span class="rule"></span>
+    </div>
+
+    <table class="curriculum">
+      <thead><tr><th style="width:52px;">序号</th><th style="width:150px;">课程名称</th><th>具体内容</th><th style="width:86px;text-align:right;">时长</th></tr></thead>
+      <tbody>
+        <tr id="c10">
+          <td class="no">10</td>
+          <td class="cname"><span class="cn">并购推介与交易支持</span><span class="en">M&amp;A PITCH &amp; DEALS</span></td>
+          <td class="desc">
+            <ol>
+              <li>场景：并购是股权投资另一半战场——标的研究、买方匹配、交易结构、整合规划，一个推介书要同时打动财务型与战略型买方</li>
+              <li>并购推介技能包：由上市公司年报生成面向买方的推介书，覆盖财务趋势、买方战略匹配、可比交易对标与整合路线图</li>
+              <li>模板 + 多文件自动成稿：上传报告模板与多个项目文件，建立报告结构、资料映射、引用规则与输出格式</li>
+              <li>人工复核节点设置：事实一致性、引用来源、格式、遗漏事项与敏感信息检查</li>
+              <li>发散联想：可比交易库构建（估值倍数、交易结构、业绩承诺）、买方画像匹配、整合 100 天计划生成、协同效应测算</li>
+              <li class="idea"><span class="idea-tag">KEY TAKEAWAY</span>并购里 AI 最值钱的能力是「协同效应测算的透明度」——估值分歧常常来自对协同的乐观假设，AI 能把每个假设摊开检验，让定价回归理性</li>
+            </ol>
+          </td>
+          <td class="cdur">30<span class="unit">MIN</span></td>
+        </tr>
+        <tr id="c11">
+          <td class="no">11</td>
+          <td class="cname"><span class="cn">知识库与经验资产沉淀</span><span class="en">KNOWLEDGE BASE</span></td>
+          <td class="desc">
+            <ol>
+              <li>场景：投资机构最大的资产是「会看项目的人」——但人的经验会流失，机构级的知识沉淀才是复利</li>
+              <li>知识库三步法：选一个随时能记的地方 → 喂入真实且会反复使用的材料 → 以提问验证而非导入成功为验收标准</li>
+              <li>习惯配套：每天十分钟入库、每周用一个真实问题检验、按用途分建专用库（行业库、交易库、人脉库）</li>
+              <li>技能包开发规范：三大开源技能包（投资人、纪要官、并购推介）均为 MIT 协议、兼容五大智能体平台</li>
+              <li>记忆文档清洗：删除被覆盖的旧指令，避免新旧指令并存导致逻辑漂移</li>
+              <li class="idea"><span class="idea-tag">KEY TAKEAWAY</span>机构级 AI 复利 = 知识库（记忆）+ 技能包（能力）+ 工作流（组织）——三者沉淀下来，机构能力不再依赖任何单一个人</li>
+            </ol>
+          </td>
+          <td class="cdur">30<span class="unit">MIN</span></td>
+        </tr>
+        <tr id="c12">
+          <td class="no">12</td>
+          <td class="cname"><span class="cn">幻觉治理、数据安全与合规</span><span class="en">HALLUCINATION &amp; COMPLIANCE</span></td>
+          <td class="desc">
+            <ol>
+              <li>场景：投研成果要进投决、对 LP、对外披露——AI 的幻觉与泄密是两条不可触碰的红线</li>
+              <li>幻觉发生率认知：单环节约 5%，多环节叠加约束可显著降低</li>
+              <li>四层防线：智能体记忆层预设底线（准确、交叉比对、不得编造）、提示词层约束（未获证实即答不知道、不作线性外推）、技能包底层规则层、输出前强制交叉比对核验</li>
+              <li>数据安全边界：涉密与未公开信息不上传不受控平台、沙箱隔离机制、专项保密需求本地化部署</li>
+              <li>可解释性与可问责性：AI 辅助成果进入投资决策或对外披露的前提条件</li>
+              <li>发散联想：合规检查清单、敏感信息脱敏、审计留痕、跨境数据传输规则</li>
+              <li class="idea"><span class="idea-tag">KEY TAKEAWAY</span>投资机构用 AI 的底线不是「快」，而是「可解释、可追溯、可问责」——做不到这三点，快就是风险；做得到，AI 才是可信的投研同事</li>
+            </ol>
+          </td>
+          <td class="cdur">30<span class="unit">MIN</span></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- ─── 模块四 ─── -->
+    <div class="section-divider" id="m4">
+      <span class="rule"></span>
+      <span class="label">模块四 · 前沿探索<span class="en">MODULE IV · EXPLORATION — 240 MIN</span></span>
+      <span class="star">★</span>
+      <span class="rule"></span>
+    </div>
+
+    <table class="curriculum">
+      <thead><tr><th style="width:52px;">序号</th><th style="width:150px;">课程名称</th><th>具体内容</th><th style="width:86px;text-align:right;">时长</th></tr></thead>
+      <tbody>
+        <tr id="c13">
+          <td class="no">13</td>
+          <td class="cname"><span class="cn">AI 募资：把 LP 尽调答成 30 分钟</span><span class="en">FUNDRAISING</span></td>
+          <td class="desc">
+            <ol>
+              <li>场景：一支基金募资要过几十次 LP 尽调——DDQ 上百个问题、历史业绩反复讲、被投案例随时举证，答不上来就出局</li>
+              <li>LP 尽调问答库（DDQ）自动应答：沉淀基金历史材料，AI 按 LP 类型（国资/险资/家办/引导基金）分线应答</li>
+              <li>历史业绩数据叙事化：把 IRR/MOIC/DPI 的冰冷数字，组织成「为什么这个团队能重复赚钱」的故事线</li>
+              <li>LP 偏好画像：公开信息 + 既往投资记录分析 LP 关注点，提前准备对方最想听的材料</li>
+              <li>基金材料自动成稿：Teaser / PPM / 基金季度信，模板化生成 + 人工校准</li>
+              <li class="idea"><span class="idea-tag">KEY TAKEAWAY</span>募资的本质是「重复讲同一个故事直到被相信」——AI 让每次讲述都完整、一致、有据，把人从复制粘贴里解放出来去读 LP 的表情</li>
+            </ol>
+          </td>
+          <td class="cdur">30<span class="unit">MIN</span></td>
+        </tr>
+        <tr id="c14">
+          <td class="no">14</td>
+          <td class="cname"><span class="cn">AI 投前筛查：把 1000 个项目压成 10 个</span><span class="en">DEAL SCREENING</span></td>
+          <td class="desc">
+            <ol>
+              <li>场景：每周 10-20 个 BP 涌入，第一轮预筛要快而准——漏掉好项目与浪费时间同样致命</li>
+              <li>信号打分体系：把投资偏好沉淀为可复用标准，打分必须可解释、可回溯、可迭代</li>
+              <li>全网项目源扫描：融资动态、工商变更、招聘信号、竞品融资监控——在 FA 递材料前先看到交易机会</li>
+              <li>BP 速读预筛：核心指标提取、团队背景交叉验证、竞品格局速览，一分钟出一张项目卡片</li>
+              <li>效率数据：每分析师每小时发现相关公司数提升 2-3 倍，合格交易流量增加 40-60%</li>
+              <li class="idea"><span class="idea-tag">KEY TAKEAWAY</span>筛查不是「多看一眼」，而是「标准先行」——把机构的投资策略写进打分卡，AI 只是执行器，标准质量才是胜负手</li>
+            </ol>
+          </td>
+          <td class="cdur">30<span class="unit">MIN</span></td>
+        </tr>
+        <tr id="c15">
+          <td class="no">15</td>
+          <td class="cname"><span class="cn">AI 投中尽调：8 小时压缩成 2 小时</span><span class="en">DUE DILIGENCE</span></td>
+          <td class="desc">
+            <ol>
+              <li>场景：业务/财务/法律/商业四条线并行，访谈十余人、材料几百份——瓶颈从来不是收集而是组织证据</li>
+              <li>访谈纪要自动化：录音转录 → 口语化清洗 → 发言人归属 → 主题归并 → 待确认事项独立成段，产出可直接归档并提交投决的正式纪要</li>
+              <li>招股书/公告/访谈记录结构化解析与报告填充，深度报告 30-45 分钟出初稿</li>
+              <li>尽调底稿、文件命名、底稿索引、证据链条与报告段落的对应关系——可审计的执行过程</li>
+              <li>发散联想：股权结构穿透、收入确认政策、关联交易识别、客户集中度复购率、财务造假信号（毛利率异常/存货周转/现金流与利润背离）</li>
+              <li class="idea"><span class="idea-tag">KEY TAKEAWAY</span>尽调的终极目标不是「做出一份报告」，而是「建立一条可审计的证据链」——AI 让证据链完整、可追溯，每一句结论都能指到出处</li>
+            </ol>
+          </td>
+          <td class="cdur">30<span class="unit">MIN</span></td>
+        </tr>
+        <tr id="c16">
+          <td class="no">16</td>
+          <td class="cname"><span class="cn">AI 投后管理：被投企业 365 天在监控下</span><span class="en">POST-INVESTMENT</span></td>
+          <td class="desc">
+            <ol>
+              <li>场景：被投公司每月产生财报、新闻、人事变动，投资经理精力被数据收集耗尽，真正该做的战略赋能反而没时间</li>
+              <li>投后监控仪表盘：财务数据、新闻、竞品动态、融资信号自动汇总，每月一页纸投后报告自动生成</li>
+              <li>财务异常预警：现金流恶化、收入质量下降、关联交易异动、存货周转异常</li>
+              <li>董事会材料自动生成——把时间还给讨论，而不是做材料</li>
+              <li>增值服务匹配：被投公司需求（客户/招聘/融资/合规）与机构资源的自动匹配；创始人信号追踪（公开表达/股权变动/团队变动）</li>
+              <li class="idea"><span class="idea-tag">KEY TAKEAWAY</span>投后不靠勤快，靠系统——AI 释放的管理带宽全部投入战略辅导与资源对接，这才是 GP 对 LP 的真正回报</li>
+            </ol>
+          </td>
+          <td class="cdur">30<span class="unit">MIN</span></td>
+        </tr>
+        <tr id="c17">
+          <td class="no">17</td>
+          <td class="cname"><span class="cn">AI 赋能政府招商：从"捡到篮子都是菜"到精准招商</span><span class="en">GOVERNMENT ATTRACTION</span></td>
+          <td class="desc">
+            <ol>
+              <li>场景：政府招商的核心痛点是信息不对称——不知道该招谁、对方为什么来、怎么谈成；投资机构视角——政府引导基金/招商基金联动</li>
+              <li>产业链招商地图：按本地产业基础生成目标企业画像——缺哪一环、谁最可能迁移</li>
+              <li>企业迁移意向信号识别：扩产计划、新设子公司、招聘扩张、融资需求等信号的自动捕捉</li>
+              <li>招商谈判材料生成：本地优势、政策组合、落地案例的组织——让「为什么选我们」有数据支撑</li>
+              <li>基金招商联动：引导基金 + 市场化 GP 的协同分析——资本招商从「撒网」到「定向」</li>
+              <li class="idea"><span class="idea-tag">KEY TAKEAWAY</span>招商的对手不是隔壁城市，是信息差——AI 把「盲人摸象」变成「拿着地图进场」，精准度决定了招商的 ROI</li>
+            </ol>
+          </td>
+          <td class="cdur">30<span class="unit">MIN</span></td>
+        </tr>
+        <tr id="c18">
+          <td class="no">18</td>
+          <td class="cname"><span class="cn">AI 基金管理：从 Excel 到基金操作系统</span><span class="en">FUND OPERATIONS</span></td>
+          <td class="desc">
+            <ol>
+              <li>场景：GP 的日常是 Excel 表格、季度报告、合规清单、项目 Pipeline——运营效率直接决定 LP 满意度与续投</li>
+              <li>基金财务与 NAV 自动化：估值数据、份额、净值变动的结构化处理</li>
+              <li>LP 报告（季报/年报）生成：业绩数据 + 项目进展 + 市场环境的一键成稿</li>
+              <li>合规检查清单：募资合规、信息披露、关联交易审查的 AI 辅助</li>
+              <li>项目 Pipeline 管理：从立项到退出的全生命周期追踪，自动生成基金层面的组合视图</li>
+              <li class="idea"><span class="idea-tag">KEY TAKEAWAY</span>基金运营是「用系统对抗遗忘」——AI 把散落在 Excel 和个人脑中的资产变成机构级资产，续投率就是回报</li>
+            </ol>
+          </td>
+          <td class="cdur">30<span class="unit">MIN</span></td>
+        </tr>
+        <tr id="c19">
+          <td class="no">19</td>
+          <td class="cname"><span class="cn">AI 报告工厂：一份模板吃透全场景</span><span class="en">REPORT FACTORY</span></td>
+          <td class="desc">
+            <ol>
+              <li>场景：行研、尽调、投决、投后、募资五类报告——机构最耗人的不是分析，是把分析写成规范文档</li>
+              <li>五类报告的 AI 生成链路：模板 + 多文件资料映射 + 引用规则 + 输出格式</li>
+              <li>报告分线纪律：投委会版无假设、待补充表述、标注数据来源；内部研讨版才允许情景推演</li>
+              <li>人工复核节点：事实一致性、引用来源、格式、遗漏事项、敏感信息检查</li>
+              <li>跨报告复用：行业库、交易库、人脉库沉淀，报告越写越快</li>
+              <li class="idea"><span class="idea-tag">KEY TAKEAWAY</span>报告不是写出来的，是审出来的——AI 负责「写」，人负责「审」，审核质量才是机构报告的护城河</li>
+            </ol>
+          </td>
+          <td class="cdur">20<span class="unit">MIN</span></td>
+        </tr>
+        <tr id="c20">
+          <td class="no">20</td>
+          <td class="cname"><span class="cn">现场实操：1 小时设计你的第一个投资类 skill</span><span class="en">SKILL LAB</span></td>
+          <td class="desc">
+            <ol>
+              <li>定位：全场的动手钩子——「与其等工具，不如造工具」，把今天 7 个课题收束到方法论</li>
+              <li>什么是投资类 skill：把反复重复的专业动作封装成可复用技能（如 BP 速析、纪要整理、尽调清单生成）</li>
+              <li>现场演示：从一个真实需求 → 定义输入输出 → 写好规则 → 跑通一次，全程展示</li>
+              <li>学员实操：带自己的一个日常痛点，当场设计自己的第一个 skill 雏形</li>
+              <li>开源技能包速览：投资人 / 纪要官 / 并购推介三个已开源技能包的设计思路与即用方法</li>
+              <li class="idea"><span class="idea-tag">KEY TAKEAWAY</span>今天讲的全景地图，每一个课题都是一条系列课引线——募资篇、尽调篇、投后篇、招商专题，方法论体系化才是第一讲真正的交付</li>
+            </ol>
+          </td>
+          <td class="cdur">40<span class="unit">MIN</span></td>
+        </tr>
+        <tr class="total-row">
+          <td colspan="3">课间休息与答疑（穿插安排，约 40 分钟）</td>
+          <td class="cdur">40<span class="unit">MIN</span></td>
+        </tr>
+        <tr class="total-row">
+          <td colspan="3" style="letter-spacing:0.3em;">合 计 — TOTAL（含休息）</td>
+          <td class="cdur"><span class="num">690</span><span class="unit">MIN</span></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- ─── 备注 ─── -->
+    <div class="note">
+      <strong>备注：</strong>本课程为「AI 增强投资」系列课第一讲（开篇全景），以讲师十余年股权投资与并购实操经验为底稿，所有案例与数据均来自真实项目（已脱敏）。课程配备讲义、工作流模板与三个开源技能包，结课后附一次线上答疑。<br>
+      核心结论贯穿全程：AI 不取代投资人，但用好 AI 的投资人将取代不用 AI 的投资人；工具本身已不稀缺，真正拉开差距的是信号解读水平，以及能否把点状工具拼成自己的体系。<br>
+      <strong>系列课承接：</strong>模块四的每一个探索课题都是后续课程的引线——AI 募资深潜 / AI 尽调深潜 / AI 投后深潜 / 政府招商与基金联动专题，欢迎报名系列课第二讲。
+    </div>
+
+    <!-- ─── 页脚 ─── -->
+    <div class="footer">
+      <div class="sig">
+        课程设计：MAOSHU AI NATIVE INVESTMENT OPC<br>
+        讲师：<span class="name">MAOSHU</span> · 十余年股权投资与并购实操 · OPC Studio 主理人<br>
+        报告日期：二〇二六年八月
+      </div>
+      <div class="disc">
+        本课程方案版权归 MAOSHU AI NATIVE INVESTMENT OPC 所有，未经书面授权不得对外传播或引用。课程内容基于讲师实战经验整理，工具与数据口径以现场演示为准；涉及机构合规要求的商业计划书、未公开交易信息及其他敏感资料，不应上传至不受控平台。
+      </div>
+    </div>
+
+    <!-- ─── 详情页视图（SPA 动态渲染） ─── -->
+    <div id="detailView" class="detail-view"></div>
+
+  </main>
+
+</div>
+
+<script>
+function toggleTheme() {
+  var html = document.documentElement;
+  var isDark = html.classList.toggle('dark');
+  document.getElementById('themeIcon').innerHTML = isDark ? '&#x263E;' : '&#x2600;';
+  document.getElementById('themeLabel').textContent = isDark ? '明亮模式' : '深夜模式';
+  try { localStorage.setItem('emo-theme', isDark ? 'dark' : 'light'); } catch(e) {}
+}
+(function() {
+  try {
+    if (localStorage.getItem('emo-theme') === 'dark') {
+      document.documentElement.classList.add('dark');
+    }
+  } catch(e) {}
+  var isDark = document.documentElement.classList.contains('dark');
+  var iconEl = document.getElementById('themeIcon');
+  var labelEl = document.getElementById('themeLabel');
+  if (iconEl) iconEl.innerHTML = isDark ? '&#x263E;' : '&#x2600;';
+  if (labelEl) labelEl.textContent = isDark ? '明亮模式' : '深夜模式';
+})();
+
+// ─── 侧边栏跳转 + 高亮当前课程 ───
+(function() {
+  var sidebarLinks = document.querySelectorAll('.sidebar a[href^="#"]');
+  sidebarLinks.forEach(function(a) {
+    a.addEventListener('click', function(e) {
+      var href = a.getAttribute('href');
+      if (href === '#top') { e.preventDefault(); window.scrollTo({top: 0, behavior: 'smooth'}); return; }
+      var target = document.querySelector(href);
+      if (target) {
+        e.preventDefault();
+        target.scrollIntoView({behavior: 'smooth', block: 'start'});
+      }
+    });
+  });
+
+  // IntersectionObserver 高亮当前章节
+  var sections = document.querySelectorAll('main .section-divider[id], tr[id^="c"]');
+  var linkMap = {};
+  sidebarLinks.forEach(function(a) {
+    var h = a.getAttribute('href');
+    if (h && h.length > 1) linkMap[h] = a;
+  });
+
+  function clearActive() {
+    sidebarLinks.forEach(function(a) { a.classList.remove('active'); });
+    document.querySelectorAll('tr.target').forEach(function(r) { r.classList.remove('target'); });
+  }
+  function setActive(id) {
+    clearActive();
+    var link = linkMap['#' + id];
+    if (link) link.classList.add('active');
+    var row = document.getElementById(id);
+    if (row && row.tagName === 'TR') row.classList.add('target');
+  }
+
+  if ('IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function(entries) {
+      entries.forEach(function(en) {
+        if (en.isIntersecting && en.intersectionRatio > 0.15) {
+          setActive(en.target.id);
+        }
+      });
+    }, {rootMargin: '-20% 0px -60% 0px', threshold: [0, 0.15, 0.5, 1]});
+    sections.forEach(function(s) { if (s.id) io.observe(s); });
+  }
+})();
+
+// ─── 联系讲师弹窗 ───
+(function() {
+  var modal = document.getElementById('contactModal');
+  var openBtn = document.getElementById('contactBtn');
+  var closeBtn = document.getElementById('modalClose');
+  if (!modal || !openBtn) return;
+
+  function openModal() {
+    modal.classList.add('show');
+    document.body.classList.add('modal-open');
+    if (closeBtn) closeBtn.focus();
+  }
+  function closeModal() {
+    modal.classList.remove('show');
+    document.body.classList.remove('modal-open');
+  }
+
+  openBtn.addEventListener('click', openModal);
+  if (closeBtn) closeBtn.addEventListener('click', closeModal);
+  modal.addEventListener('click', function(e) { if (e.target === modal) closeModal(); });
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape' && modal.classList.contains('show')) closeModal();
+  });
+})();
+
+// ═══════════════════════════════════════════════════════════
+// 详情页 SPA · COURSES 数据 + hash 路由
+// ═══════════════════════════════════════════════════════════
+var MODULES = {
+  1: { name: "模块一 · 认知与装备", en: "MODULE I · MINDSET & TOOLING" },
+  2: { name: "模块二 · 投研全流程工作流", en: "MODULE II · END-TO-END WORKFLOWS" },
+  3: { name: "模块三 · 沉淀与治理", en: "MODULE III · ASSETS & GOVERNANCE" },
+  4: { name: "模块四 · 前沿探索", en: "MODULE IV · EXPLORATION" }
+};
+
+var COURSES = [
+  {
+    id: 1, module: 1, no: "01", title: "AI 能力边界与投资场景适配", en: "CAPABILITY & FIT", dur: "30 MIN",
+    bg: "投资经理的一天被招股书、BP、访谈纪要、行业报告淹没，每个判断都要对 LP 和投委会负责。这门课先解决一个根本问题：AI 到底能扛什么、扛不了什么——把能力边界摸清，后面的所有工作流才有地基。",
+    scenes: [
+      "机构引入 AI 前的能力盘点——先知道七维度评分，再决定哪些环节上 AI、哪些必须人工",
+      "新人培训时建立「AI 在哪件事上行不行」的判断框架，避免把 AI 输出当结论直接用",
+      "向合伙人汇报 AI 应用方案前，用适配矩阵讲清楚投资边界与人工兜底点"
+    ],
+    prompt: {
+      title: "七维度能力自评 + 投研环节适配矩阵",
+      text: "你是一名资深一级市场投资人，请以「七维度能力评分模型」评估自己处理以下任务的能力，并给出投研环节适配建议。\n\n七维度：信息检索与摘要（92）、结构化写作（78）、逻辑推理（65）、数据与计算（52）、创造性洞察（38）、实时决策（27）、市场判断（18）。\n\n请针对以下任务逐一回答：\n1. 该任务属于哪个维度？我的评分多少？\n2. 我的输出中，哪些部分可信、哪些部分必须人工复核？\n3. 给出该任务的「AI 承担 + 人工兜底」分工建议。\n4. 如果我做错了，最可能的错误模式是什么？\n\n任务：[在这里粘贴具体任务，如「分析这份 BP 的商业模式」「判断这家公司该不该投」]",
+      note: "关键是把「AI 行不行」拆成「AI 在这件事上行不行」——同一模型在不同任务上差距可达五倍。要求 AI 主动暴露自己的薄弱维度，而不是让它含糊带过。"
+    },
+    tips: [
+      "追问 AI 自信度：在 prompt 末尾加「请说明你的结论中有哪些未经证实的假设」，逼它亮出推理链",
+      "对高危维度（市场判断、实时决策）设定「AI 只提供选项、不提供结论」的硬约束",
+      "把七维度评分做成团队的共用语言——评估任何 AI 应用先问它落在哪个维度"
+    ],
+    faq: [
+      { q: "评分是固定的吗？会不会很快过时？", a: "会变。七维度评分是 2026 年的实测基线，模型迭代后信息检索、逻辑推理会持续上升，但「市场判断」「创造性洞察」这类依赖隐性知识与因果链的维度进步很慢。建议每季度用同一组任务复测一次。" },
+      { q: "为什么说「AI 在这件事上行不行」比「AI 行不行」更重要？", a: "因为投资场景差异极大——条款比对这种结构化任务 AI 表现优异，而判断创始人是否值得信任这种任务 AI 基本帮不上忙。模糊地问「AI 行不行」会得到误导性结论，精确到任务层面才有决策价值。" }
+    ]
+  },
+  {
+    id: 2, module: 1, no: "02", title: "工具矩阵与成本结构", en: "TOOL STACK & COST", dur: "30 MIN",
+    bg: "一家机构同时跟踪 5 条赛道、200 个标的，每月处理上千份材料。工具选型错误不只是效率损失——资料散落、成本失控、合规风险都会随之而来。这门课给出五类工具的定位与成本结构设计。",
+    scenes: [
+      "机构从零搭建 AI 工具栈——按五类工具（常用辅助/国产编程助手/个人智能体/境外旗舰/按量计费）选型",
+      "控制月度 AI 成本——批量任务走低价模型、关键决策文档上旗舰模型的分级策略",
+      "敏感材料处理——判断哪些工具可上传客户资料、哪些必须本地化或脱敏"
+    ],
+    prompt: {
+      title: "工具选型与成本结构咨询",
+      text: "你是一名 AI 投资工具选型顾问，熟悉 2026 年主流 AI 工具与定价。请帮我做一份工具选型方案。\n\n我的背景：一级市场股权投资机构，团队 [人数] 人，同时跟踪 [N] 条赛道，每月处理约 [数量] 份材料（BP、财报、招股书、访谈纪要、行业报告）。\n\n请输出：\n1. 五类工具各推荐 1 个主选 + 说明理由（常用辅助 / 国产编程助手 / 个人智能体 / 境外旗舰订阅 / 按量计费接口）\n2. 成本结构：哪些任务走低价模型、哪些必须旗舰模型，估算每月成本区间\n3. 敏感材料处理建议：哪些信息不能上传、用什么替代方案\n4. 选型原则：我只需要每类选一个，请按我的场景取舍，不要罗列全部选项\n\n补充信息：[团队技术能力、预算、是否涉及保密项目]",
+      note: "选型核心是「不追求大而全，每类任务选最匹配的一个」。要求 AI 给推荐而不是罗列，并用成本区间逼它做取舍。实测口径：一份 BP 深度分析约 7.2 万 token、折合约 0.45 元。"
+    },
+    tips: [
+      "给 AI 设定成本预算上限（如「月成本不超过 X 元」），它会主动用低价模型完成任务",
+      "国产编程助手只保留一家——多开几个工具的资料会散落，迁移成本远高于工具差价",
+      "把「批量低价值」与「关键高价值」两类任务分开写两个工作流，避免混用模型"
+    ],
+    faq: [
+      { q: "境外旗舰订阅那么贵，值吗？", a: "取决于使用频率。如果每周都有深度尽调、复杂推理需求，旗舰订阅的 ROI 很高；如果只是偶尔用，按量计费更划算。原则：关键决策文档才值得上旗舰模型，日常批量任务走低价模型。" },
+      { q: "敏感项目资料能上传 AI 工具吗？", a: "涉及机构合规要求的商业计划书、未公开交易信息及其他敏感资料，不应上传至不受控平台。优先选择支持本地部署或沙箱隔离的工具，或先脱敏再上传。" }
+    ]
+  },
+  {
+    id: 3, module: 1, no: "03", title: "AI 时代投资人的一天", en: "A DAY WITH AI", dur: "30 MIN",
+    bg: "募投管退四阶段的信息流，本质上是一个 24 小时循环：隔夜信息、行业信号、项目筛选、会议纪要、尽调分析、投决输出、知识沉淀。这门课把一天拆开，展示每个时点 AI 承担什么、人做什么。",
+    scenes: [
+      "模拟机构的一天——从晨间简报、产业地图到投决材料，走一遍 AI 增强后的完整工作流",
+      "找效率提升空间——对照 7 个时点的效率数据，识别自己团队最值得自动化的环节",
+      "给团队设计 AI 工作习惯——把「AI 时代投资人的一天」作为新人 onboarding 的标准化流程"
+    ],
+    prompt: {
+      title: "AI 增强版投资人 24 小时工作流规划",
+      text: "你是一名资深投资机构运营顾问。请帮我规划一个「AI 增强版投资人 24 小时工作流」，覆盖一级市场股权投资日常。\n\n我的角色：[分析师 / 投资经理 / 合伙人]，关注赛道：[赛道]，今日重点工作：[如「推进 XX 项目尽调」「准备投委会材料」]。\n\n请按时间线输出（07:00-23:00，每时段 1-2 行）：\n1. 该时段的业务动作\n2. AI 具体承担什么（如自动抓取、解析、起草、监控）\n3. 效率提升点与人工复核点\n\n参考效率基线：晨间简报 3 分钟读完、项目筛选效率提升 2-3 倍、合格交易流量 +40-60%、尽调 8h→2h。\n\n请基于我的角色和今天重点，给出定制化方案，不要泛泛而谈。",
+      note: "这个 prompt 的威力在于输入你的真实角色与今日重点——AI 会据此定制而非输出通用模板。用完后把输出沉淀为团队 SOP 文档。"
+    },
+    tips: [
+      "晨间简报的 prompt 固定化：设定固定板块（隔夜市场/被投动态/竞品融资/政策信号）+ 优先级标注规则",
+      "给 AI 设定输出格式（邮件、优先级列表、链接标注），减少人工整理时间",
+      "把「AI 时代投资人的一天」做成可复用的模板，每天只需替换今日重点"
+    ],
+    faq: [
+      { q: "AI 这么强，投资人还要做什么？", a: "AI 负责穷尽信息与组织材料，投资人负责三件事：提问题（决定方向）、做判断（决定取舍）、负责任（对外与投决）。AI 时代投资人的一天不再是赶材料，而是审材料 + 做判断。" },
+      { q: "这套工作流适合小机构吗？", a: "适合，而且小机构收益更大——人手有限时，AI 是把人均产出乘以 2-3 倍的最快方式。关键是从 1-2 个高频环节开始，不要一上来就全流程铺开。" }
+    ]
+  },
+  {
+    id: 4, module: 2, no: "04", title: "行业研究与赛道分析", en: "SECTOR RESEARCH", dur: "45 MIN",
+    bg: "研究一个赛道要从政策、技术、产业链、竞争格局、资本动向五个面切入。传统做法是团队分工攒几个月，AI 时代压缩到几天甚至几小时——但前提是会用对方法，否则只会得到一份看似完整实则空洞的行业报告。",
+    scenes: [
+      "新赛道立项——从零生成产业作战地图（细分赛道/已投项目/在看标的/竞对布局）",
+      "尽调前的行业补课——用招股书反推产业链成本结构、用专利数据识别技术拐点",
+      "投委会汇报——用 AI 生成带数据来源的行业概览，支撑投资逻辑"
+    ],
+    prompt: {
+      title: "产业作战地图 + 关键风险识别",
+      text: "你是一名资深一级市场行业研究员。请基于以下信息，完成一次行业研究与风险识别。\n\n输入材料（可多份）：[粘贴 BP / 公众号文章 / 招股书摘录 / 新闻，或描述你掌握的全部信息]\n\n请输出：\n1. 产业作战地图：细分赛道、已投项目（如有）、在看标的、主要竞对布局，一屏铺开\n2. 市场规模测算：TAM/SAM/SOM，注明测算口径与假设\n3. 竞争格局：头部集中度、进入壁垒、价值链利润分布\n4. 产业链拆解：上中下游结构、关键环节、成本传导\n5. 关键风险：至少识别 3 个（优先从信息中找，而不是泛泛而谈）——特别注意：财务数据难以发现的风险（如供应链依赖、产能瓶颈）\n6. 待验证问题清单\n\n要求：所有结论标注信息出处；信息不足处明确说「信息不足，需补充」；不要输出主观星级评分。",
+      note: "实战案例：仅凭一篇数百字公众号文章，这个 prompt 十分钟产出了企业定位、制程能力、全球竞争格局，并识别出「先进制程设备受制于境外供应」这一财务数据无法发现的致命风险。"
+    },
+    tips: [
+      "输入质量决定输出质量——把多源材料（BP、新闻、专利、招聘）一起喂进去，AI 交叉验证远比单源可靠",
+      "要求「信息不足，需补充」而非编造——在 prompt 里显式禁止线性外推",
+      "风险识别环节单独追问一轮：「再看一遍输入，找出 3 个最容易被忽视的风险」"
+    ],
+    faq: [
+      { q: "AI 生成的行业报告能直接用于投决吗？", a: "不能直接用于投决，但能作为研究起点。AI 的优势是穷尽信息与组织框架，弱点是无法判断信息源可靠性与时效性。建议：AI 初稿 → 人工核查关键数据 → 补充访谈与一手调研 → 才可进入投决。" },
+      { q: "行业研究 AI 化的最大风险是什么？", a: "幻觉与线性外推。模型会把过时的市场规模数据、虚假的竞争格局写得煞有介事。对策：要求标注数据来源、强制交叉比对、关键数字人工核验。" }
+    ]
+  },
+  {
+    id: 5, module: 2, no: "05", title: "项目筛选与信号打分", en: "DEAL SCREENING", dur: "30 MIN",
+    bg: "每周 10-20 个 BP 涌入，第一轮预筛要快而准——漏掉好项目与浪费时间同样致命。信号打分机制的核心，是把投资偏好沉淀为可复用标准而非主观印象，让筛选效率提升 2-3 倍、合格交易流量增加 40-60%。",
+    scenes: [
+      "批量 BP 预筛——几十份材料同时进来，AI 逐个提取核心指标并打分",
+      "制定机构的筛选标准——把合伙人偏好翻译成可解释、可回溯的打分维度",
+      "全网项目源监控——融资动态、工商变更、招聘信号自动捕捉，先于 FA 看到交易机会"
+    ],
+    prompt: {
+      title: "项目批量预筛 + 信号打分",
+      text: "你是一名一级市场投资分析师，按以下标准筛选项目。\n\n【机构投资标准】\n- 赛道：[如「AI 基础软件」]；阶段：[A/B 轮]；单笔金额：[区间]\n- 硬性门槛：[如「毛利率 > 60%」「创始团队有产业背景」]\n- 一票否决项：[如「存在未披露的重大诉讼」「收入依赖单一大客户」]\n\n【任务】请对以下项目逐一输出项目卡片（每个 150 字内）：\n1. 一句话定位 + 所处赛道\n2. 关键指标速览（融资/营收/团队/客户）\n3. 是否符合硬性门槛（通过/待核实/不通过）\n4. 信号打分（1-5 分）+ 打分理由\n5. 是否进入下一轮（建议/待定/放弃）\n\n【项目材料】\n[粘贴多份 BP 或项目简介，用分隔符隔开]\n\n要求：打分必须可解释、可回溯；信息不足标注「待核实」，不要臆测。",
+      note: "打分卡的威力在于标准化——同一套标准看所有项目，AI 不会像人一样被情绪和疲劳影响。关键是先把机构标准写清楚（硬性门槛 + 一票否决 + 打分维度），AI 只是执行器。"
+    },
+    tips: [
+      "打分维度控制在 5-8 个，太多会让 AI 平均用力、失去区分度",
+      "把「一票否决项」放在 prompt 最前面——AI 会优先检查，快速淘汰不达标项目",
+      "每月复盘一次打分结果 vs 实际投决，用偏差调整标准——标准要随策略迭代"
+    ],
+    faq: [
+      { q: "AI 预筛会不会漏掉真正的好项目？", a: "会，如果标准写错了。AI 严格按你给的标准执行，标准遗漏的维度 AI 也不会看。对策：标准里保留「信号异常但理由充分」的通道，让 AI 把不符合标准但值得注意的项目单独列出。" },
+      { q: "打分卡标准怎么定才合理？", a: "先由合伙人开会定 5-8 个维度（赛道/团队/产品/财务/估值），每个维度写清评分锚点（如收入增速 > 50% 得 5 分），再跑 20 个历史项目做校准，看 AI 打分与真实投决的相关性。" }
+    ]
+  },
+  {
+    id: 6, module: 2, no: "06", title: "商业计划书拆解与速析", en: "BP DECONSTRUCTION", dur: "45 MIN",
+    bg: "BP 是创始人的「广告」而非尽调报告——拆解的本质是穿透叙事看事实。这门课演示完整的 BP 拆解链路：从解析文档、核实团队、梳理融资，到识别美化手法、输出一页纸亮点与风险总评。",
+    scenes: [
+      "收到新 BP 后的第一轮速析——10 分钟内得到一份可进入讨论的投资亮点与风险总评",
+      "对可疑 BP 深挖——用 BP 与招股书/年报交叉验证，识别数据美化",
+      "投资备忘录起草前——用 BP 拆解结果作为尽调清单的起点"
+    ],
+    prompt: {
+      title: "BP 拆解 + 美化手法识别",
+      text: "你是一名审阅过上千份 BP 的一级市场投资经理。请拆解以下商业计划书。\n\n【BP 原文】\n[粘贴 BP 全文或关键章节]\n\n请输出：\n1. 商业模式一句话：谁、卖给谁、怎么赚钱、靠什么壁垒\n2. 行业与市场：目标市场测算（含口径质疑），竞品格局速览\n3. 创始团队核实：学历/经历/历史创业记录（如果信息不足，列出需核实的渠道）\n4. 历史融资梳理：轮次、金额、投资方、估值变化\n5. 美化手法识别——重点检查：\n   - 毛利率数据是否缺失或虚高\n   - 目标市场规模是否「把整个赛道当自己的市场」\n   - 一次性收入（硬件/集成）是否与持续性收入混在一起\n   - 估值锚定逻辑是否成立\n   - 客户集中度是否被隐藏\n6. 一页纸投资亮点与风险总评\n\n要求：全部以事实定量论证，不输出聚合分数、不打星级；风险写在亮点前面。",
+      note: "这个 prompt 的价值在「美化手法识别」——它列出了 BP 最常见的 5 种包装套路，逼 AI 逐项检查。识别出「毛利率数据缺失」「市场规模虚高」这类问题，往往比亮点更重要。"
+    },
+    tips: [
+      "BP 拆解后强制做一次交叉比对——把拆解结论与公开信息（工商、新闻、招股书）对比，处理幻觉",
+      "把「一页纸亮点与风险总评」作为尽调启动的关卡——风险清单直接转成尽调问题清单",
+      "对存疑数字单独追问：「这个毛利率与同行业上市公司比，异常吗？为什么？」"
+    ],
+    faq: [
+      { q: "AI 拆解 BP 能替代投资人读吗？", a: "不能替代通读，但能替代第一遍速读。AI 10 分钟给出的框架、风险清单与亮点总评，相当于让投资经理先看到「别人眼中的重点」，再带着问题精读原文——效率提升明显。" },
+      { q: "怎么识别 BP 里最隐蔽的美化？", a: "最隐蔽的是「口径游戏」——用非可比口径（如把渠道流水当收入、把签约额当营收）。对策：要求 AI 对每个关键财务数字标注口径与计算方式，再与同行上市公司对比。" }
+    ]
+  },
+  {
+    id: 7, module: 2, no: "07", title: "尽职调查全流程 AI 工作流", en: "DUE DILIGENCE", dur: "40 MIN",
+    bg: "尽调是投研中信息密度最高、最耗人的环节——业务、财务、法律、商业四条线并行，访谈十余人、材料几百份。瓶颈从来不是收集而是组织证据：让每条结论都能指到出处，让底稿可审计。",
+    scenes: [
+      "尽调启动——自动生成尽调清单并按交易类型适配，追踪资料缺口",
+      "访谈纪要自动化——录音转录、清洗、发言人归属、主题归并，产出可直接归档的正式纪要",
+      "尽调报告起草——招股书/公告/访谈记录解析后自动填充，30-45 分钟出初稿"
+    ],
+    prompt: {
+      title: "尽调访谈纪要官（结构化转录）",
+      text: "你是投资机构的访谈纪要官。请把以下访谈录音转写文本整理成正式纪要。\n\n【转写文本】\n[粘贴录音转写，可能含口语化、发言混乱、重复] \n\n请输出：\n1. 访谈信息：时间、地点、参与方（尽量区分发言人）\n2. 按主题归并的内容（五大类：行业与市场 / 团队与股权 / 产品与技术 / 财务与经营 / 风险与合规），每类下列出关键事实\n3. 关键数字单独列出并注明出处句\n4. 待确认事项清单（访谈中提到但未确认的问题）\n5. 后续动作（谁负责、什么时间）\n\n要求：客观陈述、不脑补；口语内容清洗为标准表达；发言人无法区分时标注「无法区分」；不确定的事实标注「待核实」。",
+      note: "纪要官是尽调最实用的 AI 应用之一——一次两小时访谈的录音，AI 整理的纪要可直接归档并提交投决。五大类二十维度的归并结构让投委会能快速定位关键事实。"
+    },
+    tips: [
+      "访谈前把问题清单喂给 AI——纪要整理时会自动对应问题编号，形成「问题-答案」映射",
+      "用「待确认事项清单」驱动下一轮尽调——它就是下一份尽调清单的起点",
+      "重要访谈（如创始人）建议人工复核纪要，涉及敏感信息不传不受控平台"
+    ],
+    faq: [
+      { q: "AI 纪要能直接进投决材料吗？", a: "可以，前提是纪要结构完整（主题归并 + 关键数字 + 待确认事项）且经发言人/访谈人复核。建议在纪要末尾加「已复核」标记，明确责任归属。" },
+      { q: "录音能直接上传 AI 吗？", a: "敏感讨论不建议上传通用大模型。优先选择本地部署或沙箱隔离的工具；如果必须用云端，先脱敏（隐去公司名、人名、金额），或用「不上传录音、只传转写文本」的方式。" }
+    ]
+  },
+  {
+    id: 8, module: 2, no: "08", title: "财务分析与模型辅助", en: "FINANCIALS & MODELS", dur: "30 MIN",
+    bg: "财务分析是投资判断的硬底座——收入质量、盈利模式、现金流健康度、估值锚定，每项都要拆到可验证。AI 的价值在数据获取与结构，不在计算——它把假设结构化、参数显性化，人负责判断每个假设是否成立。",
+    scenes: [
+      "财报批量处理——几十份年报提取结构化数据，勾稽关系与趋势分析一键完成",
+      "财务模型骨架搭建——收入模型/成本模型/现金流模型框架由 AI 搭，人填假设",
+      "财务异常筛查——毛利率异常、存货周转、现金流与利润背离等造假信号自动标记"
+    ],
+    prompt: {
+      title: "财报结构化提取 + 异常信号筛查",
+      text: "你是一名 CFO 背景的财务分析师，专长是识别财务舞弊信号。\n\n【财报材料】\n[粘贴上市公司年报/招股书财务章节，或描述数据]\n\n请输出：\n1. 三年核心财务数据表（收入/毛利/净利/经营现金流/资产负债率），标注增长率\n2. 收入质量分析：收入确认政策、现金收入占比、应收增速 vs 收入增速\n3. 盈利质量：毛利率趋势与同行业对比、费用结构异动\n4. 异常信号筛查（重点）：\n   - 利润与现金流长期背离\n   - 存货增速远超收入增速\n   - 毛利率异常高或突然跃升\n   - 关联交易占比异常\n   - 应收账龄恶化\n5. 估值相关：可比公司/可比交易的参考区间\n\n要求：所有数字标注来源与计算方式；数值计算请人工复核（AI 不擅长精确运算）；对每个异常信号给出「需要进一步核实的问题」。",
+      note: "关键认知：AI 是概率预测而非精确运算——模型骨架和框架它搭得好，具体数字务必人工复核。把「四步应对」写进 prompt：发现错误→换更强模型→沉淀规则到技能包→重要分析人工复核。"
+    },
+    tips: [
+      "财务 prompt 一定要加「数值计算请人工复核」——AI 算错一个数字会污染整个模型",
+      "把同行业上市公司的关键比率喂给 AI 做对标——单独看一家公司的毛利率没有意义",
+      "对上市公司数据错误摘取问题：改用更强模型、转智能体沉淀规则、重要分析保留人工复核"
+    ],
+    faq: [
+      { q: "AI 财务模型能直接用吗？", a: "框架可以，数字必须人工复核。AI 适合搭模型骨架、提取数据、识别异常信号；收入预测、估值倍数这类需要判断的参数必须人来定，并记录假设来源。" },
+      { q: "怎么避免 AI 摘取财务数据出错？", a: "四步应对：1）改用更强模型；2）从对话框转向智能体，用本地记忆文档沉淀规则；3）以提示词、技能包及踩坑文档形成约束；4）重要分析必须保留人工复核。" }
+    ]
+  },
+  {
+    id: 9, module: 2, no: "09", title: "投决输出与智能体投委会", en: "IC OUTPUT & AI IC", dur: "40 MIN",
+    bg: "投委会是机构的「风险闸门」——每一票都要有据可依、可复盘。智能体投委会不是「让机器投票」，而是「让每个观点都必须被质询」：行业分析师、财务分析师、蓝军质询官、风控裁决官四角色相互质询，专治团队确认偏误。",
+    scenes: [
+      "投决材料准备——分线生成：投委会版（无假设/待补充/标注来源）与内部研讨版（情景推演）",
+      "投委会质询模拟——四角色智能体对投资建议逐条质询，提前暴露逻辑漏洞",
+      "投资决策复盘——AI 记录每笔投资的预测 vs 实际偏差，驱动团队持续学习"
+    ],
+    prompt: {
+      title: "智能体投委会 · 四角色质询",
+      text: "你是一场投资决策质询会的主持人。请扮演四个角色对以下投资建议进行质询：\n\n【投资建议】\n[粘贴投资备忘录/投决报告摘要]\n\n四个角色：\n1. 行业分析师：质疑赛道判断——市场规模是否高估？竞争格局是否恶化？技术路线是否会被颠覆？\n2. 财务分析师：质疑财务逻辑——收入预测是否激进？毛利率假设是否成立？现金流能否支撑？\n3. 蓝军质询官：专挑逻辑漏洞——最坏情况下这笔投资会怎样失败？哪些信息是我们在自欺欺人？\n4. 风控裁决官：检查风险控制——仓位是否超限？集中度是否过高？止损条件是否明确？\n\n请按顺序让每个角色发言（每人 3-5 条质询），然后主持人总结：哪些质询成立、哪些可以驳回、投资建议是否需要修改。\n\n要求：质询要具体、要针对材料细节，不要泛泛而谈；对每个质询给出「成立/待核实/不成立」判定。",
+      note: "蓝军质询官是 AI 最被低估的角色——它专挑你的逻辑漏洞、专治团队确认偏误。注意：风控必须硬编码（仓位上限、集中度限制写入代码），不能只写在提示词里让 AI 自觉执行。"
+    },
+    tips: [
+      "把投决材料按「事实/假设/判断」三段式组织，质询会更聚焦——AI 会针对假设与判断部分重点打击",
+      "每次投决后让 AI 生成「预测 vs 实际」追踪表，三个月后复盘偏差，驱动团队迭代",
+      "投委会版材料必须「无假设、待补充、标注来源」——这条纪律用 prompt 固化，防止 AI 输出模型套话"
+    ],
+    faq: [
+      { q: "智能体投委会能替代真人投委会吗？", a: "不能替代最终投票，但能显著提升真人投委会质量。AI 质询提前暴露逻辑漏洞、确认偏误，让真人投委会把时间花在真正的分歧点上，而不是花在基础质疑上。" },
+      { q: "风控为什么必须硬编码？", a: "因为提示词里的风控是「建议」，模型可能忽略；写入代码的风控是「强制」，不可绕过。仓位上限、集中度限制这类风控必须硬编码，不能依赖模型自律。" }
+    ]
+  },
+  {
+    id: 10, module: 3, no: "10", title: "并购推介与交易支持", en: "M&A PITCH & DEALS", dur: "30 MIN",
+    bg: "并购是股权投资另一半战场——标的研究、买方匹配、交易结构、整合规划。一个推介书要同时打动财务型与战略型买方；并购里 AI 最值钱的能力是「协同效应测算的透明度」——把每个假设摊开检验，让定价回归理性。",
+    scenes: [
+      "并购标的推介——由上市公司年报生成面向买方的推介书（财务趋势/战略匹配/可比交易/整合路线图）",
+      "可比交易对标——构建可比交易库（估值倍数/交易结构/业绩承诺），让定价有据可依",
+      "整合规划——100 天计划生成、协同效应测算、关键人才保留清单"
+    ],
+    prompt: {
+      title: "并购推介书生成（年报 → 买方视角）",
+      text: "你是一名资深并购顾问。请基于以下上市公司年报信息，生成一份面向潜在买方的并购标的推介书。\n\n【年报/公司信息】\n[粘贴年报摘要或公司核心信息]\n\n请输出（10 节结构）：\n1. 公司速览：业务、规模、行业地位\n2. 价值逻辑：为什么这家公司值得买（3 条核心投资逻辑）\n3. 财务分析：近 3-4 年收入/利润/现金流趋势，盈利能力与质量\n4. 买方战略匹配：这家公司对「财务型买方」与「战略型买方」各有什么吸引力\n5. 协同效应测算：列出收入协同与成本协同的具体来源，标注假设与不确定性\n6. 可比交易对标：估值倍数区间（P/E、EV/EBITDA）与近期可比交易\n7. 风险矩阵：Top 5 风险 + 缓解措施\n8. 整合路线图：并购后 100 天关键动作\n\n要求：协同效应每个假设都要可验证；风险写在前面；不要用笼统表述。",
+      note: "协同效应测算是并购估值的最大分歧来源——AI 能把每个假设摊开检验（如「客户共享带来 +10% 收入」的依据是什么），让买卖双方在同一个假设表上谈判，定价回归理性。"
+    },
+    tips: [
+      "协同效应部分单独追问：「请逐条说明协同假设的依据与验证方式」——逼 AI 暴露不确定性",
+      "可比交易库要持续积累——每次并购完成后把真实交易数据入库，AI 对标会越来越准",
+      "推介书分两个版本：财务型买方版（重估值与回报）与战略型买方版（重协同与能力补强）"
+    ],
+    faq: [
+      { q: "AI 生成的推介书能直接发给买方吗？", a: "可作为初稿，但发送前必须人工复核：事实一致性、引用来源、格式、遗漏事项与敏感信息检查。推介书代表卖方形象，AI 初稿 + 人工精修是最稳妥的组合。" },
+      { q: "协同效应测算 AI 靠谱吗？", a: "AI 擅长把协同假设结构化（列出收入/成本协同的来源），但不擅长判断假设本身的合理性——那需要行业判断。建议 AI 列框架、行业专家填概率。" }
+    ]
+  },
+  {
+    id: 11, module: 3, no: "11", title: "知识库与经验资产沉淀", en: "KNOWLEDGE BASE", dur: "30 MIN",
+    bg: "投资机构最大的资产是「会看项目的人」——但人的经验会流失，机构级的知识沉淀才是复利。知识库三步法：选一个随时能记的地方、喂入真实且会反复使用的材料、以提问验证而非导入成功为验收标准。",
+    scenes: [
+      "机构知识库搭建——行业库/交易库/人脉库分建，每天十分钟入库的习惯养成",
+      "技能包开发——把反复重复的专业动作封装成可复用技能（投资人/纪要官/并购推介）",
+      "新人 onboarding——新分析师用知识库快速建立行业认知，减少对老员工的经验依赖"
+    ],
+    prompt: {
+      title: "知识库入库质量检验",
+      text: "你是一个知识库管理顾问，帮我验证知识库建设质量。\n\n我的知识库现状：[描述你建的库：主题、材料类型、数量]\n\n请回答：\n1. 验收标准检验——用 5 个真实业务问题测试我的知识库，每个问题回答：「能否从库中找到答案 / 找到的路径 / 缺失的材料」\n2. 材料质量评估：我喂入的材料是「真实且会反复使用的」吗？哪些该删、哪些该补？\n3. 结构优化建议：按用途分建专用库（行业库/交易库/人脉库）是否清晰？\n4. 习惯设计：每天十分钟入库的具体动作是什么？每周用一个真实问题检验怎么做？\n\n我的业务方向：[投资方向/常用材料类型]",
+      note: "关键验收标准：以提问验证而非导入成功为标准——库建得好不好，取决于能否回答真实业务问题，而不是导入了多少文件。这是知识库建设最常见的误区。"
+    },
+    tips: [
+      "入库材料只选「真实且会反复使用」的——一次性的报告、旧版资料不要进库，否则污染检索",
+      "每周固定用一个真实业务问题检验知识库，答不上来就补材料——这是库的「健身计划」",
+      "技能包设计哲学：不输出聚合分数、拒绝主观星级打分、全部以事实定量论证、风险写在正文前面"
+    ],
+    faq: [
+      { q: "知识库和普通网盘有什么区别？", a: "网盘是存储，知识库是检索 + 复用。网盘里的材料需要人去找；知识库能让 AI 在写报告、做分析时主动调用沉淀的经验。核心区别是「以提问验证」——能回答问题才叫知识库。" },
+      { q: "机构级知识沉淀怎么启动？", a: "三步：1）选一个随时能记的地方（团队常用的工具即可）；2）喂入真实且反复使用的材料（从尽调报告、行业研究开始）；3）每周用一个真实问题检验。不要追求大而全，先跑通一个赛道。" }
+    ]
+  },
+  {
+    id: 12, module: 3, no: "12", title: "幻觉治理、数据安全与合规", en: "HALLUCINATION & COMPLIANCE", dur: "30 MIN",
+    bg: "投研成果要进投决、对 LP、对外披露——AI 的幻觉与泄密是两条不可触碰的红线。单环节幻觉率约 5%，多环节叠加约束可显著降低；投资机构用 AI 的底线不是快，而是可解释、可追溯、可问责。",
+    scenes: [
+      "AI 结论进投决前的最后核验——强制交叉比对，处理幻觉",
+      "敏感项目资料处理——判断哪些能上传、哪些必须本地化，防止泄密",
+      "对外披露材料（LP 报告、募资材料）的合规检查——来源标注、可追溯"
+    ],
+    prompt: {
+      title: "AI 输出交叉比对核验",
+      text: "你是投研材料的终审编辑。以下是一份 AI 生成的投研材料，请进行严格交叉比对核验。\n\n【AI 输出】\n[粘贴 AI 生成的报告/纪要/摘要]\n\n【原始材料】\n[粘贴引用的原始资料：财报、招股书、访谈记录、新闻]\n\n请逐项核验：\n1. 事实一致性：AI 输出中的每个数字、日期、人名、公司名是否能在原始材料中找到？列出「匹配 / 不匹配 / 找不到出处」三项清单\n2. 引用核验：每个引用来源是否真实存在？引用是否断章取义？\n3. 逻辑外推：是否存在「根据已知线性外推」的未证实结论？\n4. 幻觉标记：有没有编造的事实、数据或引用？\n5. 合规检查：材料中是否有敏感信息（未公开交易、涉密数据）？\n\n输出格式：问题清单（严重/一般/提示）+ 修正建议。未获证实的事项必须标注「未获证实」。",
+      note: "这是「输出前强制交叉比对」的落地 prompt——单环节幻觉率约 5%，加上这一道强制核验后显著降低。四层防线：记忆层预设底线、提示词层约束、技能包规则层、输出前交叉比对。"
+    },
+    tips: [
+      "把「未获证实即回答不知道」「不作线性外推」写进提示词层约束，从源头减少幻觉",
+      "涉及未公开交易信息与涉密资料的场景，优先本地化部署或沙箱隔离，不传不受控平台",
+      "重要结论保留人工复核——AI 输出 + 人工签名确认，才能进入投决或对外披露"
+    ],
+    faq: [
+      { q: "幻觉率 5% 是什么意思？", a: "指单环节生成的内容中约有 5% 的信息不准确或编造。5% 听起来不高，但叠加多环节（检索→分析→成稿→引用）会放大。对策是多环节叠加约束：每经过一个环节就做一次交叉比对，幻觉会被逐层拦截。" },
+      { q: "AI 输出能直接对 LP 披露吗？", a: "不能直接披露。AI 辅助成果进入对外披露的前提是：可解释（每句话有依据）、可追溯（能找到出处）、可问责（有明确责任人复核）。涉密与未公开信息始终不得上传不受控平台。" }
+    ]
+  },
+  {
+    id: 13, module: 4, no: "13", title: "AI 募资：把 LP 尽调答成 30 分钟", en: "FUNDRAISING", dur: "30 MIN",
+    bg: "一支基金募资要过几十次 LP 尽调——DDQ 上百个问题、历史业绩反复讲、被投案例随时举证，答不上来就出局。募资的本质是「重复讲同一个故事直到被相信」——AI 让每次讲述都完整、一致、有据。",
+    scenes: [
+      "LP 尽调问答库（DDQ）——上百个问题按 LP 类型（国资/险资/家办/引导基金）分线应答",
+      "历史业绩叙事化——把 IRR/MOIC/DPI 的冰冷数字组织成「为什么这个团队能重复赚钱」的故事线",
+      "基金材料自动成稿——Teaser / PPM / 基金季度信，模板化生成 + 人工校准"
+    ],
+    prompt: {
+      title: "LP 尽调问答库（DDQ）自动应答",
+      text: "你是一名基金募资合伙人，正在应对 LP 尽调。\n\n【基金信息】\n- 基金概况：[名称、规模、策略、存续期]\n- 历史业绩：[各期基金 IRR/MOIC/DPI，代表项目]\n- 团队：[核心成员、从业年限、分工]\n- 差异化：[独特资源/生态/方法论]\n\n【LP 类型】[国资 / 险资 / 家族办公室 / 政府引导基金]\n\n请输出一份针对该 LP 类型的尽调应答手册：\n1. 该类 LP 最关心的 Top 10 问题（按权重排序）\n2. 每个问题的标准应答（150 字内，含数据支撑）\n3. 历史业绩叙事线：把数据组织成「为什么我们能重复赚钱」的逻辑链（3 条）\n4. 该类 LP 的敏感雷区与应对话术\n5. 需要团队准备但当前缺失的材料清单\n\n要求：应答要有数据、有逻辑、一致性强；不要回避业绩波动，准备好解释。",
+      note: "同一个基金面对不同 LP，痛点完全不同——国资看合规与返投、险资看长期回报、家办看灵活性、引导基金看招商。分线应答让每次尽调都精准命中，30 分钟答完原本要准备一周的问题。"
+    },
+    tips: [
+      "把「历史业绩叙事线」单独打磨——这是募资成败关键，AI 帮你组织逻辑，话术要合伙人亲自校准",
+      "季度信模板化：每季度用同一模板生成，LP 会习惯你的稳定输出，续投意愿更强",
+      "敏感数据（单项目回报、未退出估值）在材料里只给区间，详细数据留到面对面尽调"
+    ],
+    faq: [
+      { q: "AI 应答 LP 尽调，会不会让 LP 觉得不真诚？", a: "AI 负责组织与初稿，最终话术必须合伙人亲自把关。关键区分：AI 让应答「完整、一致、有据」，人让应答「真诚、有个性」——两者结合才是募资的正确姿势。" },
+      { q: "历史业绩不好看，AI 能帮我粉饰吗？", a: "不能也不该。AI 的价值是把业绩真实地组织成有说服力的逻辑链（如「虽然 DPI 低但 IRR 好，因为存续期长」），而不是编造。LP 尽调都会交叉验证，粉饰的代价是永久失去信任。" }
+    ]
+  },
+  {
+    id: 14, module: 4, no: "14", title: "AI 投前筛查：把 1000 个项目压成 10 个", en: "DEAL SCREENING", dur: "30 MIN",
+    bg: "deal flow 不缺，缺的是注意力。每周 10-20 个 BP 涌入，第一轮预筛要快而准——漏掉好项目与浪费时间同样致命。筛查不是多看一眼，而是标准先行：把机构的投资策略写进打分卡，AI 只是执行器。",
+    scenes: [
+      "批量 BP 预筛——一分钟出一张项目卡片，1000 个项目压成 10 个进入深筛",
+      "全网项目源扫描——融资动态、工商变更、招聘信号自动监控，先于 FA 看到交易机会",
+      "标准沉淀——把合伙人投资偏好变成可解释、可回溯、可迭代的打分卡"
+    ],
+    prompt: {
+      title: "项目源雷达 + 批量预筛",
+      text: "你是投资机构的项目源雷达系统。\n\n【关注赛道】[如：AI 应用、半导体设备、新能源]\n【信号维度】融资动态、工商变更（新设子公司/增资）、招聘扩张、竞品融资、政策利好\n【数据来源】[可接入的公开数据源/新闻/数据库]\n\n请设计并模拟输出：\n1. 项目源雷达的监控规则：每个信号维度定义「什么算值得注意的信号」（如「B 轮前新增注册资本 > 1000 万」「3 个月内招聘量翻倍」）\n2. 今日扫描模拟：基于当前公开信息，输出 5 个值得关注的目标（公司名、信号类型、初步判断）\n3. 预筛打分卡：5-8 个维度 + 评分锚点 + 一票否决项\n4. 输出格式：项目卡片（200 字内，含进入下一轮的建议）\n\n要求：信号要可量化，不要模糊表述；信息不足标注「待核实」。",
+      note: "项目源雷达的核心是「在 FA 递材料前先看到交易机会」——工商变更、招聘信号往往比 BP 早 3-6 个月。筛选用可量化信号而非感觉，合格交易流量能增加 40-60%。"
+    },
+    tips: [
+      "打分维度控制在 5-8 个并写清锚点——AI 会严格按锚点打分，锚点模糊它就会糊弄",
+      "把一票否决项放在最前——快速淘汰不达标项目，把注意力留给真正值得看的",
+      "每周复盘打分 vs 实际投决偏差，用数据迭代标准——标准要随市场与策略演化"
+    ],
+    faq: [
+      { q: "AI 筛查会不会漏掉黑马项目？", a: "按标准执行会漏掉「标准外」的黑马——这正是标准化的代价。对策：打分卡加一个「信号异常但值得注意」通道，AI 把不符合标准但信号特殊的项目单独列出，人工二次判断。" },
+      { q: "项目源雷达数据从哪来？", a: "公开数据为主：工商信息（企查查/天眼查类）、招聘网站、新闻、融资数据库。合规要求下不抓取未公开信息；雷达的价值在于把分散公开信号聚合分析，而不是获取内幕。" }
+    ]
+  },
+  {
+    id: 15, module: 4, no: "15", title: "AI 投中尽调：8 小时压缩成 2 小时", en: "DUE DILIGENCE", dur: "30 MIN",
+    bg: "尽调不是收集信息，是组织证据。业务/财务/法律/商业四条线并行，访谈十余人、材料几百份——AI 把 8 小时的分析任务压缩为 2 小时审核编辑，核心是建立一条可审计的证据链。",
+    scenes: [
+      "尽调清单生成——按交易类型自动适配，追踪资料缺口与待补充事项",
+      "访谈纪要自动化——转录、清洗、发言人归属、主题归并，产出可直接提交投决的正式纪要",
+      "报告填充——招股书/公告/访谈记录解析后自动填入报告框架，30-45 分钟出初稿"
+    ],
+    prompt: {
+      title: "尽调证据链构建",
+      text: "你是投资机构尽调主管，负责构建可审计的证据链。\n\n【交易背景】[交易类型：成长投资/控股收购/并购；被投方：行业、阶段]\n【尽调材料】\n[粘贴：招股书摘录 / 访谈记录 / 财务数据 / 合同条款等]\n\n请输出：\n1. 尽调清单：按业务/财务/法律/商业四线，列出待核实事项与资料缺口\n2. 访谈纪要结构化整理：按主题归并 + 关键数字 + 待确认事项\n3. 证据链构建：每个尽调结论 → 对应证据材料 → 证据出处（文件/页码/访谈段落）\n4. 报告初稿：按标准尽调报告框架填充，未确认处标注「待补充」\n5. 底稿管理建议：目录结构、文件命名、底稿索引规则\n\n要求：证据链可追溯——每个结论都能指到出处；「待核实」标注明确，不脑补。",
+      note: "尽调的终极目标不是做出一份报告，而是建立一条可审计的证据链——每个结论都能指到出处。AI 的价值在于让证据链完整、可追溯，投委会的每个问题都能找到证据。"
+    },
+    tips: [
+      "把底稿目录、文件命名、索引规则先定好——AI 按规则生成，证据链才不会乱",
+      "访谈纪要的「待确认事项」直接转成下一轮尽调问题——证据链闭环",
+      "四线并行时用四个独立 prompt 分别跑，再汇总——避免一条线污染另一条"
+    ],
+    faq: [
+      { q: "8 小时压成 2 小时，质量会缩水吗？", a: "不会缩水，但角色变了：AI 做穷尽（读材料、提取、初筛），人做审核与追问。8 小时里的 6 小时是重复劳动，压缩后 2 小时用于审核编辑与深度追问，质量反而更可控。" },
+      { q: "证据链「可审计」为什么重要？", a: "投委会、LP、监管都要求结论有据可查。可审计的证据链让尽调结论经得起追问——这也是 AI 时代的新合规要求：AI 的每个结论都要能追溯到具体材料。" }
+    ]
+  },
+  {
+    id: 16, module: 4, no: "16", title: "AI 投后管理：被投企业 365 天在监控下", en: "POST-INVESTMENT", dur: "30 MIN",
+    bg: "投后不靠勤快，靠系统。被投公司每月产生财报、新闻、人事变动，投资经理精力被数据收集耗尽，真正该做的战略赋能反而没时间——AI 把监控自动化，把管理带宽还给战略辅导。",
+    scenes: [
+      "投后监控仪表盘——财务数据、新闻、竞品动态、融资信号自动汇总，每月一页纸报告自动生成",
+      "财务异常预警——现金流恶化、收入质量下降、关联交易异动、存货周转异常的自动标记",
+      "董事会材料自动生成——把时间还给讨论，而不是做材料"
+    ],
+    prompt: {
+      title: "投后监控仪表盘 + 月度投后报告",
+      text: "你是投资机构的投后管理系统。\n\n【被投企业】\n- 名称：[公司名]，行业：[行业]，轮次：[轮次]，投资金额：[金额]，持股：[比例]\n- 董事会席位：[是/否]，下一轮融资时间：[时间]\n\n【数据输入】\n[粘贴/描述：本月财务数据、新闻、竞品动态、融资进展]\n\n请输出：\n1. 月度投后监控简报（一页纸）：关键指标变动、新闻/竞品/融资信号、风险提示\n2. 异常预警：对比历史数据，标出「现金流恶化 / 收入质量下降 / 关联交易异动 / 存货周转异常」等信号（如有）\n3. 创始人信号：公开表达、股权变动、团队变动（如有）\n4. 董事会材料要点：本月经营分析、需董事会决策的事项、建议议题\n5. 增值服务匹配：被投公司当前需求与机构资源的对接建议\n\n要求：异常判断要给出依据（数据对比），不要凭感觉。",
+      note: "投后管理的本质是把「监控」自动化、把「赋能」留给人。AI 每月自动汇总一页纸简报，异常信号提前预警——投资经理把省下的时间投入战略辅导与资源对接，这才是 GP 对 LP 的真正回报。"
+    },
+    tips: [
+      "异常预警的阈值提前设定（如现金流连续两月下滑 > 20%）——AI 按阈值报警，避免事后诸葛",
+      "月度简报格式固定化，LP 也会慢慢依赖这份稳定输出",
+      "创始人股权变动、重大诉讼这类信号要单独监控——它们往往比财报更早暴露问题"
+    ],
+    faq: [
+      { q: "AI 监控能替代投资经理与被投公司沟通吗？", a: "不能。AI 负责监控与预警（看数据、看信号），人负责沟通与赋能（谈战略、给资源）。被投公司需要的是有温度的股东，不是自动化报警器——AI 让经理有时间去做有温度的事。" },
+      { q: "投后数据从哪来？", a: "被投公司主动提供的月度财务 + 公开信息（新闻、招聘、融资动态）+ 工商数据。约定被投公司按固定格式提交数据，AI 自动处理，是最省力的方式。" }
+    ]
+  },
+  {
+    id: 17, module: 4, no: "17", title: "AI 赋能政府招商：从\u201C捡到篮子都是菜\u201D到精准招商", en: "GOVERNMENT ATTRACTION", dur: "30 MIN",
+    bg: "招商的对手不是隔壁城市，是信息差。政府招商的核心痛点是不知道招谁、对方为什么来、怎么谈成——AI 把「盲人摸象」变成「拿着地图进场」，精准度决定了招商的 ROI。投资机构视角：政府引导基金/招商基金联动。",
+    scenes: [
+      "产业链招商地图——按本地产业基础生成目标企业画像：缺哪一环、谁最可能迁移",
+      "企业迁移意向信号识别——扩产计划、新设子公司、招聘扩张、融资需求的自动捕捉",
+      "招商谈判材料生成——本地优势、政策组合、落地案例的数据化组织"
+    ],
+    prompt: {
+      title: "产业链招商地图 + 目标企业画像",
+      text: "你是产业招商顾问，为地方政府设计精准招商方案。\n\n【本地产业基础】\n[城市/园区名称、主导产业、基础设施、政策工具（土地/税收/基金/人才）、已有企业案例]\n\n【目标产业方向】[如：半导体设备、新能源、AI 应用]\n\n请输出：\n1. 产业链招商地图：按「缺哪一环」定位目标环节，列出该环节的头部企业与潜力企业\n2. 目标企业画像：5-8 家最可能迁移的企业——当前所在地、扩产信号、迁移驱动力（成本/市场/政策/供应链）\n3. 迁移意向信号清单：哪些信号预示企业可能外迁（扩产计划、新设子公司、招聘扩张、融资需求、补贴到期）\n4. 差异化卖点：本地能提供的政策组合与对手城市对比，列出 3 条「为什么选我们」\n5. 谈判材料框架：首轮接触的要点与话术\n\n要求：目标企业要有真实依据（公开信息），不要编造公司名；迁移驱动力要可验证。",
+      note: "政府招商与投资机构天然互补：机构懂产业与企业，政府懂政策与土地。AI 把两边的信息差抹平——机构帮政府画出产业链地图，政府给机构提供招商线索，基金招商从撒网变成定向。"
+    },
+    tips: [
+      "迁移意向信号要可量化（如「注册资本 3 个月内增加 1000 万」「新设子公司」）——信号模糊就没价值",
+      "把本地已有的落地企业案例喂给 AI——真实的成功案例比任何宣传都管用",
+      "与引导基金联动：AI 分析本地引导基金的返投需求，反向筛选市场化 GP 的存量项目"
+    ],
+    faq: [
+      { q: "政府招商用 AI 和投资机构有什么关系？", a: "投资机构是招商的最佳中介——机构手里有大量被投企业（潜在迁移标的）与行业判断力。政府用引导基金返投政策吸引机构，机构用 AI 筛选可迁移的被投企业——双方信息差被 AI 抹平，双赢。" },
+      { q: "企业迁移信号 AI 真的能提前识别吗？", a: "能识别「弱信号」，不能保证准确。扩产计划、新设子公司、招聘扩张这些公开信号，AI 聚合分析后能提前 3-6 个月提示意向。但最终谈判靠人——AI 负责找到对的候选，人负责谈成。" }
+    ]
+  },
+  {
+    id: 18, module: 4, no: "18", title: "AI 基金管理：从 Excel 到基金操作系统", en: "FUND OPERATIONS", dur: "30 MIN",
+    bg: "基金运营是「用系统对抗遗忘」——GP 的日常是 Excel 表格、季度报告、合规清单、项目 Pipeline，运营效率直接决定 LP 满意度与续投。AI 把散落在 Excel 和个人脑中的资产变成机构级资产。",
+    scenes: [
+      "基金财务与 NAV 自动化——估值数据、份额、净值变动的结构化处理",
+      "LP 报告（季报/年报）生成——业绩数据 + 项目进展 + 市场环境的一键成稿",
+      "合规检查——募资合规、信息披露、关联交易审查的 AI 辅助；项目 Pipeline 全生命周期追踪"
+    ],
+    prompt: {
+      title: "基金季度 LP 报告生成器",
+      text: "你是基金运营负责人，负责生成季度 LP 报告。\n\n【本期数据】\n- 基金概况：[名称、规模、策略]\n- 业绩数据：NAV、净值、IRR/MOIC 变化 [粘贴/描述]\n- 项目进展：已投项目状态（里程碑/退出/减值）[粘贴/描述]\n- 市场环境：[本期市场简述]\n\n【LP 类型】[国资 / 险资 / 家办 / 引导基金]\n\n请生成季度 LP 报告：\n1. 业绩回顾：数据呈现 + 简明解读（本期变化、累计表现）\n2. 组合更新：各项目状态与下季度展望\n3. 市场与策略：宏观环境如何影响我们的投资策略\n4. 运营信息：现金管理、合规事项、下季度安排\n5. 对该类 LP 的关注点回应（如引导基金关心返投进度）\n\n要求：数据准确（人工复核）、语气专业不浮夸、格式统一可复用。",
+      note: "LP 报告是 GP 信任的载体——AI 让季报生成从 2 天变成 2 小时，且格式稳定、数据一致。重点是针对不同 LP 类型定制关注点，让每份报告都像为对方量身定做。"
+    },
+    tips: [
+      "NAV 计算 AI 只做提取与展示，数值务必人工复核——财务数据错误会直接摧毁 LP 信任",
+      "报告模板季度固定，LP 会习惯——稳定输出本身就是专业度",
+      "项目 Pipeline 与 LP 报告打通：立项到退出全生命周期数据沉淀，报告自动取数"
+    ],
+    faq: [
+      { q: "基金运营 AI 化，会不会被 LP 质疑数据造假？", a: "不会，前提是「AI 生成、人工复核、数据可追溯」。AI 负责提效（从 Excel 提取、模板化、一致性检查），人负责确认与签名。LP 看到的是更及时、更规范的报告，不是 AI 自动输出的数字。" },
+      { q: "从 Excel 迁移到基金操作系统，团队抵触怎么办？", a: "分步走：先用 AI 生成报告让团队尝到甜头（省 2 天），再逐步把数据源规范化。不要一次性推翻 Excel——让 AI 先做 Excel 的「外挂」，再谈迁移。" }
+    ]
+  },
+  {
+    id: 19, module: 4, no: "19", title: "AI 报告工厂：一份模板吃透全场景", en: "REPORT FACTORY", dur: "20 MIN",
+    bg: "报告不是写出来的，是审出来的。行研、尽调、投决、投后、募资五类报告——机构最耗人的不是分析，是把分析写成规范文档。AI 负责写，人负责审，审核质量才是机构报告的护城河。",
+    scenes: [
+      "五类报告同源生成——一份资料包 → 行研/尽调/投决三种报告初稿一次产出",
+      "模板 + 多文件自动成稿——上传模板与多个项目文件，AI 按结构/映射/引用规则成稿",
+      "报告分线纪律——投委会版（无假设/待补充/标注来源）与内部研讨版（情景推演）分开生成"
+    ],
+    prompt: {
+      title: "报告工厂：一份资料包 → 多类型报告",
+      text: "你是投资机构的报告工厂，能用同一份资料包生成不同类型的报告。\n\n【资料包】\n[粘贴：BP / 访谈记录 / 财务数据 / 行业信息，多份]\n\n【目标报告类型】[行研报告 / 尽调报告 / 投决报告 / 投后报告 / 募资材料]\n\n请生成：\n1. 报告框架：按该类型标准结构输出（目录级）\n2. 报告初稿：完整正文，关键数据标注来源\n3. 分线版本：投委会版（无假设、待补充表述、标注数据来源）/ 内部研讨版（含情景推演）\n4. 复核清单：事实一致性、引用来源、格式、遗漏事项、敏感信息\n\n要求：资料不足处标注「待补充」，不编造；数字人工复核；输出符合机构报告格式规范。",
+      note: "报告工厂的精髓是「模板 + 映射 + 引用规则」——同一份资料包，换一个模板就产出另一种报告，且引用规则保证数据一致。人只做最后一道审核：事实一致性、引用来源、遗漏与敏感信息。"
+    },
+    tips: [
+      "模板要「准」：先把五类报告的标准结构吃透，AI 生成的初稿才有 80 分可用",
+      "投委会版与研讨版分线生成是纪律——投委会材料容不得模型套话与无依据推演",
+      "跨报告复用：行业库、交易库、人脉库沉淀越久，报告生成越快、质量越高"
+    ],
+    faq: [
+      { q: "AI 报告初稿质量能直接用吗？", a: "初稿约 70-80 分，可直接作为讨论基础，但对外/进投决前必须人工审核。AI 的价值是把「写」的时间省掉，把时间留给「审」——审核质量才是机构报告的真正护城河。" },
+      { q: "五类报告结构差异大，一个模板够吗？", a: "不是「一个模板」，是「一套模板体系」——每类报告一个结构模板，共用同一份资料映射规则。换模板出不同类型，资料映射与引用规则保持一致，数据才不会各写各的。" }
+    ]
+  },
+  {
+    id: 20, module: 4, no: "20", title: "现场实操：1 小时设计你的第一个投资类 skill", en: "SKILL LAB", dur: "40 MIN",
+    bg: "与其等工具，不如造工具。投资类 skill 是把反复重复的专业动作封装成可复用技能——BP 速析、纪要整理、尽调清单生成。今天的全景地图，每一个课题都是一条系列课引线，方法论体系化才是第一讲真正的交付。",
+    scenes: [
+      "把日常重复动作变成 skill——选一个痛点（如 BP 速析、纪要整理），封装成可复用技能",
+      "现场演示全流程——从真实需求 → 定义输入输出 → 写好规则 → 跑通一次",
+      "学员带走雏形——带自己的一个日常痛点，当场设计自己的第一个 skill"
+    ],
+    prompt: {
+      title: "投资类 skill 设计工作坊",
+      text: "你是技能包设计导师，帮我把一个日常痛点设计成可复用的投资类 skill。\n\n【我的痛点】\n[描述：我反复在做的专业动作，如「每周要整理 10 份 BP 摘要」「每次访谈后要写纪要」]\n\n【设计步骤】请按以下框架输出 skill 设计方案：\n1. 技能定位：这个 skill 解决什么问题？输入是什么？输出是什么？\n2. 触发场景：什么时候自动触发（如「新 BP 上传时」「访谈录音完成后」）\n3. 工作流步骤：3-6 步，每步做什么、调用什么\n4. 规则与底线：输出规范（格式、长度、数据要求）、禁止项（不编造、不评分、风险前置）\n5. 质量检验：如何验证输出达标（自检清单）\n6. 迭代机制：首次跑通后如何收集反馈、持续改进\n\n【示例参考】\n一个优秀 skill 的设计哲学：不输出聚合分数、拒绝主观星级、全部以事实定量论证、风险写在正文前面。",
+      note: "1 小时实操的目标不是做出完美 skill，而是跑通「从需求到可用」的完整链路——一旦体验过「把重复动作封装成技能」，你会开始用体系化视角看待所有日常工作。三个开源技能包（投资人/纪要官/并购推介）是现成的参考模板。"
+    },
+    tips: [
+      "选痛点标准：每周至少重复 3 次、有明显标准输出格式——这样的动作最值得封装",
+      "第一步先写「规则与底线」，再写工作流——底线决定质量，流程决定效率",
+      "跑通一次后立即收集 3 个真实使用反馈，迭代规则——skill 是活的，不是写完就结束"
+    ],
+    faq: [
+      { q: "设计 skill 需要会编程吗？", a: "不需要。投资类 skill 的核心是「规则设计」——把专业动作翻译成清晰的输入输出与步骤规则，让 AI 按规则执行。编程只是可选的封装层，不是必需。" },
+      { q: "自己的 skill 和开源技能包有什么区别？", a: "开源技能包（投资人/纪要官/并购推介）是通用模板，可直接用；自己的 skill 是针对你机构独特流程定制的——两者结合：开源包做基础，定制包做差异化。" }
+    ]
+  }
+];
+
+// ─── 详情页 SPA 逻辑 ───
+(function() {
+  var detailView = document.getElementById('detailView');
+  var listMain = document.querySelector('main.page');
+  if (!detailView || !listMain) return;
+
+  // 列表行可点击
+  document.querySelectorAll('table.curriculum tr[id^="c"]').forEach(function(tr) {
+    tr.classList.add('clickable');
+    tr.setAttribute('title', '点击查看详情');
+    // 课程名称后追加「查看详情」提示（独立行，醒目）
+    var cname = tr.querySelector('td.cname');
+    if (cname) {
+      var hint = document.createElement('span');
+      hint.className = 'open-hint';
+      hint.textContent = '查看详情';
+      cname.appendChild(hint);
+    }
+    tr.addEventListener('click', function() {
+      var id = tr.id.replace('c', '');
+      location.hash = '#/item/' + id;
+    });
+  });
+
+  function esc(s) {
+    return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+  }
+
+  function renderDetail(id) {
+    var course = COURSES.find(function(c) { return c.id === Number(id); });
+    if (!course) { location.hash = '#/'; return; }
+    var mod = MODULES[course.module];
+    var idx = COURSES.indexOf(course);
+    var prev = idx > 0 ? COURSES[idx - 1] : null;
+    var next = idx < COURSES.length - 1 ? COURSES[idx + 1] : null;
+
+    var html = '';
+    // 面包屑
+    html += '<div class="detail-crumb">';
+    html += '<a href="#/" onclick="location.hash=\'#/\';return false;">课程表</a>';
+    html += '<span class="sep">/</span>';
+    html += '<a href="#m' + course.module + '" onclick="location.hash=\'#/\';setTimeout(function(){document.getElementById(\'m' + course.module + '\').scrollIntoView({behavior:\'smooth\'});},80);return false;">' + esc(mod.name) + '</a>';
+    html += '<span class="sep">/</span>';
+    html += '<span class="cur">' + esc(course.title) + '</span>';
+    html += '</div>';
+
+    // 头部
+    html += '<div class="detail-head">';
+    html += '<div class="no">' + esc(course.no) + '</div>';
+    html += '<h2>' + esc(course.title) + '</h2>';
+    html += '<div class="en-row"><span>' + esc(course.en) + '</span><span class="dur">' + esc(course.dur) + '</span></div>';
+    html += '</div>';
+
+    // 背景
+    html += '<div class="detail-section"><div class="sec-label">背景说明 · BACKGROUND</div><p>' + esc(course.bg) + '</p></div>';
+
+    // 适用场景
+    html += '<div class="detail-section"><div class="sec-label">适用场景 · SCENARIOS</div><ul class="scn">';
+    course.scenes.forEach(function(s) { html += '<li>' + esc(s) + '</li>'; });
+    html += '</ul></div>';
+
+    // 完整 prompt 示例
+    html += '<div class="detail-section"><div class="sec-label">完整提示词示例 · PROMPT</div>';
+    html += '<div class="prompt-block">';
+    html += '<div class="prompt-title"><span>' + esc(course.prompt.title) + '</span><button class="copy-btn" onclick="copyPrompt(' + course.id + ')">复制</button></div>';
+    html += '<pre>' + esc(course.prompt.text) + '</pre>';
+    html += '</div>';
+    html += '<div class="prompt-note"><strong>使用说明：</strong>' + esc(course.prompt.note) + '</div>';
+    html += '</div>';
+
+    // 进阶技巧
+    html += '<div class="detail-section"><div class="sec-label">进阶技巧 · PRO TIPS</div><ul class="tips">';
+    course.tips.forEach(function(t) { html += '<li>' + esc(t) + '</li>'; });
+    html += '</ul></div>';
+
+    // FAQ
+    html += '<div class="detail-section"><div class="sec-label">常见问题 · FAQ</div>';
+    course.faq.forEach(function(f, i) {
+      html += '<div class="faq-item" onclick="this.classList.toggle(\'open\')">';
+      html += '<div class="faq-q">' + esc(f.q) + '<span class="arrow">›</span></div>';
+      html += '<div class="faq-a">' + esc(f.a) + '</div>';
+      html += '</div>';
+    });
+    html += '</div>';
+
+    // 导航
+    html += '<div class="detail-nav">';
+    if (prev) {
+      html += '<a href="#/item/' + prev.id + '">‹ ' + esc(prev.title.slice(0, 14)) + '…</a>';
+    } else {
+      html += '<a class="disabled">‹ 已是第一课</a>';
+    }
+    html += '<a class="back" href="#/" onclick="location.hash=\'#/\';return false;">← 返回课程表</a>';
+    if (next) {
+      html += '<a href="#/item/' + next.id + '">' + esc(next.title.slice(0, 14)) + '… ›</a>';
+    } else {
+      html += '<a class="disabled">已是最后一课 ›</a>';
+    }
+    html += '</div>';
+
+    detailView.innerHTML = html;
+    detailView.classList.add('show');
+    listMain.classList.add('mode-detail');
+    document.querySelector('.sidebar').classList.add('in-detail');
+    // 高亮 sidebar 对应课程
+    document.querySelectorAll('.sidebar a.active').forEach(function(a) { a.classList.remove('active'); });
+    var sidebar = document.querySelector('.sidebar');
+    var link = sidebar.querySelector('a[href="#/item/' + course.id + '"], a[href="#c' + course.id + '"]');
+    if (link) link.classList.add('active');
+    window.scrollTo(0, 0);
+  }
+
+  function showList() {
+    detailView.classList.remove('show');
+    detailView.innerHTML = '';
+    listMain.classList.remove('mode-detail');
+    document.querySelector('.sidebar').classList.remove('in-detail');
+  }
+
+  function route() {
+    var m = location.hash.match(/^#\/item\/(\d+)/);
+    if (m) {
+      renderDetail(m[1]);
+    } else {
+      showList();
+    }
+  }
+
+  window.addEventListener('hashchange', route);
+  route();
+})();
+
+// ─── 复制 prompt ───
+function copyPrompt(id) {
+  var course = COURSES.find(function(c) { return c.id === id; });
+  if (!course) return;
+  var text = course.prompt.text;
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    navigator.clipboard.writeText(text).then(function() {
+      flashCopy(id);
+    });
+  } else {
+    var ta = document.createElement('textarea');
+    ta.value = text;
+    document.body.appendChild(ta);
+    ta.select();
+    try { document.execCommand('copy'); flashCopy(id); } catch(e) {}
+    document.body.removeChild(ta);
+  }
+}
+function flashCopy(id) {
+  var btn = document.querySelector('.prompt-block .copy-btn');
+  if (btn) { var t = btn.textContent; btn.textContent = '已复制'; setTimeout(function(){ btn.textContent = t; }, 1600); }
+}
+
+// ─── 详情页时侧边栏返回列表再跳锚点 ───
+(function() {
+  var sidebar = document.querySelector('.sidebar');
+  if (!sidebar) return;
+  sidebar.addEventListener('click', function(e) {
+    var a = e.target.closest ? e.target.closest('a[href^="#"]') : null;
+    if (!a) return;
+    if (location.hash.indexOf('#/item/') === 0) {
+      var href = a.getAttribute('href');
+      if (href.indexOf('#/') === 0) return; // 详情页内部链接放行
+      e.preventDefault();
+      location.hash = '#/';
+      var target = href.slice(1);
+      if (target) {
+        setTimeout(function() {
+          var el = document.getElementById(target);
+          if (el) el.scrollIntoView({behavior: 'smooth', block: 'start'});
+        }, 120);
+      }
+    }
+  });
+})();
+</script>
+
+</body>
+</html>
