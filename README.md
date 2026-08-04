@@ -125,73 +125,6 @@ OPC-Studio 的长期价值来自一个正向飞轮：
 
 它展示了 OPC-Studio 如何以“一位主理人 + 多个 AI Agent”的方式完成内容、项目拆解、传播和连接工作。
 
-### 2. AI 拆机器
-
-一个面向 OPC 企业的轻量交互工具。
-
-用户输入自己的项目、AI 使用方式和未来目标后，系统会模拟完成一次“一人公司拆机”，并生成结构化评级卡。
-
-评级维度包括：
-
-- **引擎 Engine**：AI 是否真正进入核心流程
-- **杠杆 Lever**：一个人是否能放大成多人的产能
-- **韧性 Grit**：项目是否具备持续迭代能力
-- **势能 Momentum**：当前增长信号是否清晰
-- **愿力 Vision**：未来目标是否明确
-
-> 当前 Demo 中的 AI 分析为前端模拟逻辑，用于展示交互原型。后续版本将接入真实 LLM API，实现更准确的项目拆解、展示优化和机会匹配。
-
----
-
-## PitchRoom：深度内容入口
-
-PitchRoom 是 OPC-Studio 的核心内容产品。
-
-它不是传统访谈，也不是融资路演，而是一次对 OPC 企业的结构化拆解。我们把每个 OPC 企业看作一台正在运转的机器，通过 7 个问题理解它的内部结构。
-
-| 问题 | 核心提问 |
-|---|---|
-| 拆壳 | 你的一人公司从外面看是什么？从里面看呢？ |
-| 引擎 | AI 在你这里扮演什么角色？助手、合伙人，还是替身？ |
-| 仪表盘 | 你每天盯着哪个数字？它现在是多少？ |
-| 黑匣子 | 走到今天，哪个弯路差点让你死掉？ |
-| 涡轮 | 如果给你 10 倍的用户，你的系统撑得住吗？ |
-| 后视镜 | 回到起点，你会跳过什么、加速什么？ |
-| 导航 | 12 个月后，你希望自己是什么样子？ |
-
-这套 7 问既是内容框架，也是 OPC 企业展示、项目分析、客户匹配和数据库沉淀的基础协议。
-
----
-
-## Agent 工作流
-
-OPC-Studio 本身也以 OPC 的方式运行。
-
-一位主理人协同多个 AI Agent，完成从项目发现到内容生产、从传播分发到客户连接的业务闭环。
-
-当前规划中的 Agent 包括：
-
-| Agent | 职责 |
-|---|---|
-| 调研 Agent | 收集 OPC 企业公开信息、赛道背景和产品资料 |
-| 访谈 Agent | 基于 PitchRoom 7 问生成访谈提纲 |
-| 内容 Agent | 将访谈内容拆解为文章、短视频脚本和社媒文案 |
-| 分镜 Agent | 将短视频脚本转化为镜头结构与剪辑建议 |
-| 封面 Agent | 生成标题、封面和视觉构图建议 |
-| 分发 Agent | 为不同平台适配发布文案和节奏 |
-| 数据 Agent | 追踪内容表现、线索转化和项目关注度 |
-| 匹配 Agent | 根据客户需求与 OPC 企业能力进行初步匹配 |
-| 复盘 Agent | 沉淀 SOP、优化内容结构和匹配策略 |
-
-我们会持续优化这些 Agent 工作流，形成可复制的 OPC-Studio SOP。
-
-内部已保留并持续迭代：
-
-```text
-PitchRoom 内容出片 SOP
-```
-
-目标是录完一期 PitchRoom 后，在 30-60 分钟内拿到完整发布素材包。
 
 ---
 
@@ -263,48 +196,6 @@ PitchRoom 内容出片 SOP
 - **按需加载**：SKILL.md 只做路由，能力 SOP 拆到 references/ 省 token
 - **跨平台兼容**：一次开发，五平台通用
 
-### 立即使用
-
-```bash
-# ── Claude Skills / WorkBuddy ──
-# 业务工作流层
-git clone git@github.com:D-kart/investor-skill.git ~/.claude/skills/investor-skill
-git clone git@github.com:D-kart/presenter-skill.git ~/.claude/skills/presenter-skill
-git clone git@github.com:D-kart/summary-skill.git ~/.claude/skills/summary-skill
-git clone git@github.com:D-kart/ma-pitch-skill.git ~/.claude/skills/ma-pitch-skill
-# 视觉风格与内容设计层
-git clone git@github.com:D-kart/gazette-skill.git ~/.claude/skills/gazette-skill
-git clone git@github.com:D-kart/panda-skill.git ~/.claude/skills/panda-skill
-git clone git@github.com:D-kart/nocturne-skill.git ~/.claude/skills/nocturne-skill
-git clone git@github.com:D-kart/ai-investment-course-skill.git ~/.claude/skills/ai-investment-course-skill
-git clone git@github.com:D-kart/copyweb-skill.git ~/.claude/skills/copyweb-skill
-
-# ── OpenClaw / Hermes ──
-git clone git@github.com:D-kart/investor-skill.git ~/path/to/skills/
-git clone git@github.com:D-kart/presenter-skill.git ~/path/to/skills/
-git clone git@github.com:D-kart/summary-skill.git ~/path/to/skills/
-git clone git@github.com:D-kart/ma-pitch-skill.git ~/path/to/skills/
-git clone git@github.com:D-kart/gazette-skill.git ~/path/to/skills/
-git clone git@github.com:D-kart/panda-skill.git ~/path/to/skills/
-git clone git@github.com:D-kart/nocturne-skill.git ~/path/to/skills/
-git clone git@github.com:D-kart/ai-investment-course-skill.git ~/path/to/skills/
-git clone git@github.com:D-kart/copyweb-skill.git ~/path/to/skills/
-
-# ── SkillHub ──
-zip -r investor-skill.zip investor-skill/   # 然后登录 SkillHub 上传
-zip -r presenter-skill.zip presenter-skill/
-zip -r summary-skill.zip summary-skill/
-zip -r ma-pitch-skill.zip ma-pitch-skill/
-zip -r gazette-skill.zip gazette-skill/
-zip -r panda-skill.zip panda-skill/
-zip -r nocturne-skill.zip nocturne-skill/
-zip -r ai-investment-course-skill.zip ai-investment-course-skill/
-zip -r copyweb-skill.zip copyweb-skill/
-```
-
-### 备注
-
-> 💡 **A 组（投融资双轨）设计亮点**：investor-skill（审判者视角）与 presenter-skill（被审判者视角）互为镜像、互为对手方 —— 写完 BP 用 investor-skill 自检打分，路演前用 presenter-skill 补齐融资逻辑，鼓励一起安装。
 
 > 💡 Skill 库是 OPC-Studio 从“记录一人公司”到“武装一人公司”的关键一步——让每个独立创业者都能把顶级专业工作流以近乎零成本接入自己的 AI Agent。
 
@@ -332,11 +223,6 @@ OPC-Studio 工坊的 Skill 采用「一个仓库一个 skill」规则：每个 S
 3. **OpenClaw / Hermes clone 段**（`~/path/to/skills/`）
 4. **SkillHub zip 段**（`zip -r <skill>.zip <skill>/`）
 
-### 发布踩坑记录（供贡献者避坑）
-
-- **git push 代理不稳**：`github.com` 主域名可能 502，但 `api.github.com` 通常稳定。绕行方案：先本地 commit，再用 GitHub Contents API（`gh api --method PUT .../contents/<path>`）上传文件，最后 md5 校验远程 == 本地
-- **不要用 `git reset --hard origin/main` 对齐**：fetch 失败时 origin/main 是旧引用，reset 会误删本地新改动；内容一致时直接重新 commit 即可
-- **Release 自动建 tag**：`gh release create vX.X.X --repo OWNER/REPO` 会自动创建远程 tag，无需本地 push
 
 ### 目录规范
 
@@ -433,23 +319,6 @@ OPC-Studio 的商业化会围绕“展示、连接、工具、生态”逐步展
 - Agent 工作流编排
 - 内容资产管理
 - Skill 工坊索引与分发
-
----
-
-## 在线体验
-
-Demo 地址：
-
-```text
-https://d-kart.github.io/OPC-Studio/
-```
-
-GitHub 仓库：
-
-```text
-https://github.com/D-kart/OPC-Studio
-```
-
 
 ---
 
