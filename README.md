@@ -203,6 +203,28 @@ PitchRoom 内容出片 SOP
 
 ![made by](https://img.shields.io/badge/made%20by-OPC--Studio-1a1a4e) ![license](https://img.shields.io/badge/license-MIT-green) ![compat](https://img.shields.io/badge/compat-Claude%20%7C%20WorkBuddy%20%7C%20OpenClaw%20%7C%20Hermes%20%7C%20SkillHub-orange)
 
+![last commit](https://img.shields.io/github/last-commit/D-kart/OPC-Studio) ![repo stars](https://img.shields.io/github/stars/D-kart/OPC-Studio) ![releases](https://img.shields.io/github/v/release/D-kart/OPC-Studio) ![skill repos](https://img.shields.io/badge/skill%20repos-11-blue)
+
+## 📊 生态实时状态
+
+> OPC-Studio 是「一仓库一 skill」工坊的总索引 —— 各 Skill 的版本、发布与活跃都在各自仓库留痕，本页实时汇总生态状态。
+
+| 指标 | 数值 |
+|---|---|
+| Skill 仓库 | **11** 个（9 已发布 + 2 研发中）|
+| 最近发布 | **ai-investment-course-skill v1.0.0** · gazette-skill v1.1.0 · investor-skill v1.0.3 |
+| 旗舰 skill | **investor-skill**（⭐ 5 · 全量定性研判范式）|
+| 状态同步 | 每日自动同步（`.github/workflows/sync-matrix.yml`）|
+
+**近期生态更新：**
+
+- **investor-skill v1.0.3** — 全量定性研判范式升级：统一移除所有打分入口，1-5 星 / N/25 分这类聚合数字被事实证据取代，多触发点输出风格完全一致
+- **summary-skill v2.0.3** — 输出排版规范升级（标题黑体 18pt / 正文黑体 12pt / 表格五号）
+- **ai-investment-course-skill v1.0.0** — 「AI 增强投资」课程设计体系首发（4 模块 / 20 门课 / 20 条可复制 prompt）
+- **gazette-skill v1.1.0** — 新增长文档侧边栏导航 + 锚点跳转滚动高亮组件
+
+---
+
 ### Skill 矩阵
 
 > 按职能分层归类：**业务工作流层**（投融资专业动作）· **视觉风格与内容设计层**（表现层）· **研发中**。
@@ -285,6 +307,40 @@ zip -r copyweb-skill.zip copyweb-skill/
 > 💡 **A 组（投融资双轨）设计亮点**：investor-skill（审判者视角）与 presenter-skill（被审判者视角）互为镜像、互为对手方 —— 写完 BP 用 investor-skill 自检打分，路演前用 presenter-skill 补齐融资逻辑，鼓励一起安装。
 
 > 💡 Skill 库是 OPC-Studio 从“记录一人公司”到“武装一人公司”的关键一步——让每个独立创业者都能把顶级专业工作流以近乎零成本接入自己的 AI Agent。
+
+---
+
+## Skill 发布流水线
+
+OPC-Studio 工坊的 Skill 采用「一个仓库一个 skill」规则：每个 Skill 独立成仓，版本与发布留痕在各自仓库。以下是工坊维护生态的标准流水线，供贡献者参考。
+
+### 发布流程
+
+```text
+本地开发 → git commit → 发布 Release（vX.X.X + release notes）
+        → 同步本地安装目录（~/.workbuddy/skills/<name>/）
+        → 更新 OPC-Studio 矩阵（4 处：矩阵行 + Claude clone + OpenClaw/Hermes clone + SkillHub zip）
+        → 矩阵状态由每日自动同步 workflow 兜底校准
+```
+
+### 矩阵同步的 4 处标准
+
+新增或升级 Skill 时，需在 `README.md` 的 4 处保持一致：
+
+1. **Skill 矩阵表格行**（状态列写 `✅ vX.X.X 已发布`）
+2. **Claude / WorkBuddy clone 段**（`~/.claude/skills/`）
+3. **OpenClaw / Hermes clone 段**（`~/path/to/skills/`）
+4. **SkillHub zip 段**（`zip -r <skill>.zip <skill>/`）
+
+### 发布踩坑记录（供贡献者避坑）
+
+- **git push 代理不稳**：`github.com` 主域名可能 502，但 `api.github.com` 通常稳定。绕行方案：先本地 commit，再用 GitHub Contents API（`gh api --method PUT .../contents/<path>`）上传文件，最后 md5 校验远程 == 本地
+- **不要用 `git reset --hard origin/main` 对齐**：fetch 失败时 origin/main 是旧引用，reset 会误删本地新改动；内容一致时直接重新 commit 即可
+- **Release 自动建 tag**：`gh release create vX.X.X --repo OWNER/REPO` 会自动创建远程 tag，无需本地 push
+
+### 目录规范
+
+每个 Skill 遵循三层架构：**META**（SKILL.md frontmatter 路由）· **ASSETS**（assets/ 资产真源）· **REFERENCES**（references/ 具体规范），并携带标准门面（README / CHANGELOG / LICENSE / .gitignore）。
 
 ---
 
