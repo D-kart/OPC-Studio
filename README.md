@@ -250,6 +250,7 @@ git clone git@github.com:D-kart/gazette-skill.git ~/path/to/skills/
 git clone git@github.com:D-kart/panda-skill.git ~/path/to/skills/
 git clone git@github.com:D-kart/copyweb-skill.git ~/path/to/skills/
 git clone git@github.com:D-kart/nocturne-skill.git ~/path/to/skills/
+git clone git@github.com:D-kart/ai-investment-course-skill.git ~/path/to/skills/
 
 # SkillHub
 zip -r investor-skill.zip investor-skill/   # 然后登录 SkillHub 上传
@@ -260,6 +261,7 @@ zip -r gazette-skill.zip gazette-skill/
 zip -r panda-skill.zip panda-skill/
 zip -r copyweb-skill.zip copyweb-skill/
 zip -r nocturne-skill.zip nocturne-skill/
+zip -r ai-investment-course-skill.zip ai-investment-course-skill/
 ```
 
 ### 备注
