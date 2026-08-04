@@ -1,0 +1,88 @@
+name: Sync Skill Matrix
+
+# OPC-Studio 生态状态自动同步
+# 每日抓取各 skill 仓库的 latest release，校准 README 矩阵版本号；
+# 有变化时自动提交，让总索引始终反映各仓库真实状态。
+
+"on":
+  schedule:
+    - cron: "30 0 * * *"          # 每日 UTC 00:30（北京时间 08:30）
+  workflow_dispatch:              # 支持手动触发
+
+permissions:
+  contents: write
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Fetch skill releases and update matrix
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          python3 - << 'PYEOF'
+          import json, re, subprocess
+
+          # 矩阵中已发布的 skill 仓库（对应 README 矩阵行）
+          SKILLS = [
+              "investor-skill", "presenter-skill", "summary-skill",
+              "ma-pitch-skill", "gazette-skill", "panda-skill",
+              "copyweb-skill", "nocturne-skill", "ai-investment-course-skill",
+          ]
+
+          versions = {}
+          for repo in SKILLS:
+              r = subprocess.run(
+                  ["gh", "api", f"repos/D-kart/{repo}/releases/latest", "--jq", ".tag_name"],
+                  capture_output=True, text=True
+              )
+              tag = r.stdout.strip() if r.returncode == 0 else None
+              if tag and re.match(r"^v?\d+\.\d+\.\d+$", tag):
+                  versions[repo] = tag
+              else:
+                  print(f"[skip] {repo}: no semver release ({tag})")
+
+          # 读 README
+          with open("README.md", "r", encoding="utf-8") as f:
+              content = f.read()
+
+          changed = False
+          for repo, tag in versions.items():
+              pattern = re.compile(
+                  rf"(\*\*{repo}\*\*.*?\| ✅ )v\d+\.\d+\.\d+( 已发布)",
+                  re.DOTALL
+              )
+              m = pattern.search(content)
+              if m and m.group(2) != tag:
+                  content = content.replace(m.group(0), m.group(1) + tag + m.group(2))
+                  print(f"[updated] {repo}: -> {tag}")
+                  changed = True
+
+          if changed:
+              with open("README.md", "w", encoding="utf-8") as f:
+                  f.write(content)
+              print("MATRIX_CHANGED=1")
+          else:
+              print("MATRIX_CHANGED=0")
+          PYEOF
+
+      - name: Commit if changed
+        run: |
+          if git diff --quiet; then
+            echo "no changes"
+          else
+            git config user.name "opc-studio-bot"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git add README.md
+            git commit -m "chore: auto-sync skill matrix versions"
+            git push
+            echo "pushed"
+          fi
