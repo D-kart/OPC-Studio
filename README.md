@@ -128,6 +128,22 @@ OPC-Studio 的长期价值来自一个正向飞轮：
 
 ---
 
+## 🛠️ 工坊作品 · Showcases
+
+> 工坊不止「写 README」，还产出具体作品。每次有完成的成果都归档到本目录，按时间倒序排列。
+
+| # | 作品 | 时间 | 链接 |
+|---|---|---|---|
+| #001 | **AI 赋能全流程投研实战 · 课程表** | 2026-08 | [showcase/2026-08-ai-investment-course/](./showcase/2026-08-ai-investment-course/) |
+
+### 为什么把作品也放进 OPC-Studio？
+
+工坊的**资产**不只是 Skill 包，还包括用 Skill 实际产出的成果。访问者打开仓库第一眼能看到「这个工坊正在做且做成了什么」，比单纯的 Skill 列表更有说服力。
+
+新作品命名规范：`showcase/YYYY-MM-<代号>/`（代号小写连字符，例 `ai-investment-course`），含 README.md + 主体产出 + screenshots/ 子目录。
+
+---
+
 ## OPC-Studio · AI Skill 工坊
 
 > 作为 OPC Toolkit 的基础构件，OPC-Studio 同步维护一系列**专业领域 AI Skill 包**，帮助一人公司创业者把高价值行业工作流直接装进自己的 AI Agent。
