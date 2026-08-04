@@ -215,6 +215,7 @@ PitchRoom 内容出片 SOP
 | 🐼 **panda-skill** | 熊猫.skill | 双色 SaaS 落地页风格（白底为主 + 黑色反色锚点 · 阿里普惠体 + Barlow + Dream + 故障黑 · toB 量化 / AI Agent 平台 / Dashboard · 5 步闭环 · 4 档套餐 · Combo + VS 对比 · 11 区块落地页架构） | ✅ v1.0.0 已发布 | **[D-kart/panda-skill](https://github.com/D-kart/panda-skill)** |
 | 🏭 **copyweb-skill** | 扒站.skill | 视觉风格 skill 工厂（元 skill）：输入参考站 URL 输出符合规范的风格 skill 包 · 六阶段（命名去重 / 双通道扒站采集 / 风格分析防翻车 / 提炼 / 三层封装 / 发布）· 固化 gazette+panda 复刻经验与"变量定义≠实际使用"血泪教训 · 产出即可入矩阵） | ✅ v1.0.0 已发布 | **[D-kart/copyweb-skill](https://github.com/D-kart/copyweb-skill)** |
 | 🌌 **nocturne-skill** | 深空.skill | 深空终端暗色科技风（复刻 getspine.ai / Spine Swarm · 真·深空黑底 #0a0a0a 主态 + 琥珀金唯一强调 + 全视口光晕环 + 星尘粒子 + JetBrains Mono 终端标签 · 羊皮纸暖亮态孪生 · Outfit + JetBrains Mono · copyweb 首个端到端产物） | ✅ v1.0.0 已发布 | **[D-kart/nocturne-skill](https://github.com/D-kart/nocturne-skill)** |
+| 🎓 **ai-investment-course-skill** | AI投研课.skill | 「AI 增强投资」培训课程设计体系（4 模块 / 20 门课 / 690 分钟 · 募投管退全流程 + 政府招商/基金管理等探索课题 · 每课五段式详情含可复制 prompt · gazette 风格课程表 HTML 模板含 SPA 详情系统 · 海报文案规范 · 与 gazette-skill 协同：内容层 + 视觉层） | ✅ v1.0.0 已发布 | **[D-kart/ai-investment-course-skill](https://github.com/D-kart/ai-investment-course-skill)** |
 | 💡 **yi-er-skill** | 一二.skill | AI companion / 关系陪伴 / 个体状态理解工作流 | 🚧 研发中 | — |
 | 🧸 **bubu-skill** | 布布.skill | 准爸爸孕期全周期行动助手 | 🚧 研发中 | — |
 
@@ -238,6 +239,7 @@ git clone git@github.com:D-kart/gazette-skill.git ~/.claude/skills/gazette-skill
 git clone git@github.com:D-kart/panda-skill.git ~/.claude/skills/panda-skill
 git clone git@github.com:D-kart/copyweb-skill.git ~/.claude/skills/copyweb-skill
 git clone git@github.com:D-kart/nocturne-skill.git ~/.claude/skills/nocturne-skill
+git clone git@github.com:D-kart/ai-investment-course-skill.git ~/.claude/skills/ai-investment-course-skill
 
 # OpenClaw / Hermes
 git clone git@github.com:D-kart/investor-skill.git ~/path/to/skills/
