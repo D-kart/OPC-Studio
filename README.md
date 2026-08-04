@@ -1,5 +1,9 @@
 # OPC-Studio
 
+![made by](https://img.shields.io/badge/made%20by-OPC--Studio-1a1a4e) ![license](https://img.shields.io/badge/license-MIT-green) ![compat](https://img.shields.io/badge/compat-Claude%20%7C%20WorkBuddy%20%7C%20OpenClaw%20%7C%20Hermes%20%7C%20SkillHub-orange)
+
+![last commit](https://img.shields.io/github/last-commit/D-kart/OPC-Studio) ![repo stars](https://img.shields.io/github/stars/D-kart/OPC-Studio) ![releases](https://img.shields.io/github/v/release/D-kart/OPC-Studio) ![skill repos](https://img.shields.io/badge/skill%20repos-11-blue)
+
 > 看见每一个一人公司。  
 > **The AI-native showcase, workflow, and opportunity network for One Person Companies.**
 
@@ -149,10 +153,6 @@ OPC-Studio 的长期价值来自一个正向飞轮：
 > 作为 OPC Toolkit 的基础构件，OPC-Studio 同步维护一系列**专业领域 AI Skill 包**，帮助一人公司创业者把高价值行业工作流直接装进自己的 AI Agent。
 
 每个 Skill 独立成仓，遵循 [agentskills.io](https://agentskills.io) 开放规范，兼容 Claude Skills / WorkBuddy / OpenClaw / Hermes / SkillHub 五大平台，开箱即用。
-
-![made by](https://img.shields.io/badge/made%20by-OPC--Studio-1a1a4e) ![license](https://img.shields.io/badge/license-MIT-green) ![compat](https://img.shields.io/badge/compat-Claude%20%7C%20WorkBuddy%20%7C%20OpenClaw%20%7C%20Hermes%20%7C%20SkillHub-orange)
-
-![last commit](https://img.shields.io/github/last-commit/D-kart/OPC-Studio) ![repo stars](https://img.shields.io/github/stars/D-kart/OPC-Studio) ![releases](https://img.shields.io/github/v/release/D-kart/OPC-Studio) ![skill repos](https://img.shields.io/badge/skill%20repos-11-blue)
 
 ## 📊 生态实时状态
 
