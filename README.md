@@ -2,7 +2,7 @@
 
 ![made by](https://img.shields.io/badge/made%20by-OPC--Studio-1a1a4e) ![license](https://img.shields.io/badge/license-MIT-green) ![compat](https://img.shields.io/badge/compat-Claude%20%7C%20WorkBuddy%20%7C%20OpenClaw%20%7C%20Hermes%20%7C%20SkillHub-orange)
 
-![last commit](https://img.shields.io/github/last-commit/D-kart/OPC-Studio) ![repo stars](https://img.shields.io/github/stars/D-kart/OPC-Studio) ![releases](https://img.shields.io/github/v/release/D-kart/OPC-Studio) ![skill repos](https://img.shields.io/badge/skill%20repos-11-blue)
+ ![skill repos](https://img.shields.io/badge/skill%20repos-11-blue)
 
 > 看见每一个一人公司。  
 > **The AI-native showcase, workflow, and opportunity network for One Person Companies.**
