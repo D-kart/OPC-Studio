@@ -160,8 +160,8 @@ OPC-Studio 的长期价值来自一个正向飞轮：
 
 | 指标 | 数值 |
 |---|---|
-| Skill 仓库 | **11** 个（9 已发布 + 2 研发中）|
-| 最近发布 | **ai-investment-course-skill v1.0.0** · gazette-skill v1.1.0 · investor-skill v1.0.3 |
+| Skill 仓库 | **12** 个（10 已发布 + 2 研发中）|
+| 最近发布 | **helvet-skill v1.0.0** · ai-investment-course-skill v1.0.0 · gazette-skill v1.1.0 · investor-skill v1.0.3 |
 | 旗舰 skill | **investor-skill**（⭐ 5 · 全量定性研判范式）|
 | 状态同步 | 每日自动同步（`.github/workflows/sync-matrix.yml`）|
 
@@ -171,6 +171,7 @@ OPC-Studio 的长期价值来自一个正向飞轮：
 - **summary-skill v2.0.3** — 输出排版规范升级（标题黑体 18pt / 正文黑体 12pt / 表格五号）
 - **ai-investment-course-skill v1.0.0** — 「AI 增强投资」课程设计体系首发（4 模块 / 20 门课 / 20 条可复制 prompt）
 - **gazette-skill v1.1.0** — 新增长文档侧边栏导航 + 锚点跳转滚动高亮组件
+- **helvet-skill v1.0.0** — Swiss 国际主义排版信息图工作流首发（8 类内联 SVG 图表配方 · 涨红跌绿 A 股惯例 · 零外链单文件交付 · 原文引用与检索补充双轨数据核查）
 
 ---
 
@@ -196,6 +197,7 @@ OPC-Studio 的长期价值来自一个正向飞轮：
 | 🌌 **nocturne-skill** | 深空.skill | 深空终端暗色科技风（复刻 getspine.ai / Spine Swarm · 真·深空黑底 #0a0a0a 主态 + 琥珀金唯一强调 + 全视口光晕环 + 星尘粒子 + JetBrains Mono 终端标签 · 羊皮纸暖亮态孪生 · Outfit + JetBrains Mono · copyweb 首个端到端产物） | ✅ v1.0.0 已发布 | **[D-kart/nocturne-skill](https://github.com/D-kart/nocturne-skill)** |
 | 🎓 **ai-investment-course-skill** | AI投研课.skill | 「AI 增强投资」培训课程设计体系（4 模块 / 20 门课 / 690 分钟 · 募投管退全流程 + 政府招商/基金管理等探索课题 · 每课五段式详情含可复制 prompt · gazette 风格课程表 HTML 模板含 SPA 详情系统 · 海报文案规范 · 与 gazette-skill 协同：内容层 + 视觉层） | ✅ v1.0.0 已发布 | **[D-kart/ai-investment-course-skill](https://github.com/D-kart/ai-investment-course-skill)** |
 | 🏭 **copyweb-skill** | 扒站.skill | 视觉风格 skill 工厂（元 skill）：输入参考站 URL 输出符合规范的风格 skill 包 · 六阶段（命名去重 / 双通道扒站采集 / 风格分析防翻车 / 提炼 / 三层封装 / 发布）· 固化 gazette+panda 复刻经验与"变量定义≠实际使用"血泪教训 · 产出即可入矩阵） | ✅ v1.0.0 已发布 | **[D-kart/copyweb-skill](https://github.com/D-kart/copyweb-skill)** |
+| 📐 **helvet-skill** | 瑞士风.skill | Swiss 国际主义排版单文件信息图工作流（纯白底 + 纯黑字 + 瑞士红唯一强调 · 规则线四级分隔 + 五级字阶 · 8 类内联 SVG 图表配方坐标先算后写防溢出 · 涨红跌绿 A 股惯例 · 原文引用 vs 检索补充双轨数据核查 · 零外链单文件 HTML 离线可开） | ✅ v1.0.0 已发布 | **[D-kart/helvet-skill](https://github.com/D-kart/helvet-skill)** |
 
 #### 🔬 研发中
 
