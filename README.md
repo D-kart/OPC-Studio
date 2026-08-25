@@ -138,6 +138,7 @@ OPC-Studio 的长期价值来自一个正向飞轮：
 
 | # | 作品 | 时间 | 链接 |
 |---|---|---|---|
+| #002 | **一级市场资源集中信息图** | 2026-08 | [showcase/2026-08-primary-market-concentration/](./showcase/2026-08-primary-market-concentration/) |
 | #001 | **AI 赋能全流程投研实战 · 课程表** | 2026-08 | [showcase/2026-08-ai-investment-course/](./showcase/2026-08-ai-investment-course/) |
 
 ### 为什么把作品也放进 OPC-Studio？
