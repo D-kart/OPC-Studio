@@ -12,7 +12,7 @@
 |---|---|
 | [`infographic.html`](./infographic.html) | 完整单文件信息图（890 行 / 约 150KB / 12 张内联 SVG 图表 / 零外链离线可开）|
 | [`screenshots/01-overview.png`](./screenshots/01-overview.png) | 报头 + 关键数字带 + §01 资源集中三图特写 |
-| [`screenshots/02-deep-dive.png`](./screenshots/02-deep-dive.png) | §04 理性下降章节特写（双列对照卡 + 政府项目三卡）|
+| [`screenshots/02-full-page.png`](./screenshots/02-full-page.png) | 整页长图（1280×10976，八章全貌一屏看尽）|
 
 ## 设计哲学
 
@@ -54,9 +54,9 @@
 
 ![overview](./screenshots/01-overview.png)
 
-§04 理性下降章节特写：
+整页长图（八章全貌）：
 
-![deep-dive](./screenshots/02-deep-dive.png)
+![full-page](./screenshots/02-full-page.png)
 
 ## 工坊流水线贡献
 
