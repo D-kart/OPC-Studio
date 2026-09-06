@@ -93,19 +93,19 @@ def matrix_table(skills: list[dict], layer: str) -> str:
 
 def render_matrix(skills: list[dict]) -> str:
     parts = [
-        "> 按职能分层归类：**业务工作流层**（投融资专业动作）· **视觉风格与内容设计层**（表现层）· **研发中**。",
+        "> 按职能分层归类：**投资与投研层**（主理人专业主线 · 服务投资经理 / 投研 / 融资）· **OPC 创业运营层**（武装一人公司 · 从验证到放大）· **视觉风格与内容设计层**（跨线共享的表现层）。",
         "",
-        "#### 🏦 业务工作流层 · 投资与融资",
+        "#### 🏦 投资与投研层",
         "",
         matrix_table(skills, "business"),
+        "",
+        "#### 🚀 OPC 创业运营层",
+        "",
+        matrix_table(skills, "opc"),
         "",
         "#### 🎨 视觉风格与内容设计层",
         "",
         matrix_table(skills, "visual"),
-        "",
-        "#### 🔬 研发中",
-        "",
-        matrix_table(skills, "wip"),
     ]
     return "\n".join(parts)
 
@@ -140,10 +140,14 @@ def render_eco_stats(skills: list[dict]) -> str:
         heat_line = "暂无公开信号，装量数据以 skills.sh 为准"
 
     n_total, n_rel, n_wip = len(skills), len(released), len(wip)
+    if n_wip == 0:
+        repo_line = f"| Skill 仓库 | **{n_total}** 个（全部已发布）|"
+    else:
+        repo_line = f"| Skill 仓库 | **{n_total}** 个（{n_rel} 已发布 + {n_wip} 研发中）|"
     lines = [
         "| 指标 | 数值 |",
         "|---|---|",
-        f"| Skill 仓库 | **{n_total}** 个（{n_rel} 已发布 + {n_wip} 研发中）|",
+        repo_line,
         f"| 最近发布 | {recent_line} |",
         f"| 旗舰 skill | {fl_line} |",
         f"| 需求侧热度 | {heat_line} |",
