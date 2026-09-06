@@ -1,8 +1,6 @@
 # OPC-Studio
 
-![made by](https://img.shields.io/badge/made%20by-OPC--Studio-1a1a4e) ![license](https://img.shields.io/badge/license-MIT-green) ![compat](https://img.shields.io/badge/compat-Claude%20%7C%20WorkBuddy%20%7C%20OpenClaw%20%7C%20Hermes%20%7C%20SkillHub-orange)
-
- ![skill repos](https://img.shields.io/badge/skill%20repos-11-blue)
+![made by](https://img.shields.io/badge/made%20by-OPC--Studio-1a1a4e) ![license](https://img.shields.io/badge/license-MIT-green) ![compat](https://img.shields.io/badge/compat-Claude%20%7C%20WorkBuddy%20%7C%20OpenClaw%20%7C%20Hermes%20%7C%20SkillHub-orange) ![skill repos](https://img.shields.io/badge/skill%20repos-12-blue) ![last commit](https://img.shields.io/github/last-commit/D-kart/OPC-Studio?style=flat-square) ![stars](https://img.shields.io/github/stars/D-kart/OPC-Studio?style=flat-square)
 
 > 看见每一个一人公司。  
 > **The AI-native showcase, workflow, and opportunity network for One Person Companies.**
@@ -136,10 +134,10 @@ OPC-Studio 的长期价值来自一个正向飞轮：
 
 > 工坊不止「写 README」，还产出具体作品。每次有完成的成果都归档到本目录，按时间倒序排列。
 
-| # | 作品 | 时间 | 链接 |
-|---|---|---|---|
-| #002 | **一级市场资源集中信息图** | 2026-08 | [showcase/2026-08-primary-market-concentration/](./showcase/2026-08-primary-market-concentration/) |
-| #001 | **AI 赋能全流程投研实战 · 课程表** | 2026-08 | [showcase/2026-08-ai-investment-course/](./showcase/2026-08-ai-investment-course/) |
+| # | 作品 | 时间 | 用到的 Skill | 链接 |
+|---|---|---|---|---|
+| #002 | **一级市场资源集中信息图** | 2026-08 | `helvet-skill` | [showcase/2026-08-primary-market-concentration/](./showcase/2026-08-primary-market-concentration/) |
+| #001 | **AI 赋能全流程投研实战 · 课程表** | 2026-08 | `ai-investment-course-skill` + `gazette-skill` | [showcase/2026-08-ai-investment-course/](./showcase/2026-08-ai-investment-course/) |
 
 ### 为什么把作品也放进 OPC-Studio？
 
@@ -159,12 +157,15 @@ OPC-Studio 的长期价值来自一个正向飞轮：
 
 > OPC-Studio 是「一仓库一 skill」工坊的总索引 —— 各 Skill 的版本、发布与活跃都在各自仓库留痕，本页实时汇总生态状态。
 
+<!-- OPC-STUDIO:AUTO:ECO_STATS
 | 指标 | 数值 |
 |---|---|
 | Skill 仓库 | **12** 个（10 已发布 + 2 研发中）|
-| 最近发布 | **helvet-skill v1.0.0** · ai-investment-course-skill v1.0.0 · gazette-skill v1.1.0 · investor-skill v1.0.3 |
-| 旗舰 skill | **investor-skill**（⭐ 5 · 全量定性研判范式）|
+| 最近发布 | **helvet-skill v1.0.0** · **gazette-skill v1.1.0** · **nocturne-skill v1.0.0** · **panda-skill v1.0.0** |
+| 旗舰 skill | **investor-skill**（⭐ 8） |
+| 需求侧热度 | investor-skill（⭐8） · presenter-skill（⭐1） |
 | 状态同步 | 每日自动同步（`.github/workflows/sync-matrix.yml`）|
+<!-- OPC-STUDIO:AUTO:END -->
 
 **近期生态更新：**
 
@@ -178,34 +179,36 @@ OPC-Studio 的长期价值来自一个正向飞轮：
 
 ### Skill 矩阵
 
+<!-- OPC-STUDIO:AUTO:MATRIX
 > 按职能分层归类：**业务工作流层**（投融资专业动作）· **视觉风格与内容设计层**（表现层）· **研发中**。
 
 #### 🏦 业务工作流层 · 投资与融资
 
-| Skill | 中文名 | 主题 | 状态 | 仓库 |
+| Skill | 中文名 | 主题 | 状态 | 一行安装 |
 |---|---|---|---|---|
-| 🧭 **investor-skill** | 投资人.skill | 一级市场职业投资人工作流（行研 / 尽调 / BP 速析 / 竞争格局 / 技术产品 / 投资备忘录） | ✅ v1.0.3 已发布 | **[D-kart/investor-skill](https://github.com/D-kart/investor-skill)** |
-| 🎤 **presenter-skill** | 路演者.skill | 创始人融资路演工作流（叙事打磨 / 市场机会结构化 / 产品数据通俗化 / 护城河论证 / Q&A 异议 / 估值退出） | ✅ v1.0.1 已发布 | **[D-kart/presenter-skill](https://github.com/D-kart/presenter-skill)** |
-| 📝 **summary-skill** | 纪要官.skill | 投资经理访谈纪要官（关键事实抽取 / 主题归并 / 三档时间戳 / 5 大类 20 小项覆盖核查 / 待确认问题清单 / Markdown + docx 双格式） | ✅ v2.0.3 已发布 | **[D-kart/summary-skill](https://github.com/D-kart/summary-skill)** |
-| 📊 **ma-pitch-skill** | 并购pitch.skill | M&A 并购标的推介书（年报数据提取 / 多年财务分析 / 买方战略匹配矩阵 / 可比交易分析 / 风险矩阵 / 整合路线图 / 16:9 宽幅 HTML 输出） | ✅ v1.0.0 已发布 | **[D-kart/ma-pitch-skill](https://github.com/D-kart/ma-pitch-skill)** |
+| 🧭 **[investor-skill](https://github.com/D-kart/investor-skill)** | 投资人.skill | 一级市场职业投资人工作流（行研 / 尽调 / BP 速析 / 竞争格局 / 技术产品 / 投资备忘录） | ✅ v1.0.3 已发布 | `npx skills add D-kart/investor-skill` |
+| 🎤 **[presenter-skill](https://github.com/D-kart/presenter-skill)** | 路演者.skill | 创始人融资路演工作流（叙事打磨 / 市场机会结构化 / 产品数据通俗化 / 护城河论证 / Q&A 异议 / 估值退出） | ✅ v1.0.1 已发布 | `npx skills add D-kart/presenter-skill` |
+| 📝 **[summary-skill](https://github.com/D-kart/summary-skill)** | 纪要官.skill | 投资经理访谈纪要官（关键事实抽取 / 主题归并 / 三档时间戳 / 5 大类 20 小项覆盖核查 / 待确认问题清单 / Markdown + docx 双格式） | ✅ v2.0.3 已发布 | `npx skills add D-kart/summary-skill` |
+| 📊 **[ma-pitch-skill](https://github.com/D-kart/ma-pitch-skill)** | 并购pitch.skill | M&A 并购标的推介书（年报数据提取 / 多年财务分析 / 买方战略匹配矩阵 / 可比交易分析 / 风险矩阵 / 整合路线图 / 16:9 宽幅 HTML 输出） | ✅ v1.0.0 已发布 | `npx skills add D-kart/ma-pitch-skill` |
 
 #### 🎨 视觉风格与内容设计层
 
-| Skill | 中文名 | 主题 | 状态 | 仓库 |
+| Skill | 中文名 | 主题 | 状态 | 一行安装 |
 |---|---|---|---|---|
-| 📰 **gazette-skill** | 公报.skill | 古典公报/金融大报网站设计风格（FT / Economist / Monocle / WSJ 数字版 HTML · 衬线字体 · 黑白单色 · 报头元素 · drop cap · 中英双语重建规则 · 长文档侧边栏导航 + 锚点跳转滚动高亮） | ✅ v1.1.0 已发布 | **[D-kart/gazette-skill](https://github.com/D-kart/gazette-skill)** |
-| 🐼 **panda-skill** | 熊猫.skill | 双色 SaaS 落地页风格（白底为主 + 黑色反色锚点 · 阿里普惠体 + Barlow + Dream + 故障黑 · toB 量化 / AI Agent 平台 / Dashboard · 5 步闭环 · 4 档套餐 · Combo + VS 对比 · 11 区块落地页架构） | ✅ v1.0.0 已发布 | **[D-kart/panda-skill](https://github.com/D-kart/panda-skill)** |
-| 🌌 **nocturne-skill** | 深空.skill | 深空终端暗色科技风（复刻 getspine.ai / Spine Swarm · 真·深空黑底 #0a0a0a 主态 + 琥珀金唯一强调 + 全视口光晕环 + 星尘粒子 + JetBrains Mono 终端标签 · 羊皮纸暖亮态孪生 · Outfit + JetBrains Mono · copyweb 首个端到端产物） | ✅ v1.0.0 已发布 | **[D-kart/nocturne-skill](https://github.com/D-kart/nocturne-skill)** |
-| 🎓 **ai-investment-course-skill** | AI投研课.skill | 「AI 增强投资」培训课程设计体系（4 模块 / 20 门课 / 690 分钟 · 募投管退全流程 + 政府招商/基金管理等探索课题 · 每课五段式详情含可复制 prompt · gazette 风格课程表 HTML 模板含 SPA 详情系统 · 海报文案规范 · 与 gazette-skill 协同：内容层 + 视觉层） | ✅ v1.0.0 已发布 | **[D-kart/ai-investment-course-skill](https://github.com/D-kart/ai-investment-course-skill)** |
-| 🏭 **copyweb-skill** | 扒站.skill | 视觉风格 skill 工厂（元 skill）：输入参考站 URL 输出符合规范的风格 skill 包 · 六阶段（命名去重 / 双通道扒站采集 / 风格分析防翻车 / 提炼 / 三层封装 / 发布）· 固化 gazette+panda 复刻经验与"变量定义≠实际使用"血泪教训 · 产出即可入矩阵） | ✅ v1.0.0 已发布 | **[D-kart/copyweb-skill](https://github.com/D-kart/copyweb-skill)** |
-| 📐 **helvet-skill** | 瑞士风.skill | Swiss 国际主义排版单文件信息图工作流（纯白底 + 纯黑字 + 瑞士红唯一强调 · 规则线四级分隔 + 五级字阶 · 8 类内联 SVG 图表配方坐标先算后写防溢出 · 涨红跌绿 A 股惯例 · 原文引用 vs 检索补充双轨数据核查 · 零外链单文件 HTML 离线可开） | ✅ v1.0.0 已发布 | **[D-kart/helvet-skill](https://github.com/D-kart/helvet-skill)** |
+| 📰 **[gazette-skill](https://github.com/D-kart/gazette-skill)** | 公报.skill | 古典公报/金融大报网站设计风格（FT / Economist / Monocle / WSJ 数字版 HTML · 衬线字体 · 黑白单色 · 报头元素 · drop cap · 中英双语重建规则 · 长文档侧边栏导航 + 锚点跳转滚动高亮） | ✅ v1.1.0 已发布 | `npx skills add D-kart/gazette-skill` |
+| 🐼 **[panda-skill](https://github.com/D-kart/panda-skill)** | 熊猫.skill | 双色 SaaS 落地页风格（白底为主 + 黑色反色锚点 · 阿里普惠体 + Barlow + Dream + 故障黑 · toB 量化 / AI Agent 平台 / Dashboard · 5 步闭环 · 4 档套餐 · Combo + VS 对比 · 11 区块落地页架构） | ✅ v1.0.0 已发布 | `npx skills add D-kart/panda-skill` |
+| 🌌 **[nocturne-skill](https://github.com/D-kart/nocturne-skill)** | 深空.skill | 深空终端暗色科技风（复刻 getspine.ai / Spine Swarm · 真·深空黑底 #0a0a0a 主态 + 琥珀金唯一强调 + 全视口光晕环 + 星尘粒子 + JetBrains Mono 终端标签 · 羊皮纸暖亮态孪生 · Outfit + JetBrains Mono · copyweb 首个端到端产物） | ✅ v1.0.0 已发布 | `npx skills add D-kart/nocturne-skill` |
+| 🎓 **ai-investment-course-skill** | AI投研课.skill | 「AI 增强投资」培训课程设计体系（4 模块 / 20 门课 / 690 分钟 · 募投管退全流程 + 政府招商/基金管理等探索课题 · 每课五段式详情含可复制 prompt · gazette 风格课程表 HTML 模板含 SPA 详情系统 · 海报文案规范 · 与 gazette-skill 协同：内容层 + 视觉层） | ✅ v1.0.0 已发布 | — |
+| 🏭 **[copyweb-skill](https://github.com/D-kart/copyweb-skill)** | 扒站.skill | 视觉风格 skill 工厂（元 skill）：输入参考站 URL 输出符合规范的风格 skill 包 · 六阶段（命名去重 / 双通道扒站采集 / 风格分析防翻车 / 提炼 / 三层封装 / 发布）· 固化 gazette+panda 复刻经验与「变量定义≠实际使用」血泪教训 · 产出即可入矩阵 | ✅ v1.0.0 已发布 | `npx skills add D-kart/copyweb-skill` |
+| 📐 **[helvet-skill](https://github.com/D-kart/helvet-skill)** | 瑞士风.skill | Swiss 国际主义排版单文件信息图工作流（纯白底 + 纯黑字 + 瑞士红唯一强调 · 规则线四级分隔 + 五级字阶 · 8 类内联 SVG 图表配方坐标先算后写防溢出 · 涨红跌绿 A 股惯例 · 原文引用 vs 检索补充双轨数据核查 · 零外链单文件 HTML 离线可开） | ✅ v1.0.0 已发布 | `npx skills add D-kart/helvet-skill` |
 
 #### 🔬 研发中
 
-| Skill | 中文名 | 主题 | 状态 | 仓库 |
+| Skill | 中文名 | 主题 | 状态 | 一行安装 |
 |---|---|---|---|---|
 | 💡 **yi-er-skill** | 一二.skill | AI companion / 关系陪伴 / 个体状态理解工作流 | 🚧 研发中 | — |
 | 🧸 **bubu-skill** | 布布.skill | 准爸爸孕期全周期行动助手 | 🚧 研发中 | — |
+<!-- OPC-STUDIO:AUTO:END -->
 
 ### 设计哲学
 
