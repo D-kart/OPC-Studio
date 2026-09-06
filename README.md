@@ -21,7 +21,7 @@ OPC-Studio 同时维护一套**专业 AI Skill**：把投资投研、创业运�
 
 ## 📊 生态实时状态
 
-<!-- OPC-STUDIO:AUTO:ECO_STATS
+<!-- OPC-STUDIO:AUTO:ECO_STATS -->
 | 指标 | 数值 |
 |---|---|
 | Skill 仓库 | **17** 个（全部已发布）|
@@ -40,7 +40,7 @@ OPC-Studio 同时维护一套**专业 AI Skill**：把投资投研、创业运�
 
 ## 🧩 Skill 矩阵
 
-<!-- OPC-STUDIO:AUTO:MATRIX
+<!-- OPC-STUDIO:AUTO:MATRIX -->
 > 按职能分层归类：**投资与投研层**（主理人专业主线 · 服务投资经理 / 投研 / 融资）· **OPC 创业运营层**（武装一人公司 · 从验证到放大）· **视觉风格与内容设计层**（跨线共享的表现层）。
 
 #### 🏦 投资与投研层

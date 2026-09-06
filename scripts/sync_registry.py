@@ -157,12 +157,13 @@ def render_eco_stats(skills: list[dict]) -> str:
 
 
 def replace_block(content: str, block: str, new: str) -> str:
+    start_full = f"{START}{block} -->"
     pat = re.compile(
-        rf"({re.escape(START + block)})(.*?)(\n{re.escape(END)})",
+        rf"({re.escape(start_full)})(.*?)(\n{re.escape(END)})",
         re.DOTALL,
     )
     if not pat.search(content):
-        raise SystemExit(f"README 缺少标记区块 {START}:{block} — 请先手工插入")
+        raise SystemExit(f"README 缺少标记区块 {START}{block} --> — 请先手工插入")
     return pat.sub(lambda m: m.group(1) + "\n" + new + m.group(3), content)
 
 
