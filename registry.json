@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated": "2026-09-06",
+  "updated": "2026-09-07",
   "notes": "OPC-Studio skill 生态唯一事实来源。sync job 更新 version/star/fork 字段；README 矩阵表、官网 skills 页、生态实时状态表均由 scripts/render_readme.py 从本文件渲染。新增 skill 时在 skills 数组加一条，运行 sync job 即可全链路生效。",
   "layers": {
     "business": "投资与投研层",
@@ -176,7 +176,7 @@
       "flagship": false,
       "requires_key": false,
       "install": "npx skills add D-kart/validate-skill",
-      "released_at": "2026-09-07",
+      "released_at": "2026-09-06",
       "star": 0,
       "fork": 0
     },
@@ -192,7 +192,7 @@
       "flagship": false,
       "requires_key": false,
       "install": "npx skills add D-kart/build-skill",
-      "released_at": "2026-09-07",
+      "released_at": "2026-09-06",
       "star": 0,
       "fork": 0
     },
@@ -208,7 +208,7 @@
       "flagship": false,
       "requires_key": false,
       "install": "npx skills add D-kart/growth-skill",
-      "released_at": "2026-09-07",
+      "released_at": "2026-09-06",
       "star": 0,
       "fork": 0
     },
@@ -224,7 +224,7 @@
       "flagship": false,
       "requires_key": false,
       "install": "npx skills add D-kart/price-skill",
-      "released_at": "2026-09-07",
+      "released_at": "2026-09-06",
       "star": 0,
       "fork": 0
     },
@@ -240,7 +240,7 @@
       "flagship": false,
       "requires_key": false,
       "install": "npx skills add D-kart/automate-skill",
-      "released_at": "2026-09-07",
+      "released_at": "2026-09-06",
       "star": 0,
       "fork": 0
     },
@@ -256,7 +256,7 @@
       "flagship": false,
       "requires_key": false,
       "install": "npx skills add D-kart/retrospect-skill",
-      "released_at": "2026-09-07",
+      "released_at": "2026-09-06",
       "star": 0,
       "fork": 0
     },
@@ -272,7 +272,7 @@
       "flagship": false,
       "requires_key": false,
       "install": "npx skills add D-kart/opc-geo-skill",
-      "released_at": "2026-09-07",
+      "released_at": "2026-09-06",
       "star": 0,
       "fork": 0
     }
