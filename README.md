@@ -1,6 +1,6 @@
 # OPC-Studio
 
-![made by](https://img.shields.io/badge/made%20by-OPC--Studio-1a1a4e) ![license](https://img.shields.io/badge/license-MIT-green) ![compat](https://img.shields.io/badge/compat-Claude%20%7C%20WorkBuddy%20%7C%20OpenClaw%20%7C%20Hermes%20%7C%20SkillHub-orange) ![skill repos](https://img.shields.io/badge/skill%20repos-17-blue) ![last commit](https://img.shields.io/github/last-commit/D-kart/OPC-Studio?style=flat-square) ![stars](https://img.shields.io/github/stars/D-kart/OPC-Studio?style=flat-square)
+![made by](https://img.shields.io/badge/made%20by-OPC--Studio-1a1a4e) ![license](https://img.shields.io/badge/license-MIT-green) ![compat](https://img.shields.io/badge/compat-Claude%20%7C%20WorkBuddy%20%7C%20OpenClaw%20%7C%20Hermes%20%7C%20SkillHub-orange) ![skill repos](https://img.shields.io/badge/skill%20repos-16-blue) ![last commit](https://img.shields.io/github/last-commit/D-kart/OPC-Studio?style=flat-square) ![stars](https://img.shields.io/github/stars/D-kart/OPC-Studio?style=flat-square)
 
 > 看见每一个一人公司。
 > **The AI-native showcase, workflow, and opportunity network for One Person Companies.**
@@ -24,7 +24,7 @@ OPC-Studio 同时维护一套**专业 AI Skill**：把投资投研、创业运�
 <!-- OPC-STUDIO:AUTO:ECO_STATS -->
 | 指标 | 数值 |
 |---|---|
-| Skill 仓库 | **17** 个（全部已发布）|
+| Skill 仓库 | **16** 个（全部已发布）|
 | 最近发布 | **validate-skill v1.0.0** · **build-skill v1.0.0** · **growth-skill v1.0.0** · **price-skill v1.0.0** |
 | 旗舰 skill | **investor-skill**（⭐ 8） |
 | 需求侧热度 | investor-skill（⭐8） · presenter-skill（⭐1） |
@@ -71,7 +71,6 @@ OPC-Studio 同时维护一套**专业 AI Skill**：把投资投研、创业运�
 | 📰 **[gazette-skill](https://github.com/D-kart/gazette-skill)** | 公报.skill | 古典公报/金融大报网站设计风格（FT / Economist / Monocle / WSJ 数字版 HTML · 衬线字体 · 黑白单色 · 报头元素 · drop cap · 中英双语重建规则 · 长文档侧边栏导航 + 锚点跳转滚动高亮） | ✅ v1.1.0 已发布 | `npx skills add D-kart/gazette-skill` |
 | 🐼 **[panda-skill](https://github.com/D-kart/panda-skill)** | 熊猫.skill | 双色 SaaS 落地页风格（白底为主 + 黑色反色锚点 · 阿里普惠体 + Barlow + Dream + 故障黑 · toB 量化 / AI Agent 平台 / Dashboard · 5 步闭环 · 4 档套餐 · Combo + VS 对比 · 11 区块落地页架构） | ✅ v1.0.0 已发布 | `npx skills add D-kart/panda-skill` |
 | 🌌 **[nocturne-skill](https://github.com/D-kart/nocturne-skill)** | 深空.skill | 深空终端暗色科技风（复刻 getspine.ai / Spine Swarm · 真·深空黑底 #0a0a0a 主态 + 琥珀金唯一强调 + 全视口光晕环 + 星尘粒子 + JetBrains Mono 终端标签 · 羊皮纸暖亮态孪生 · Outfit + JetBrains Mono · copyweb 首个端到端产物） | ✅ v1.0.0 已发布 | `npx skills add D-kart/nocturne-skill` |
-| 🎓 **ai-investment-course-skill** | AI投研课.skill | 「AI 增强投资」培训课程设计体系（4 模块 / 20 门课 / 690 分钟 · 募投管退全流程 + 政府招商/基金管理等探索课题 · 每课五段式详情含可复制 prompt · gazette 风格课程表 HTML 模板含 SPA 详情系统 · 海报文案规范 · 与 gazette-skill 协同：内容层 + 视觉层） | ✅ v1.0.0 已发布 | — |
 | 🏭 **[copyweb-skill](https://github.com/D-kart/copyweb-skill)** | 扒站.skill | 视觉风格 skill 工厂（元 skill）：输入参考站 URL 输出符合规范的风格 skill 包 · 六阶段（命名去重 / 双通道扒站采集 / 风格分析防翻车 / 提炼 / 三层封装 / 发布）· 固化 gazette+panda 复刻经验与「变量定义≠实际使用」血泪教训 · 产出即可入矩阵 | ✅ v1.0.0 已发布 | `npx skills add D-kart/copyweb-skill` |
 | 📐 **[helvet-skill](https://github.com/D-kart/helvet-skill)** | 瑞士风.skill | Swiss 国际主义排版单文件信息图工作流（纯白底 + 纯黑字 + 瑞士红唯一强调 · 规则线四级分隔 + 五级字阶 · 8 类内联 SVG 图表配方坐标先算后写防溢出 · 涨红跌绿 A 股惯例 · 原文引用 vs 检索补充双轨数据核查 · 零外链单文件 HTML 离线可开） | ✅ v1.0.0 已发布 | `npx skills add D-kart/helvet-skill` |
 <!-- OPC-STUDIO:AUTO:END -->
