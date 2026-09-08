@@ -25,7 +25,7 @@ OPC-Studio 同时维护一套**专业 AI Skill**：把投资投研、创业运�
 | 指标 | 数值 |
 |---|---|
 | Skill 仓库 | **16** 个（全部已发布）|
-| 最近发布 | **validate-skill v1.0.0** · **build-skill v1.0.0** · **growth-skill v1.0.0** · **price-skill v1.0.0** |
+| 最近发布 | **ma-pitch-skill v1.0.0** · **validate-skill v1.0.0** · **build-skill v1.0.0** · **growth-skill v1.0.0** |
 | 旗舰 skill | **investor-skill**（⭐ 8） |
 | 需求侧热度 | investor-skill（⭐8） · presenter-skill（⭐1） |
 | 状态同步 | 每日自动同步（`.github/workflows/sync-matrix.yml`）|
