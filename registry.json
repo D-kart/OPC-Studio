@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated": "2026-09-08",
+  "updated": "2026-09-09",
   "notes": "OPC-Studio skill 生态唯一事实来源。sync job 更新 version/star/fork 字段；README 矩阵表、官网 skills 页、生态实时状态表均由 scripts/render_readme.py 从本文件渲染。新增 skill 时在 skills 数组加一条，运行 sync job 即可全链路生效。",
   "layers": {
     "business": "投资与投研层",
