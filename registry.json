@@ -25,6 +25,22 @@
       "fork": 2
     },
     {
+      "name": "investment-memo-writing-skill",
+      "cn": "投资 memo.skill",
+      "emoji": "📋",
+      "layer": "business",
+      "theme": "机构投资 memo 成文纪律（短式项目介绍 / 全式尽调 memo / A–E 证据分级 / 市场规模测算 / MOIC·IRR 敏感性 / 交付自检）",
+      "repo": "D-kart/investment-memo-writing-skill",
+      "version": "v1.0.0",
+      "status": "released",
+      "flagship": false,
+      "requires_key": false,
+      "install": "npx skills add D-kart/investment-memo-writing-skill",
+      "released_at": "2026-10-20",
+      "star": 0,
+      "fork": 0
+    },
+    {
       "name": "presenter-skill",
       "cn": "路演者.skill",
       "emoji": "🎤",

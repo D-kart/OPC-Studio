@@ -24,8 +24,8 @@ OPC-Studio 同时维护一套**专业 AI Skill**：把投资投研、创业运�
 <!-- OPC-STUDIO:AUTO:ECO_STATS -->
 | 指标 | 数值 |
 |---|---|
-| Skill 仓库 | **16** 个（全部已发布）|
-| 最近发布 | **ma-pitch-skill v1.0.0** · **validate-skill v1.0.0** · **build-skill v1.0.0** · **growth-skill v1.0.0** |
+| Skill 仓库 | **17** 个（全部已发布）|
+| 最近发布 | **investment-memo-writing-skill v1.0.0** · **ma-pitch-skill v1.0.0** · **validate-skill v1.0.0** · **build-skill v1.0.0** |
 | 旗舰 skill | **investor-skill**（⭐ 12） |
 | 需求侧热度 | investor-skill（⭐12） · presenter-skill（⭐1） · automate-skill（⭐1） |
 | 状态同步 | 每日自动同步（`.github/workflows/sync-matrix.yml`）|
@@ -48,6 +48,7 @@ OPC-Studio 同时维护一套**专业 AI Skill**：把投资投研、创业运�
 | Skill | 中文名 | 主题 | 状态 | 一行安装 |
 |---|---|---|---|---|
 | 🧭 **[investor-skill](https://github.com/D-kart/investor-skill)** | 投资人.skill | 一级市场职业投资人工作流（行研 / 尽调 / BP 速析 / 竞争格局 / 技术产品 / 投资备忘录） | ✅ v1.0.3 已发布 | `npx skills add D-kart/investor-skill` |
+| 📋 **[investment-memo-writing-skill](https://github.com/D-kart/investment-memo-writing-skill)** | 投资 memo.skill | 机构投资 memo 成文纪律（短式项目介绍 / 全式尽调 memo / A–E 证据分级 / 市场规模测算 / MOIC·IRR 敏感性 / 交付自检） | ✅ v1.0.0 已发布 | `npx skills add D-kart/investment-memo-writing-skill` |
 | 🎤 **[presenter-skill](https://github.com/D-kart/presenter-skill)** | 路演者.skill | 创始人融资路演工作流（叙事打磨 / 市场机会结构化 / 产品数据通俗化 / 护城河论证 / Q&A 异议 / 估值退出） | ✅ v1.0.1 已发布 | `npx skills add D-kart/presenter-skill` |
 | 📝 **[summary-skill](https://github.com/D-kart/summary-skill)** | 纪要官.skill | 投资经理访谈纪要官（关键事实抽取 / 主题归并 / 三档时间戳 / 5 大类 20 小项覆盖核查 / 待确认问题清单 / Markdown + docx 双格式） | ✅ v2.0.3 已发布 | `npx skills add D-kart/summary-skill` |
 | 📊 **[ma-pitch-skill](https://github.com/D-kart/ma-pitch-skill)** | 并购pitch.skill | M&A 并购标的推介书（年报数据提取 / 多年财务分析 / 买方战略匹配矩阵 / 可比交易分析 / 风险矩阵 / 整合路线图 / 16:9 宽幅 HTML 输出） | ✅ v1.0.0 已发布 | `npx skills add D-kart/ma-pitch-skill` |
